@@ -59,8 +59,11 @@ function main()
   
   $THIS_SCRIPT_PATH/s1_prepare_test_scenario .
 
-  $OPENAIRCN_DIR/SCRIPTS/build_epc --clean --local-hss
-  $OPENAIRCN_DIR/SCRIPTS/build_hss --clean --local-mme --random false
+  
+  backuped_conf_file_path=/usr/local/etc/epc.conf.backup_$(date +%F-%T)
+  if [ -f "/usr/local/etc/epc.conf" ] ; then
+    $SUDO cp -pf /usr/local/etc/epc.conf $backuped_conf_file_path
+  fi
   
   if [ ! -f "./epc.conf.replay.in" ] ; then
       echo_fatal "Error: Did not found the required file (epc.conf.replay.in) for running the scenario in `pwd`" 
@@ -68,17 +71,19 @@ function main()
     if [ ! -f "./epc.replay.conf" ] ; then
       # backup file
       backuped_file_path=$OPENAIRCN_DIR/BUILD/EPC/epc.conf.in.backup_$(date +%F-%T)
-      cp -f $OPENAIRCN_DIR/BUILD/EPC/epc.conf.in $backuped_file_path
+      cp -pf $OPENAIRCN_DIR/BUILD/EPC/epc.conf.in $backuped_file_path
       cp ./epc.conf.replay.in $OPENAIRCN_DIR/BUILD/EPC/epc.conf.in
       cd $OPENAIRCN_DIR/SCRIPTS
-      rm -f /usr/local/etc/epc.conf
+      $SUDO rm -f /usr/local/etc/epc.conf
       # may fail
       ./build_epc -C -l
       cd -
       cp /usr/local/etc/epc.conf ./epc.replay.conf
       #restore
-      cp -f $backuped_file_path $OPENAIRCN_DIR/BUILD/EPC/epc.conf.in
+      cp -pf $backuped_file_path $OPENAIRCN_DIR/BUILD/EPC/epc.conf.in
       rm $backuped_file_path
+    else
+      $SUDO cp ./epc.replay.conf /usr/local/etc/epc.conf 
     fi
     if [ ! -f "./epc.replay.conf" ] ; then
       echo_fatal "Error: Did not generate the required file epc.replay.conf for running the scenario in `pwd`" 
@@ -94,16 +99,24 @@ function main()
     fi
     
     # start EPC
-    xterm -hold -e $OPENAIRCN_DIR/SCRIPTS/run_epc --gdb --set-nw-interfaces --config-file ./epc.replay.conf &
-    # start HSS
-    xterm -hold -e $OPENAIRCN_DIR/SCRIPTS --execute ./run_hss --gdb  --import-db ./hss_db.sql &
+    # default epc conf file
+    $OPENAIRCN_DIR/SCRIPTS/run_epc --set-nw-interfaces --daemon
+    sleep 4 # TODO better than that
+    $OPENAIRCN_DIR/SCRIPTS/run_hss  --import-db ./hss_db.sql  --daemon
+    sleep 4 # TODO better than that
     
     # run XML scenario file
     echo_success "Running test `pwd`"
-    xterm -hold -e test_epc --run --set-nw-interfaces --test-dir . --enb-config-file enb.replay.conf --scenario-file s1.xml $run_options
+    test_epc --run --set-nw-interfaces --test-dir . --enb-config-file enb.replay.conf --scenario-file s1.xml $run_options
   else
     echo_fatal "Error: Did not found the required files (enb.replay.conf, s1.xml) for running the scenario in `pwd`" 
   fi
+  
+  # restore
+  if [ -f $backuped_conf_file_path ] ; then
+    $SUDO cp -pf $backuped_conf_file_path /usr/local/etc/epc.conf 
+  fi
+  
 }
 
 main "$@"
