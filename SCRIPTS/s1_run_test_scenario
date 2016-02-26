@@ -114,7 +114,10 @@ function main()
     echo_success "Running test `pwd`"
     test_epc --run --set-nw-interfaces --test-dir . --enb-config-file enb.replay.conf --scenario-file s1.xml $run_options
     
-    # undo networkin gconfig
+    $OPENAIRCN_DIR/SCRIPTS/run_epc --kill
+    $OPENAIRCN_DIR/SCRIPTS/run_hss --kill
+    
+    # undo networking config
     if [ -f "./networking " ]; then 
       $SUDO ./networking --off
     fi
