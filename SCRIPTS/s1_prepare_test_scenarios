@@ -41,4 +41,8 @@ do
   cd - > /dev/null 2>&1
 done
 
+$OPENAIRCN_DIR/SCRIPTS/build_epc --clean --daemon --local-hss
+$OPENAIRCN_DIR/SCRIPTS/build_hss --clean --daemon --local-mme --random false
+
+
 

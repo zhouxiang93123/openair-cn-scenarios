@@ -1,0 +1,129 @@
+#!/bin/bash
+################################################################################
+# Licensed to the OpenAirInterface (OAI) Software Alliance under one or more
+# contributor license agreements.  See the NOTICE file distributed with
+# this work for additional information regarding copyright ownership.
+# The OpenAirInterface Software Alliance licenses this file to You under 
+# the Apache License, Version 2.0  (the "License"); you may not use this file
+# except in compliance with the License.  
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#-------------------------------------------------------------------------------
+# For more information about the OpenAirInterface (OAI) Software Alliance:
+#      contact@openairinterface.org
+################################################################################
+# file networking
+# brief
+# author Lionel Gauthier
+# company Eurecom
+# email: lionel.gauthier@eurecom.fr
+# 
+
+
+set_openair_cn_scenarios_env(){
+    fullpath=`readlink -f $BASH_SOURCE`
+    [ -f "/.$fullpath" ] || fullpath=`readlink -f $PWD/$fullpath`
+    openair_cn_scenarios=${fullpath%/SCENARIOS/*}
+    # remove last dir name 
+    openair_cn_scenarios=${openair_cn_scenarios%/*}
+    export OPENAIRCN_SCENARIOS_DIR=$openair_cn_scenarios
+}
+
+export THIS_SCRIPT_PATH=$(dirname $(readlink -f $0))
+set_openair_cn_scenarios_env
+source $OPENAIRCN_SCENARIOS_DIR/SCRIPTS/build_helper
+
+
+
+
+declare    g_epc_default_config_file="./epc.replay.conf"
+declare    g_enb_default_config_file="./enb.replay.conf"
+
+function help()
+{
+  echo_error "\033[1m \033[0m"
+  echo_error "Usage: test_epc [OPTION]..."
+  echo_error "Description:"
+  echo_error "Utility for building or/and running a EPC test case."
+  echo_error " "
+  echo_error "Options:"
+  echo_error "Mandatory arguments to long options are mandatory for short options too."
+  echo_error "  -h, --help                               Print this help."
+  echo_error "  -n, --enb-config-file      file_abs_path Config file to be used by eNB if you don't want to use the default one: $g_enb_default_config_file"
+  echo_error "  -o, --off                                Clear network config."
+  echo_error "  -O, --on                                 Set network config that can be found in EPC and eNB config file."
+  echo_error "  -p, --epc-config-file      file_abs_path Config file to be used by epc if you don't want to use the default one: $g_epc_default_config_file"
+  echo_error " "
+}
+
+function main()
+{
+  local -i on=0
+  local -i off=0
+  local -i run_gdb=0
+  local    epc_config_file=$g_epc_default_config_file
+  local    enb_config_file=$g_enb_default_config_file
+
+  until [ -z "$1" ]
+    do
+    case "$1" in
+      -h | --help)
+        help
+        exit 0
+        ;;
+      -n | --enb-config-file)
+        epc_config_file=$2
+        echo "setting eNB config file to: $epc_config_file"
+        shift 2;
+        ;;
+      -o | --off)
+        off=1
+        shift;
+        ;;
+      -O | --on)
+        on=1
+        shift;
+        ;;
+      -p | --epc-config-file)
+        epc_config_file=$2
+        echo "setting EPC config file to: $epc_config_file"
+        shift 2;
+        ;;
+      *)   
+        echo "Unknown option $1"
+        help
+        exit 1
+        ;;
+    esac
+  done
+  
+  if [ $on -eq $off ]; then
+    echo_fatal "Please specify a coherent action requested, --on or --off"
+  fi
+
+  # think about use of network namespaces later
+  # ip netns add test-opeanir-cn-scenarios
+  # ip link add venbs1c type veth peer name vmmes1c
+  # ip link set venbs1c netns test-opeanir-cn-scenarios
+  # ip link set vmmes1c netns test-opeanir-cn-scenarios
+  # etc, scaling to virtualized MMEs, eNBs...
+  
+  if [ $off -eq 1 ]; then
+    echo_warning "TODO --off for network interfaces"
+  else
+    set_epc_network_interfaces()
+    set_enb_network_interfaces()
+  fi
+  
+}
+
+
+main "$@"
+
