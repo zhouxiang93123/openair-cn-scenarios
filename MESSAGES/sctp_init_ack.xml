@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+  <packet name="INIT_ACK" action="RECEIVE">
+    <frame.time_relative value="0.000054000"/>
+    <frame.number value="2"/>
+    <pos_offset value="34"/>
+    <ip.src value="mme0_s1c_0"/>
+    <ip.dst value="enb0_s1c"/>
+    <eNB.instance value="0"/>
+    <sctp.chunk_type_str value="INIT_ACK"/>
+    <proto name="sctp" pos="34" showname="Stream Control Transmission Protocol, Src Port: s1-control (36412), Dst Port: s1-control (36412)" size="272">
+      <field name="sctp.srcport" pos="34" show="36412" showname="Source port: 36412" size="2" value="8e3c"/>
+      <field name="sctp.dstport" pos="36" show="36412" showname="Destination port: 36412" size="2" value="8e3c"/>
+      <field name="sctp.verification_tag" pos="38" show="0x0faa1543" showname="Verification tag: 0x0faa1543" size="4" value="0faa1543"/>
+      <field hide="yes" name="sctp.port" pos="34" show="36412" showname="Port: 36412" size="2" value="8e3c"/>
+      <field hide="yes" name="sctp.port" pos="36" show="36412" showname="Port: 36412" size="2" value="8e3c"/>
+      <field name="sctp.checksum" pos="42" show="0xdbb7769a" showname="Checksum: 0xdbb7769a (not verified)" size="4" value="dbb7769a"/>
+      <field name="" pos="46" show="INIT_ACK chunk (Outbound streams: 2, inbound streams: 2)" size="260" value="02000104d6a49b560001a00000020002f3bce40e000700e8a139437fa2fccd4f22a58335e8dc05f073c0247100000000000000000000000000000000569ba4d64315aa0f0000000000000000519983d23b080000020002000ee4bcf302008e3cc0a80cf200000000000000000000000000000000000000003c8e010000000000800200244e0b01b0de4b0f5f9b9f28ca8db726a5ba4658d93e6be9612b5c5c5cb5c58a21000000000000000000000000000000000000000000000000000000000000000000000000010000240faa15430001a000000200025fee576d000c00060005000080000004c00000040000000000000000000000000000000080000004c0000004">
+        <field name="sctp.chunk_type" pos="46" show="2" showname="Chunk type: INIT_ACK (2)" size="1" value="02">
+          <field name="sctp.chunk_bit_1" pos="46" show="0" showname="0... .... = Bit: Stop processing of the packet" size="1" unmaskedvalue="02" value="0"/>
+          <field name="sctp.chunk_bit_2" pos="46" show="0" showname=".0.. .... = Bit: Do not report" size="1" unmaskedvalue="02" value="0"/>
+        </field>
+        <field name="sctp.chunk_flags" pos="47" show="0x00" showname="Chunk flags: 0x00" size="1" value="00"/>
+        <field name="sctp.chunk_length" pos="48" show="260" showname="Chunk length: 260" size="2" value="0104"/>
+        <field name="sctp.initack_initiate_tag" pos="50" show="0xd6a49b56" showname="Initiate tag: 0xd6a49b56" size="4" value="d6a49b56"/>
+        <field hide="yes" name="sctp.initiate_tag" pos="50" show="0xd6a49b56" showname="Initiate tag: 0xd6a49b56" size="4" value="d6a49b56"/>
+        <field name="sctp.initack_credit" pos="54" show="106496" showname="Advertised receiver window credit (a_rwnd): 106496" size="4" value="0001a000"/>
+        <field name="sctp.initack_nr_out_streams" pos="58" show="2" showname="Number of outbound streams: 2" size="2" value="0002"/>
+        <field name="sctp.initack_nr_in_streams" pos="60" show="2" showname="Number of inbound streams: 2" size="2" value="0002"/>
+        <field name="sctp.initack_initial_tsn" pos="62" show="4089242638" showname="Initial TSN: 4089242638" size="4" value="f3bce40e"/>
+        <field name="" pos="66" show="State cookie parameter (Cookie length: 228 bytes)" size="232" value="000700e8a139437fa2fccd4f22a58335e8dc05f073c0247100000000000000000000000000000000569ba4d64315aa0f0000000000000000519983d23b080000020002000ee4bcf302008e3cc0a80cf200000000000000000000000000000000000000003c8e010000000000800200244e0b01b0de4b0f5f9b9f28ca8db726a5ba4658d93e6be9612b5c5c5cb5c58a21000000000000000000000000000000000000000000000000000000000000000000000000010000240faa15430001a000000200025fee576d000c00060005000080000004c000000400000000000000000000000000000000">
+          <field name="sctp.parameter_type" pos="66" show="0x0007" showname="Parameter type: State cookie (0x0007)" size="2" value="0007">
+            <field name="sctp.parameter_bit_1" pos="66" show="0" showname="0... .... .... .... = Bit: Stop processing of chunk" size="2" unmaskedvalue="0007" value="0"/>
+            <field name="sctp.parameter_bit_2" pos="66" show="0" showname=".0.. .... .... .... = Bit: Do not report" size="2" unmaskedvalue="0007" value="0"/>
+          </field>
+          <field name="sctp.parameter_length" pos="68" show="232" showname="Parameter length: 232" size="2" value="00e8"/>
+          <field name="sctp.parameter_state_cookie" pos="70" show="a1:39:43:7f:a2:fc:cd:4f:22:a5:83:35:e8:dc:05:f0:73:c0:24:71:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:56:9b:a4:d6:43:15:aa:0f:00:00:00:00:00:00:00:00:51:99:83:d2:3b:08:00:00:02:00:02:00:0e:e4:bc:f3:02:00:8e:3c:c0:a8:0c:f2:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:3c:8e:01:00:00:00:00:00:80:02:00:24:4e:0b:01:b0:de:4b:0f:5f:9b:9f:28:ca:8d:b7:26:a5:ba:46:58:d9:3e:6b:e9:61:2b:5c:5c:5c:b5:c5:8a:21:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:01:00:00:24:0f:aa:15:43:00:01:a0:00:00:02:00:02:5f:ee:57:6d:00:0c:00:06:00:05:00:00:80:00:00:04:c0:00:00:04:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00" showname="State cookie: a139437fa2fccd4f22a58335e8dc05f073c0247100000000..." size="228" value="a139437fa2fccd4f22a58335e8dc05f073c0247100000000000000000000000000000000569ba4d64315aa0f0000000000000000519983d23b080000020002000ee4bcf302008e3cc0a80cf200000000000000000000000000000000000000003c8e010000000000800200244e0b01b0de4b0f5f9b9f28ca8db726a5ba4658d93e6be9612b5c5c5cb5c58a21000000000000000000000000000000000000000000000000000000000000000000000000010000240faa15430001a000000200025fee576d000c00060005000080000004c000000400000000000000000000000000000000"/>
+        </field>
+        <field name="" pos="298" show="ECN parameter" size="4" value="80000004">
+          <field name="sctp.parameter_type" pos="298" show="0x8000" showname="Parameter type: ECN (0x8000)" size="2" value="8000">
+            <field name="sctp.parameter_bit_1" pos="298" show="1" showname="1... .... .... .... = Bit: Skip parameter and continue processing of the chunk" size="2" unmaskedvalue="8000" value="1"/>
+            <field name="sctp.parameter_bit_2" pos="298" show="0" showname=".0.. .... .... .... = Bit: Do not report" size="2" unmaskedvalue="8000" value="0"/>
+          </field>
+          <field name="sctp.parameter_length" pos="300" show="4" showname="Parameter length: 4" size="2" value="0004"/>
+        </field>
+        <field name="" pos="302" show="Forward TSN supported parameter" size="4" value="c0000004">
+          <field name="sctp.parameter_type" pos="302" show="0xc000" showname="Parameter type: Forward TSN supported (0xc000)" size="2" value="c000">
+            <field name="sctp.parameter_bit_1" pos="302" show="1" showname="1... .... .... .... = Bit: Skip parameter and continue processing of the chunk" size="2" unmaskedvalue="c000" value="1"/>
+            <field name="sctp.parameter_bit_2" pos="302" show="1" showname=".1.. .... .... .... = Bit: Do report" size="2" unmaskedvalue="c000" value="1"/>
+          </field>
+          <field name="sctp.parameter_length" pos="304" show="4" showname="Parameter length: 4" size="2" value="0004"/>
+        </field>
+      </field>
+    </proto>
+  </packet>
+

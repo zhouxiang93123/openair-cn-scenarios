@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+  <packet name="DATA" action="RECEIVE">
+    <frame.time_relative value="24.957271000"/>
+    <frame.number value="12"/>
+    <pos_offset value="78"/>
+    <ip.src value="mme0_s1c_0"/>
+    <ip.dst value="enb0_s1c"/>
+    <eNB.instance value="0"/>
+    <sctp.chunk_type_str value="DATA"/>
+    <proto name="sctp" pos="34" showname="Stream Control Transmission Protocol, Src Port: s1-control (36412), Dst Port: s1-control (36412)" size="44">
+      <field name="sctp.srcport" pos="34" show="36412" showname="Source port: 36412" size="2" value="8e3c"/>
+      <field name="sctp.dstport" pos="36" show="36412" showname="Destination port: 36412" size="2" value="8e3c"/>
+      <field name="sctp.verification_tag" pos="38" show="0x0faa1543" showname="Verification tag: 0x0faa1543" size="4" value="0faa1543"/>
+      <field hide="yes" name="sctp.port" pos="34" show="36412" showname="Port: 36412" size="2" value="8e3c"/>
+      <field hide="yes" name="sctp.port" pos="36" show="36412" showname="Port: 36412" size="2" value="8e3c"/>
+      <field name="sctp.checksum" pos="42" show="0x15b2cedb" showname="Checksum: 0x15b2cedb (not verified)" size="4" value="15b2cedb"/>
+      <field name="" pos="46" show="SACK chunk (Cumulative TSN: 1609455472, a_rwnd: 106496, gaps: 0, duplicate TSNs: 0)" size="16" value="030000105fee57700001a00000000000">
+        <field name="sctp.chunk_type" pos="46" show="3" showname="Chunk type: SACK (3)" size="1" value="03">
+          <field name="sctp.chunk_bit_1" pos="46" show="0" showname="0... .... = Bit: Stop processing of the packet" size="1" unmaskedvalue="03" value="0"/>
+          <field name="sctp.chunk_bit_2" pos="46" show="0" showname=".0.. .... = Bit: Do not report" size="1" unmaskedvalue="03" value="0"/>
+        </field>
+        <field name="sctp.chunk_flags" pos="47" show="0x00" showname="Chunk flags: 0x00" size="1" value="00">
+          <field name="sctp.sack_nounce_sum" pos="47" show="0" showname=".... ...0 = Nounce sum: 0" size="1" unmaskedvalue="00" value="0"/>
+        </field>
+        <field name="sctp.chunk_length" pos="48" show="16" showname="Chunk length: 16" size="2" value="0010"/>
+        <field name="sctp.sack_cumulative_tsn_ack" pos="50" show="1609455472" showname="Cumulative TSN ACK: 1609455472" size="4" value="5fee5770"/>
+        <field name="sctp.sack_a_rwnd" pos="54" show="106496" showname="Advertised receiver window credit (a_rwnd): 106496" size="4" value="0001a000"/>
+        <field name="sctp.sack_number_of_gap_blocks" pos="58" show="0" showname="Number of gap acknowledgement blocks: 0" size="2" value="0000"/>
+        <field name="sctp.sack_number_of_duplicated_tsns" pos="60" show="0" showname="Number of duplicated TSNs: 0" size="2" value="0000"/>
+      </field>
+      <field name="" pos="62" show="DATA chunk(ordered, complete segment, TSN: 4089242641, SID: 1, SSN: 2, PPID: 18, payload length: 45 bytes)" size="16" value="0003003df3bce4110001000200000012">
+        <field name="sctp.chunk_type" pos="62" show="0" showname="Chunk type: DATA (0)" size="1" value="00">
+          <field name="sctp.chunk_bit_1" pos="62" show="0" showname="0... .... = Bit: Stop processing of the packet" size="1" unmaskedvalue="00" value="0"/>
+          <field name="sctp.chunk_bit_2" pos="62" show="0" showname=".0.. .... = Bit: Do not report" size="1" unmaskedvalue="00" value="0"/>
+        </field>
+        <field name="sctp.chunk_flags" pos="63" show="0x03" showname="Chunk flags: 0x03" size="1" value="03">
+          <field name="sctp.data_e_bit" pos="63" show="1" showname=".... ...1 = E-Bit: Last segment" size="1" unmaskedvalue="03" value="1"/>
+          <field name="sctp.data_b_bit" pos="63" show="1" showname=".... ..1. = B-Bit: First segment" size="1" unmaskedvalue="03" value="1"/>
+          <field name="sctp.data_u_bit" pos="63" show="0" showname=".... .0.. = U-Bit: Ordered delivery" size="1" unmaskedvalue="03" value="0"/>
+          <field name="sctp.data_i_bit" pos="63" show="0" showname=".... 0... = I-Bit: Possibly delay SACK" size="1" unmaskedvalue="03" value="0"/>
+        </field>
+        <field name="sctp.chunk_length" pos="64" show="61" showname="Chunk length: 61" size="2" value="003d"/>
+        <field name="sctp.data_tsn" pos="66" show="4089242641" showname="TSN: 4089242641" size="4" value="f3bce411"/>
+        <field name="sctp.data_sid" pos="70" show="0x0001" showname="Stream Identifier: 0x0001" size="2" value="0001"/>
+        <field name="sctp.data_ssn" pos="72" show="2" showname="Stream sequence number: 2" size="2" value="0002"/>
+        <field name="sctp.data_payload_proto_id" pos="74" show="18" showname="Payload protocol identifier: S1 Application Protocol (S1AP) (18)" size="4" value="00000012"/>
+        <field name="sctp.chunk_padding" pos="123" show="00:00:00" showname="Chunk padding: 000000" size="3" value="000000"/>
+      </field>
+      <proto name="s1ap" pos="78" showname="S1 Application Protocol" size="45">
+        <field hide="yes" name="per.extension_bit" pos="78" show="0" showname="0... .... Extension Bit: False" size="1" unmaskedvalue="00" value="0"/>
+        <field hide="yes" name="per.choice_index" pos="78" show="0" showname="Choice Index: 0" size="1" value="00"/>
+        <field name="s1ap.S1AP_PDU" pos="78" show="0" showname="S1AP-PDU: initiatingMessage (0)" size="45" value="000b002900000300000005c00780009b000800048006692d001a00111037372cfa5d00075d020005f070c04070">
+          <field name="s1ap.initiatingMessage" pos="78" show="" showname="initiatingMessage" size="45" value="">
+            <field name="s1ap.procedureCode" pos="79" show="11" showname="procedureCode: id-downlinkNASTransport (11)" size="1" value="0b"/>
+            <field hide="yes" name="per.enum_index" pos="80" show="0" showname="Enumerated Index: 0" size="1" value="00"/>
+            <field name="s1ap.criticality" pos="80" show="0" showname="criticality: reject (0)" size="1" value="00"/>
+            <field hide="yes" name="per.open_type_length" pos="81" show="41" showname="Open Type Length: 41" size="1" value="29"/>
+            <field name="s1ap.value" pos="82" show="" showname="value" size="41" value="">
+              <field name="s1ap.DownlinkNASTransport" pos="82" show="" showname="DownlinkNASTransport" size="41" value="">
+                <field hide="yes" name="per.extension_bit" pos="82" show="0" showname="0... .... Extension Bit: False" size="1" unmaskedvalue="00" value="0"/>
+                <field hide="yes" name="per.sequence_of_length" pos="83" show="3" showname="Sequence-Of Length: 3" size="2" value="0003"/>
+                <field name="s1ap.protocolIEs" pos="85" show="3" showname="protocolIEs: 3 items" size="38" value="00000005c00780009b000800048006692d001a00111037372cfa5d00075d020005f070c04070">
+                  <field name="" pos="85" show="Item 0: id-MME-UE-S1AP-ID" size="9" value="00000005c00780009b">
+                    <field name="s1ap.ProtocolIE_Field" pos="85" show="" showname="ProtocolIE-Field" size="9" value="">
+                      <field name="s1ap.id" pos="85" show="0" showname="id: id-MME-UE-S1AP-ID (0)" size="2" value="0000"/>
+                      <field hide="yes" name="per.enum_index" pos="87" show="0" showname="Enumerated Index: 0" size="1" value="00"/>
+                      <field name="s1ap.criticality" pos="87" show="0" showname="criticality: reject (0)" size="1" value="00"/>
+                      <field hide="yes" name="per.open_type_length" pos="88" show="5" showname="Open Type Length: 5" size="1" value="05"/>
+                      <field name="s1ap.value" pos="89" show="" showname="value" size="5" value="">
+                        <field name="s1ap.MME_UE_S1AP_ID" pos="89" show="125829275" showname="MME-UE-S1AP-ID: 125829275" size="5" value="c00780009b"/>
+                      </field>
+                    </field>
+                  </field>
+                  <field name="" pos="94" show="Item 1: id-eNB-UE-S1AP-ID" size="8" value="000800048006692d">
+                    <field name="s1ap.ProtocolIE_Field" pos="94" show="" showname="ProtocolIE-Field" size="8" value="">
+                      <field name="s1ap.id" pos="94" show="8" showname="id: id-eNB-UE-S1AP-ID (8)" size="2" value="0008"/>
+                      <field hide="yes" name="per.enum_index" pos="96" show="0" showname="Enumerated Index: 0" size="1" value="00"/>
+                      <field name="s1ap.criticality" pos="96" show="0" showname="criticality: reject (0)" size="1" value="00"/>
+                      <field hide="yes" name="per.open_type_length" pos="97" show="4" showname="Open Type Length: 4" size="1" value="04"/>
+                      <field name="s1ap.value" pos="98" show="" showname="value" size="4" value="">
+                        <field name="s1ap.ENB_UE_S1AP_ID" pos="98" show="420141" showname="ENB-UE-S1AP-ID: 420141" size="4" value="8006692d"/>
+                      </field>
+                    </field>
+                  </field>
+                  <field name="" pos="102" show="Item 2: id-NAS-PDU" size="21" value="001a00111037372cfa5d00075d020005f070c04070">
+                    <field name="s1ap.ProtocolIE_Field" pos="102" show="" showname="ProtocolIE-Field" size="21" value="">
+                      <field name="s1ap.id" pos="102" show="26" showname="id: id-NAS-PDU (26)" size="2" value="001a"/>
+                      <field hide="yes" name="per.enum_index" pos="104" show="0" showname="Enumerated Index: 0" size="1" value="00"/>
+                      <field name="s1ap.criticality" pos="104" show="0" showname="criticality: reject (0)" size="1" value="00"/>
+                      <field hide="yes" name="per.open_type_length" pos="105" show="17" showname="Open Type Length: 17" size="1" value="11"/>
+                      <field name="s1ap.value" pos="106" show="" showname="value" size="17" value="">
+                        <field hide="yes" name="per.octet_string_length" pos="106" show="16" showname="Octet String Length: 16" size="1" value="10"/>
+                        <field name="s1ap.NAS_PDU" pos="107" show="37:37:2c:fa:5d:00:07:5d:02:00:05:f0:70:c0:40:70" showname="NAS-PDU: 37372cfa5d00075d020005f070c04070" size="16" value="37372cfa5d00075d020005f070c04070"/>
+                        <proto name="nas-eps" pos="107" showname="Non-Access-Stratum (NAS)PDU" size="16">
+                          <field name="nas_eps.security_header_type" pos="107" show="3" showname="0011 .... = Security header type: Integrity protected with new EPS security context (3)" size="1" unmaskedvalue="37" value="3"/>
+                          <field name="gsm_a.L3_protocol_discriminator" pos="107" show="0x07" showname=".... 0111 = Protocol discriminator: EPS mobility management messages (0x07)" size="1" unmaskedvalue="37" value="7"/>
+                          <field name="nas_eps.msg_auth_code" pos="108" show="0x372cfa5d" showname="Message authentication code: 0x372cfa5d" size="4" value="372cfa5d"/>
+                          <field name="nas_eps.seq_no" pos="112" show="0" showname="Sequence number: 0" size="1" value="00"/>
+                          <field name="nas_eps.security_header_type" pos="113" show="0" showname="0000 .... = Security header type: Plain NAS message, not security protected (0)" size="1" unmaskedvalue="07" value="0"/>
+                          <field name="gsm_a.L3_protocol_discriminator" pos="113" show="0x07" showname=".... 0111 = Protocol discriminator: EPS mobility management messages (0x07)" size="1" unmaskedvalue="07" value="7"/>
+                          <field name="nas_eps.nas_msg_emm_type" pos="114" show="0x5d" showname="NAS EPS Mobility Management Message Type: Security mode command (0x5d)" size="1" value="5d"/>
+                          <field name="" pos="115" show="NAS security algorithms - Selected NAS security algorithms" size="1" value="02">
+                            <field name="nas_eps.spare_bits" pos="115" show="0x00" showname="0... .... = Spare bit(s): 0x00" size="1" value="02"/>
+                            <field name="nas_eps.emm.toc" pos="115" show="0" showname=".000 .... = Type of ciphering algorithm: EPS encryption algorithm EEA0 (null ciphering algorithm) (0)" size="1" unmaskedvalue="02" value="0"/>
+                            <field name="nas_eps.spare_bits" pos="115" show="0x00" showname=".... 0... = Spare bit(s): 0x00" size="1" value="02"/>
+                            <field name="nas_eps.emm.toi" pos="115" show="2" showname=".... .010 = Type of integrity protection algorithm: EPS integrity algorithm 128-EIA2 (2)" size="1" unmaskedvalue="02" value="2"/>
+                          </field>
+                          <field name="nas_eps.emm.spare_half_octet" pos="116" show="0" showname="0000 .... = Spare half octet: 0" size="1" value="00"/>
+                          <field name="nas_eps.emm.tsc" pos="116" show="0" showname=".... 0... = Type of security context flag (TSC): Native security context (for KSIasme)" size="1" value="00"/>
+                          <field name="nas_eps.emm.nas_key_set_id" pos="116" show="0" showname=".... .000 = NAS key set identifier:  (0) ASME" size="1" value="00"/>
+                          <field name="" pos="117" show="UE security capability - Replayed UE security capabilities" size="6" value="05f070c04070">
+                            <field name="gsm_a.len" pos="117" show="5" showname="Length: 5" size="1" value="05"/>
+                            <field name="nas_eps.emm.eea0" pos="118" show="1" showname="1... .... = EEA0: Supported" size="1" unmaskedvalue="f0" value="1"/>
+                            <field name="nas_eps.emm.128eea1" pos="118" show="1" showname=".1.. .... = 128-EEA1: Supported" size="1" unmaskedvalue="f0" value="1"/>
+                            <field name="nas_eps.emm.128eea2" pos="118" show="1" showname="..1. .... = 128-EEA2: Supported" size="1" unmaskedvalue="f0" value="1"/>
+                            <field name="nas_eps.emm.eea3" pos="118" show="1" showname="...1 .... = 128-EEA3: Supported" size="1" unmaskedvalue="f0" value="1"/>
+                            <field name="nas_eps.emm.eea4" pos="118" show="0" showname=".... 0... = EEA4: Not Supported" size="1" unmaskedvalue="f0" value="0"/>
+                            <field name="nas_eps.emm.eea5" pos="118" show="0" showname=".... .0.. = EEA5: Not Supported" size="1" unmaskedvalue="f0" value="0"/>
+                            <field name="nas_eps.emm.eea6" pos="118" show="0" showname=".... ..0. = EEA6: Not Supported" size="1" unmaskedvalue="f0" value="0"/>
+                            <field name="nas_eps.emm.eea7" pos="118" show="0" showname=".... ...0 = EEA7: Not Supported" size="1" unmaskedvalue="f0" value="0"/>
+                            <field name="nas_eps.emm.eia0" pos="119" show="0" showname="0... .... = EIA0: Not Supported" size="1" unmaskedvalue="70" value="0"/>
+                            <field name="nas_eps.emm.128eia1" pos="119" show="1" showname=".1.. .... = 128-EIA1: Supported" size="1" unmaskedvalue="70" value="1"/>
+                            <field name="nas_eps.emm.128eia2" pos="119" show="1" showname="..1. .... = 128-EIA2: Supported" size="1" unmaskedvalue="70" value="1"/>
+                            <field name="nas_eps.emm.eia3" pos="119" show="1" showname="...1 .... = 128-EIA3: Supported" size="1" unmaskedvalue="70" value="1"/>
+                            <field name="nas_eps.emm.eia4" pos="119" show="0" showname=".... 0... = EIA4: Not Supported" size="1" unmaskedvalue="70" value="0"/>
+                            <field name="nas_eps.emm.eia5" pos="119" show="0" showname=".... .0.. = EIA5: Not Supported" size="1" unmaskedvalue="70" value="0"/>
+                            <field name="nas_eps.emm.eia6" pos="119" show="0" showname=".... ..0. = EIA6: Not Supported" size="1" unmaskedvalue="70" value="0"/>
+                            <field name="nas_eps.emm.eia7" pos="119" show="0" showname=".... ...0 = EIA7: Not Supported" size="1" unmaskedvalue="70" value="0"/>
+                            <field name="nas_eps.emm.uea0" pos="120" show="1" showname="1... .... = UEA0: Supported" size="1" unmaskedvalue="c0" value="1"/>
+                            <field name="nas_eps.emm.uea1" pos="120" show="1" showname=".1.. .... = UEA1: Supported" size="1" unmaskedvalue="c0" value="1"/>
+                            <field name="nas_eps.emm.uea2" pos="120" show="0" showname="..0. .... = UEA2: Not Supported" size="1" unmaskedvalue="c0" value="0"/>
+                            <field name="nas_eps.emm.uea3" pos="120" show="0" showname="...0 .... = UEA3: Not Supported" size="1" unmaskedvalue="c0" value="0"/>
+                            <field name="nas_eps.emm.uea4" pos="120" show="0" showname=".... 0... = UEA4: Not Supported" size="1" unmaskedvalue="c0" value="0"/>
+                            <field name="nas_eps.emm.uea5" pos="120" show="0" showname=".... .0.. = UEA5: Not Supported" size="1" unmaskedvalue="c0" value="0"/>
+                            <field name="nas_eps.emm.uea6" pos="120" show="0" showname=".... ..0. = UEA6: Not Supported" size="1" unmaskedvalue="c0" value="0"/>
+                            <field name="nas_eps.emm.uea7" pos="120" show="0" showname=".... ...0 = UEA7: Not Supported" size="1" unmaskedvalue="c0" value="0"/>
+                            <field name="nas_eps.spare_bits" pos="121" show="0x00" showname="0... .... = Spare bit(s): 0x00" size="1" value="40"/>
+                            <field name="nas_eps.emm.uia1" pos="121" show="1" showname=".1.. .... = UMTS integrity algorithm UIA1: Supported" size="1" unmaskedvalue="40" value="1"/>
+                            <field name="nas_eps.emm.uia2" pos="121" show="0" showname="..0. .... = UMTS integrity algorithm UIA2: Not Supported" size="1" unmaskedvalue="40" value="0"/>
+                            <field name="nas_eps.emm.uia3" pos="121" show="0" showname="...0 .... = UMTS integrity algorithm UIA3: Not Supported" size="1" unmaskedvalue="40" value="0"/>
+                            <field name="nas_eps.emm.uia4" pos="121" show="0" showname=".... 0... = UMTS integrity algorithm UIA4: Not Supported" size="1" unmaskedvalue="40" value="0"/>
+                            <field name="nas_eps.emm.uia5" pos="121" show="0" showname=".... .0.. = UMTS integrity algorithm UIA5: Not Supported" size="1" unmaskedvalue="40" value="0"/>
+                            <field name="nas_eps.emm.uia6" pos="121" show="0" showname=".... ..0. = UMTS integrity algorithm UIA6: Not Supported" size="1" unmaskedvalue="40" value="0"/>
+                            <field name="nas_eps.emm.uia7" pos="121" show="0" showname=".... ...0 = UMTS integrity algorithm UIA7: Not Supported" size="1" unmaskedvalue="40" value="0"/>
+                            <field name="nas_eps.spare_bits" pos="122" show="0x00" showname="0... .... = Spare bit(s): 0x00" size="1" value="70"/>
+                            <field name="nas_eps.emm.gea1" pos="122" show="1" showname=".1.. .... = GPRS encryption algorithm GEA1: Supported" size="1" unmaskedvalue="70" value="1"/>
+                            <field name="nas_eps.emm.gea2" pos="122" show="1" showname="..1. .... = GPRS encryption algorithm GEA2: Supported" size="1" unmaskedvalue="70" value="1"/>
+                            <field name="nas_eps.emm.gea3" pos="122" show="1" showname="...1 .... = GPRS encryption algorithm GEA3: Supported" size="1" unmaskedvalue="70" value="1"/>
+                            <field name="nas_eps.emm.gea4" pos="122" show="0" showname=".... 0... = GPRS encryption algorithm GEA4: Not Supported" size="1" unmaskedvalue="70" value="0"/>
+                            <field name="nas_eps.emm.gea5" pos="122" show="0" showname=".... .0.. = GPRS encryption algorithm GEA5: Not Supported" size="1" unmaskedvalue="70" value="0"/>
+                            <field name="nas_eps.emm.gea6" pos="122" show="0" showname=".... ..0. = GPRS encryption algorithm GEA6: Not Supported" size="1" unmaskedvalue="70" value="0"/>
+                            <field name="nas_eps.emm.gea7" pos="122" show="0" showname=".... ...0 = GPRS encryption algorithm GEA7: Not Supported" size="1" unmaskedvalue="70" value="0"/>
+                          </field>
+                        </proto>
+                      </field>
+                    </field>
+                  </field>
+                </field>
+              </field>
+            </field>
+          </field>
+        </field>
+      </proto>
+    </proto>
+  </packet>
+
