@@ -40,14 +40,14 @@
         </field>
         <field name="sctp.chunk_length" pos="64" show="84" showname="Chunk length: 84" size="2" value="0054"/>
         <field name="sctp.data_tsn" pos="66" show="1609455471" showname="TSN: 1609455471" size="4" value="5fee576f"/>
-        <field name="sctp.data_sid" pos="70" show="0x0001" showname="Stream Identifier: 0x0001" size="2" value="0001"/>
+        <field name="sctp.data_sid" pos="70" show="@SCTP-STREAM-ID-HEX0X04@" showname="Stream Identifier: @SCTP-STREAM-ID-HEX0X04" size="2" value="@SCTP-STREAM-ID-DECIMAL-4DIGITS@"/>
         <field name="sctp.data_ssn" pos="72" show="1" showname="Stream sequence number: 1" size="2" value="0001"/>
         <field name="sctp.data_payload_proto_id" pos="74" show="18" showname="Payload protocol identifier: S1 Application Protocol (S1AP) (18)" size="4" value="00000012"/>
       </field>
       <proto name="s1ap" pos="78" showname="S1 Application Protocol" size="68">
         <field hide="yes" name="per.extension_bit" pos="78" show="0" showname="0... .... Extension Bit: False" size="1" unmaskedvalue="00" value="0"/>
         <field hide="yes" name="per.choice_index" pos="78" show="0" showname="Choice Index: 0" size="1" value="00"/>
-        <field name="s1ap.S1AP_PDU" pos="78" show="0" showname="S1AP-PDU: initiatingMessage (0)" size="68" value="000d404000000500000005c00780009b000800048006692d001a001211175494fbdd050756082980590000000030006440080002f85900e00000004340060002f8590001">
+        <field name="s1ap.S1AP_PDU" pos="78" show="0" showname="S1AP-PDU: initiatingMessage (0)" size="68" value="000d404000000500000005@MME-UE-S1AP-ID-HEX-8DIGITS@0008000480@ENB-UE-S1AP-ID-HEX-6DIGITS@001a001211175494fbdd05075608@IMSI-BCD@006440080002f85900e00000004340060002f8590001">
           <field name="s1ap.initiatingMessage" pos="78" show="" showname="initiatingMessage" size="68" value="">
             <field name="s1ap.procedureCode" pos="79" show="13" showname="procedureCode: id-uplinkNASTransport (13)" size="1" value="0d"/>
             <field hide="yes" name="per.enum_index" pos="80" show="1" showname="Enumerated Index: 1" size="1" value="40"/>
@@ -57,30 +57,30 @@
               <field name="s1ap.UplinkNASTransport" pos="82" show="" showname="UplinkNASTransport" size="64" value="">
                 <field hide="yes" name="per.extension_bit" pos="82" show="0" showname="0... .... Extension Bit: False" size="1" unmaskedvalue="00" value="0"/>
                 <field hide="yes" name="per.sequence_of_length" pos="83" show="5" showname="Sequence-Of Length: 5" size="2" value="0005"/>
-                <field name="s1ap.protocolIEs" pos="85" show="5" showname="protocolIEs: 5 items" size="61" value="00000005c00780009b000800048006692d001a001211175494fbdd050756082980590000000030006440080002f85900e00000004340060002f8590001">
-                  <field name="" pos="85" show="Item 0: id-MME-UE-S1AP-ID" size="9" value="00000005c00780009b">
+                <field name="s1ap.protocolIEs" pos="85" show="5" showname="protocolIEs: 5 items" size="61" value="00000005@MME-UE-S1AP-ID-HEX-8DIGITS@0008000480@ENB-UE-S1AP-ID-HEX-6DIGITS@001a001211175494fbdd05075608@IMSI-BCD@006440080002f85900e00000004340060002f8590001">
+                  <field name="" pos="85" show="Item 0: id-MME-UE-S1AP-ID" size="9" value="00000005@MME-UE-S1AP-ID-HEX-8DIGITS@">
                     <field name="s1ap.ProtocolIE_Field" pos="85" show="" showname="ProtocolIE-Field" size="9" value="">
                       <field name="s1ap.id" pos="85" show="0" showname="id: id-MME-UE-S1AP-ID (0)" size="2" value="0000"/>
                       <field hide="yes" name="per.enum_index" pos="87" show="0" showname="Enumerated Index: 0" size="1" value="00"/>
                       <field name="s1ap.criticality" pos="87" show="0" showname="criticality: reject (0)" size="1" value="00"/>
                       <field hide="yes" name="per.open_type_length" pos="88" show="5" showname="Open Type Length: 5" size="1" value="05"/>
                       <field name="s1ap.value" pos="89" show="" showname="value" size="5" value="">
-                        <field name="s1ap.MME_UE_S1AP_ID" pos="89" show="125829275" showname="MME-UE-S1AP-ID: 125829275" size="5" value="c00780009b"/>
+                        <field name="s1ap.MME_UE_S1AP_ID" pos="89" show="@MME-UE-S1AP-ID-DECIMAL@" showname="MME-UE-S1AP-ID: @MME-UE-S1AP-ID-DECIMAL@" size="5" value="@MME-UE-S1AP-ID-HEX-8DIGITS@"/>
                       </field>
                     </field>
                   </field>
-                  <field name="" pos="94" show="Item 1: id-eNB-UE-S1AP-ID" size="8" value="000800048006692d">
+                  <field name="" pos="94" show="Item 1: id-eNB-UE-S1AP-ID" size="8" value="0008000480@ENB-UE-S1AP-ID-HEX-6DIGITS@">
                     <field name="s1ap.ProtocolIE_Field" pos="94" show="" showname="ProtocolIE-Field" size="8" value="">
                       <field name="s1ap.id" pos="94" show="8" showname="id: id-eNB-UE-S1AP-ID (8)" size="2" value="0008"/>
                       <field hide="yes" name="per.enum_index" pos="96" show="0" showname="Enumerated Index: 0" size="1" value="00"/>
                       <field name="s1ap.criticality" pos="96" show="0" showname="criticality: reject (0)" size="1" value="00"/>
                       <field hide="yes" name="per.open_type_length" pos="97" show="4" showname="Open Type Length: 4" size="1" value="04"/>
                       <field name="s1ap.value" pos="98" show="" showname="value" size="4" value="">
-                        <field name="s1ap.ENB_UE_S1AP_ID" pos="98" show="420141" showname="ENB-UE-S1AP-ID: 420141" size="4" value="8006692d"/>
+                        <field name="s1ap.ENB_UE_S1AP_ID" pos="98" show="@ENB-UE-S1AP-ID-DECIMAL@" showname="ENB-UE-S1AP-ID: @ENB-UE-S1AP-ID-DECIMAL@" size="4" value="80@ENB-UE-S1AP-ID-HEX-6DIGITS@"/>
                       </field>
                     </field>
                   </field>
-                  <field name="" pos="102" show="Item 2: id-NAS-PDU" size="22" value="001a001211175494fbdd050756082980590000000030">
+                  <field name="" pos="102" show="Item 2: id-NAS-PDU" size="22" value="001a001211175494fbdd05075608@IMSI-BCD@">
                     <field name="s1ap.ProtocolIE_Field" pos="102" show="" showname="ProtocolIE-Field" size="22" value="">
                       <field name="s1ap.id" pos="102" show="26" showname="id: id-NAS-PDU (26)" size="2" value="001a"/>
                       <field hide="yes" name="per.enum_index" pos="104" show="0" showname="Enumerated Index: 0" size="1" value="00"/>
@@ -88,7 +88,7 @@
                       <field hide="yes" name="per.open_type_length" pos="105" show="18" showname="Open Type Length: 18" size="1" value="12"/>
                       <field name="s1ap.value" pos="106" show="" showname="value" size="18" value="">
                         <field hide="yes" name="per.octet_string_length" pos="106" show="17" showname="Octet String Length: 17" size="1" value="11"/>
-                        <field name="s1ap.NAS_PDU" pos="107" show="17:54:94:fb:dd:05:07:56:08:29:80:59:00:00:00:00:30" showname="NAS-PDU: 175494fbdd050756082980590000000030" size="17" value="175494fbdd050756082980590000000030"/>
+                        <field name="s1ap.NAS_PDU" pos="107" show="17:54:94:fb:dd:05:07:56:08:29:80:59:00:00:00:00:30" showname="NAS-PDU: 175494fbdd05075608@IMSI-BCD@" size="17" value="175494fbdd05075608@IMSI-BCD@"/>
                         <proto name="nas-eps" pos="107" showname="Non-Access-Stratum (NAS)PDU" size="17">
                           <field name="nas_eps.security_header_type" pos="107" show="1" showname="0001 .... = Security header type: Integrity protected (1)" size="1" unmaskedvalue="17" value="1"/>
                           <field name="gsm_a.L3_protocol_discriminator" pos="107" show="0x07" showname=".... 0111 = Protocol discriminator: EPS mobility management messages (0x07)" size="1" unmaskedvalue="17" value="7"/>
@@ -97,12 +97,12 @@
                           <field name="nas_eps.security_header_type" pos="113" show="0" showname="0000 .... = Security header type: Plain NAS message, not security protected (0)" size="1" unmaskedvalue="07" value="0"/>
                           <field name="gsm_a.L3_protocol_discriminator" pos="113" show="0x07" showname=".... 0111 = Protocol discriminator: EPS mobility management messages (0x07)" size="1" unmaskedvalue="07" value="7"/>
                           <field name="nas_eps.nas_msg_emm_type" pos="114" show="0x56" showname="NAS EPS Mobility Management Message Type: Identity response (0x56)" size="1" value="56"/>
-                          <field name="" pos="115" show="Mobile identity - IMSI (208950000000003)" size="9" value="082980590000000030">
+                          <field name="" pos="115" show="Mobile identity - IMSI (@IMSI-DECIMAL@)" size="9" value="08@IMSI-BCD@">
                             <field name="gsm_a.len" pos="115" show="8" showname="Length: 8" size="1" value="08"/>
                             <field name="" pos="116" show="0010 .... = Identity Digit 1: 2" size="1" value="29"/>
                             <field name="gsm_a.oddevenind" pos="116" show="1" showname=".... 1... = Odd/even indication: Odd number of identity digits" size="1" unmaskedvalue="29" value="1"/>
                             <field name="gsm_a.ie.mobileid.type" pos="116" show="1" showname=".... .001 = Mobile Identity Type: IMSI (1)" size="1" unmaskedvalue="29" value="1"/>
-                            <field name="gsm_a.imsi" pos="116" show="208950000000003" showname="BCD Digits: 208950000000003" size="8" value="2980590000000030"/>
+                            <field name="gsm_a.imsi" pos="116" show="@IMSI-DECIMAL@" showname="BCD Digits: @IMSI-DECIMAL@" size="8" value="@IMSI-BCD@"/>
                           </field>
                         </proto>
                       </field>

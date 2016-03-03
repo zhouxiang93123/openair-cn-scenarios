@@ -31,7 +31,7 @@
             <field name="sctp.data_rtt" pos="46" show="0.000281000" showname="The RTT to SACK was: 0.000281000 seconds" size="0"/>
           </field>
         </field>
-        <field name="sctp.data_sid" pos="54" show="1" showname="Stream Identifier: 0x0001" size="2" value="0001"/>
+        <field name="sctp.data_sid" pos="54" show="1" showname="Stream Identifier: @SCTP-STREAM-ID-HEX0X04@" size="2" value="@SCTP-STREAM-ID-DECIMAL-4DIGITS@"/>
         <field name="sctp.data_ssn" pos="56" show="8" showname="Stream sequence number: 8" size="2" value="0008"/>
         <field name="sctp.data_payload_proto_id" pos="58" show="18" showname="Payload protocol identifier: S1 Application Protocol (S1AP) (18)" size="4" value="00000012"/>
         <field name="sctp.chunk_padding" pos="92" show="00:00" showname="Chunk padding: 0000" size="2" value="0000"/>
@@ -39,7 +39,7 @@
       <proto name="s1ap" pos="62" showname="S1 Application Protocol" size="30">
         <field hide="yes" name="per.extension_bit" pos="62" show="0" showname="0... .... Extension Bit: False" size="1" unmaskedvalue="00" value="0"/>
         <field hide="yes" name="per.choice_index" pos="62" show="0" showname="Choice Index: 0" size="1" value="00"/>
-        <field name="s1ap.S1AP_PDU" pos="62" show="0" showname="S1AP-PDU: initiatingMessage (0)" size="30" value="0012001a00000300000005c00780009b000800048006692d0002400202a0">
+        <field name="s1ap.S1AP_PDU" pos="62" show="0" showname="S1AP-PDU: initiatingMessage (0)" size="30" value="0012001a00000300000005@MME-UE-S1AP-ID-HEX-8DIGITS@0008000480@ENB-UE-S1AP-ID-HEX-6DIGITS@0002400202a0">
           <field name="s1ap.initiatingMessage_element" pos="62" show="" showname="initiatingMessage" size="30" value="">
             <field name="s1ap.procedureCode" pos="63" show="18" showname="procedureCode: id-UEContextReleaseRequest (18)" size="1" value="12"/>
             <field hide="yes" name="per.enum_index" pos="64" show="0" showname="Enumerated Index: 0" size="1" value="00"/>
@@ -49,26 +49,26 @@
               <field name="s1ap.UEContextReleaseRequest_element" pos="66" show="" showname="UEContextReleaseRequest" size="26" value="">
                 <field hide="yes" name="per.extension_bit" pos="66" show="0" showname="0... .... Extension Bit: False" size="1" unmaskedvalue="00" value="0"/>
                 <field hide="yes" name="per.sequence_of_length" pos="67" show="3" showname="Sequence-Of Length: 3" size="2" value="0003"/>
-                <field name="s1ap.protocolIEs" pos="69" show="3" showname="protocolIEs: 3 items" size="23" value="00000005c00780009b000800048006692d0002400202a0">
-                  <field name="" pos="69" show="Item 0: id-MME-UE-S1AP-ID" size="9" value="00000005c00780009b">
+                <field name="s1ap.protocolIEs" pos="69" show="3" showname="protocolIEs: 3 items" size="23" value="00000005@MME-UE-S1AP-ID-HEX-8DIGITS@0008000480@ENB-UE-S1AP-ID-HEX-6DIGITS@0002400202a0">
+                  <field name="" pos="69" show="Item 0: id-MME-UE-S1AP-ID" size="9" value="00000005@MME-UE-S1AP-ID-HEX-8DIGITS@">
                     <field name="s1ap.ProtocolIE_Field_element" pos="69" show="" showname="ProtocolIE-Field" size="9" value="">
                       <field name="s1ap.id" pos="69" show="0" showname="id: id-MME-UE-S1AP-ID (0)" size="2" value="0000"/>
                       <field hide="yes" name="per.enum_index" pos="71" show="0" showname="Enumerated Index: 0" size="1" value="00"/>
                       <field name="s1ap.criticality" pos="71" show="0" showname="criticality: reject (0)" size="1" value="00"/>
                       <field hide="yes" name="per.open_type_length" pos="72" show="5" showname="Open Type Length: 5" size="1" value="05"/>
                       <field name="s1ap.value_element" pos="73" show="" showname="value" size="5" value="">
-                        <field name="s1ap.MME_UE_S1AP_ID" pos="73" show="125829275" showname="MME-UE-S1AP-ID: 125829275" size="5" value="c00780009b"/>
+                        <field name="s1ap.MME_UE_S1AP_ID" pos="73" show="@MME-UE-S1AP-ID-DECIMAL@" showname="MME-UE-S1AP-ID: @MME-UE-S1AP-ID-DECIMAL@" size="5" value="@MME-UE-S1AP-ID-HEX-8DIGITS@"/>
                       </field>
                     </field>
                   </field>
-                  <field name="" pos="78" show="Item 1: id-eNB-UE-S1AP-ID" size="8" value="000800048006692d">
+                  <field name="" pos="78" show="Item 1: id-eNB-UE-S1AP-ID" size="8" value="0008000480@ENB-UE-S1AP-ID-HEX-6DIGITS@">
                     <field name="s1ap.ProtocolIE_Field_element" pos="78" show="" showname="ProtocolIE-Field" size="8" value="">
                       <field name="s1ap.id" pos="78" show="8" showname="id: id-eNB-UE-S1AP-ID (8)" size="2" value="0008"/>
                       <field hide="yes" name="per.enum_index" pos="80" show="0" showname="Enumerated Index: 0" size="1" value="00"/>
                       <field name="s1ap.criticality" pos="80" show="0" showname="criticality: reject (0)" size="1" value="00"/>
                       <field hide="yes" name="per.open_type_length" pos="81" show="4" showname="Open Type Length: 4" size="1" value="04"/>
                       <field name="s1ap.value_element" pos="82" show="" showname="value" size="4" value="">
-                        <field name="s1ap.ENB_UE_S1AP_ID" pos="82" show="420141" showname="ENB-UE-S1AP-ID: 420141" size="4" value="8006692d"/>
+                        <field name="s1ap.ENB_UE_S1AP_ID" pos="82" show="@ENB-UE-S1AP-ID-DECIMAL@" showname="ENB-UE-S1AP-ID: @ENB-UE-S1AP-ID-DECIMAL@" size="4" value="80@ENB-UE-S1AP-ID-HEX-6DIGITS@"/>
                       </field>
                     </field>
                   </field>
