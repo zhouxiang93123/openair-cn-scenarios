@@ -1,11 +1,9 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-
   <packet name="INIT" action="SEND">
-    <frame.time_relative value="0.000000000"/>
-    <frame.number value="1"/>
+    <frame.time_relative value="@FRAME_TIME_RELATIVE@"/>
+    <frame.number value="@FRAME_NUMBER@"/>
     <pos_offset value="34"/>
-    <ip.src value="enb0_s1c"/>
-    <ip.dst value="mme0_s1c_0"/>
+    <ip.src value="@SOURCE@"/>
+    <ip.dst value="@DESTINATION@"/>
     <eNB.instance value="0"/>
     <sctp.chunk_type_str value="INIT"/>
     <proto name="sctp" pos="34" showname="Stream Control Transmission Protocol, Src Port: s1-control (36412), Dst Port: s1-control (36412)" size="48">

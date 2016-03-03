@@ -1,103 +1,131 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-
   <packet name="DATA" action="SEND">
-    <frame.time_relative value="25.006151000"/>
-    <frame.number value="15"/>
-    <pos_offset value="78"/>
-    <ip.src value="enb0_s1c"/>
-    <ip.dst value="mme0_s1c_0"/>
+    <frame.time_relative value="@FRAME_TIME_RELATIVE@"/>
+    <frame.number value="@FRAME_NUMBER@"/>
+    <pos_offset value="122"/>
+    <ip.src value="@SOURCE@"/>
+    <ip.dst value="@DESTINATION@"/>
     <eNB.instance value="0"/>
     <sctp.chunk_type_str value="DATA"/>
-    <proto name="sctp" pos="34" showname="Stream Control Transmission Protocol, Src Port: s1-control (36412), Dst Port: s1-control (36412)" size="44">
-      <field name="sctp.srcport" pos="34" show="36412" showname="Source port: 36412" size="2" value="8e3c"/>
-      <field name="sctp.dstport" pos="36" show="36412" showname="Destination port: 36412" size="2" value="8e3c"/>
-      <field name="sctp.verification_tag" pos="38" show="0xd6a49b56" showname="Verification tag: 0xd6a49b56" size="4" value="d6a49b56"/>
-      <field hide="yes" name="sctp.port" pos="34" show="36412" showname="Port: 36412" size="2" value="8e3c"/>
-      <field hide="yes" name="sctp.port" pos="36" show="36412" showname="Port: 36412" size="2" value="8e3c"/>
-      <field name="sctp.checksum" pos="42" show="0x255729fe" showname="Checksum: 0x255729fe (not verified)" size="4" value="255729fe"/>
-      <field name="" pos="46" show="SACK chunk (Cumulative TSN: 4089242642, a_rwnd: 106496, gaps: 0, duplicate TSNs: 0)" size="16" value="03000010f3bce4120001a00000000000">
-        <field name="sctp.chunk_type" pos="46" show="3" showname="Chunk type: SACK (3)" size="1" value="03">
-          <field name="sctp.chunk_bit_1" pos="46" show="0" showname="0... .... = Bit: Stop processing of the packet" size="1" unmaskedvalue="03" value="0"/>
-          <field name="sctp.chunk_bit_2" pos="46" show="0" showname=".0.. .... = Bit: Do not report" size="1" unmaskedvalue="03" value="0"/>
+    <proto name="sctp" pos="106" showname="Stream Control Transmission Protocol" size="16">
+      <field name="" pos="106" show="DATA chunk(ordered, complete segment, TSN: 1609455476, SID: 1, SSN: 6, PPID: 18, payload length: 64 bytes)" size="16" value="000300505fee57740001000600000012">
+        <field name="sctp.chunk_type" pos="106" show="0" showname="Chunk type: DATA (0)" size="1" value="00">
+          <field name="sctp.chunk_bit_1" pos="106" show="0" showname="0... .... = Bit: Stop processing of the packet" size="1" unmaskedvalue="00" value="0"/>
+          <field name="sctp.chunk_bit_2" pos="106" show="0" showname=".0.. .... = Bit: Do not report" size="1" unmaskedvalue="00" value="0"/>
         </field>
-        <field name="sctp.chunk_flags" pos="47" show="0x00" showname="Chunk flags: 0x00" size="1" value="00">
-          <field name="sctp.sack_nounce_sum" pos="47" show="0" showname=".... ...0 = Nounce sum: 0" size="1" unmaskedvalue="00" value="0"/>
+        <field name="sctp.chunk_flags" pos="107" show="3" showname="Chunk flags: 0x03" size="1" value="03">
+          <field name="sctp.data_e_bit" pos="107" show="1" showname=".... ...1 = E-Bit: Last segment" size="1" unmaskedvalue="03" value="1"/>
+          <field name="sctp.data_b_bit" pos="107" show="1" showname=".... ..1. = B-Bit: First segment" size="1" unmaskedvalue="03" value="1"/>
+          <field name="sctp.data_u_bit" pos="107" show="0" showname=".... .0.. = U-Bit: Ordered delivery" size="1" unmaskedvalue="03" value="0"/>
+          <field name="sctp.data_i_bit" pos="107" show="0" showname=".... 0... = I-Bit: Possibly delay SACK" size="1" unmaskedvalue="03" value="0"/>
         </field>
-        <field name="sctp.chunk_length" pos="48" show="16" showname="Chunk length: 16" size="2" value="0010"/>
-        <field name="sctp.sack_cumulative_tsn_ack" pos="50" show="4089242642" showname="Cumulative TSN ACK: 4089242642" size="4" value="f3bce412"/>
-        <field name="sctp.sack_a_rwnd" pos="54" show="106496" showname="Advertised receiver window credit (a_rwnd): 106496" size="4" value="0001a000"/>
-        <field name="sctp.sack_number_of_gap_blocks" pos="58" show="0" showname="Number of gap acknowledgement blocks: 0" size="2" value="0000"/>
-        <field name="sctp.sack_number_of_duplicated_tsns" pos="60" show="0" showname="Number of duplicated TSNs: 0" size="2" value="0000"/>
+        <field name="sctp.chunk_length" pos="108" show="80" showname="Chunk length: 80" size="2" value="0050"/>
+        <field name="sctp.data_tsn" pos="110" show="1609455476" showname="TSN: 1609455476" size="4" value="5fee5774">
+          <field name="sctp.acked" pos="216" show="19" showname="This chunk is acked in frame: 19" size="0">
+            <field name="sctp.data_rtt" pos="106" show="26.996055000" showname="The RTT to SACK was: 26.996055000 seconds" size="0"/>
+          </field>
+        </field>
+        <field name="sctp.data_sid" pos="114" show="1" showname="Stream Identifier: 0x0001" size="2" value="0001"/>
+        <field name="sctp.data_ssn" pos="116" show="6" showname="Stream sequence number: 6" size="2" value="0006"/>
+        <field name="sctp.data_payload_proto_id" pos="118" show="18" showname="Payload protocol identifier: S1 Application Protocol (S1AP) (18)" size="4" value="00000012"/>
       </field>
-      <field name="" pos="62" show="DATA chunk(ordered, complete segment, TSN: 1609455474, SID: 1, SSN: 4, PPID: 18, payload length: 97 bytes)" size="16" value="000300715fee57720001000400000012">
-        <field name="sctp.chunk_type" pos="62" show="0" showname="Chunk type: DATA (0)" size="1" value="00">
-          <field name="sctp.chunk_bit_1" pos="62" show="0" showname="0... .... = Bit: Stop processing of the packet" size="1" unmaskedvalue="00" value="0"/>
-          <field name="sctp.chunk_bit_2" pos="62" show="0" showname=".0.. .... = Bit: Do not report" size="1" unmaskedvalue="00" value="0"/>
-        </field>
-        <field name="sctp.chunk_flags" pos="63" show="0x03" showname="Chunk flags: 0x03" size="1" value="03">
-          <field name="sctp.data_e_bit" pos="63" show="1" showname=".... ...1 = E-Bit: Last segment" size="1" unmaskedvalue="03" value="1"/>
-          <field name="sctp.data_b_bit" pos="63" show="1" showname=".... ..1. = B-Bit: First segment" size="1" unmaskedvalue="03" value="1"/>
-          <field name="sctp.data_u_bit" pos="63" show="0" showname=".... .0.. = U-Bit: Ordered delivery" size="1" unmaskedvalue="03" value="0"/>
-          <field name="sctp.data_i_bit" pos="63" show="0" showname=".... 0... = I-Bit: Possibly delay SACK" size="1" unmaskedvalue="03" value="0"/>
-        </field>
-        <field name="sctp.chunk_length" pos="64" show="113" showname="Chunk length: 113" size="2" value="0071"/>
-        <field name="sctp.data_tsn" pos="66" show="1609455474" showname="TSN: 1609455474" size="4" value="5fee5772"/>
-        <field name="sctp.data_sid" pos="70" show="0x0001" showname="Stream Identifier: 0x0001" size="2" value="0001"/>
-        <field name="sctp.data_ssn" pos="72" show="4" showname="Stream sequence number: 4" size="2" value="0004"/>
-        <field name="sctp.data_payload_proto_id" pos="74" show="18" showname="Payload protocol identifier: S1 Application Protocol (S1AP) (18)" size="4" value="00000012"/>
-        <field name="sctp.chunk_padding" pos="175" show="00:00:00" showname="Chunk padding: 000000" size="3" value="000000"/>
-      </field>
-      <proto name="s1ap" pos="78" showname="S1 Application Protocol" size="97">
-        <field hide="yes" name="per.extension_bit" pos="78" show="0" showname="0... .... Extension Bit: False" size="1" unmaskedvalue="00" value="0"/>
-        <field hide="yes" name="per.choice_index" pos="78" show="0" showname="Choice Index: 0" size="1" value="00"/>
-        <field name="s1ap.S1AP_PDU" pos="78" show="0" showname="S1AP-PDU: initiatingMessage (0)" size="97" value="0016405d00000300000005c00780009b000800048006692d004a404544c998007303010610590361e3ff91ff8ffe47fe3ff91ff8ffe47fe3ff91ff8ffe47fe3ff91ff8ffe47fdfd3ffa6a208008c870ca74a92647058c000000000aa0020000420">
-          <field name="s1ap.initiatingMessage" pos="78" show="" showname="initiatingMessage" size="97" value="">
-            <field name="s1ap.procedureCode" pos="79" show="22" showname="procedureCode: id-UECapabilityInfoIndication (22)" size="1" value="16"/>
-            <field hide="yes" name="per.enum_index" pos="80" show="1" showname="Enumerated Index: 1" size="1" value="40"/>
-            <field name="s1ap.criticality" pos="80" show="1" showname="criticality: ignore (1)" size="1" value="40"/>
-            <field hide="yes" name="per.open_type_length" pos="81" show="93" showname="Open Type Length: 93" size="1" value="5d"/>
-            <field name="s1ap.value" pos="82" show="" showname="value" size="93" value="">
-              <field name="s1ap.UECapabilityInfoIndication" pos="82" show="" showname="UECapabilityInfoIndication" size="93" value="">
-                <field hide="yes" name="per.extension_bit" pos="82" show="0" showname="0... .... Extension Bit: False" size="1" unmaskedvalue="00" value="0"/>
-                <field hide="yes" name="per.sequence_of_length" pos="83" show="3" showname="Sequence-Of Length: 3" size="2" value="0003"/>
-                <field name="s1ap.protocolIEs" pos="85" show="3" showname="protocolIEs: 3 items" size="90" value="00000005c00780009b000800048006692d004a404544c998007303010610590361e3ff91ff8ffe47fe3ff91ff8ffe47fe3ff91ff8ffe47fe3ff91ff8ffe47fdfd3ffa6a208008c870ca74a92647058c000000000aa0020000420">
-                  <field name="" pos="85" show="Item 0: id-MME-UE-S1AP-ID" size="9" value="00000005c00780009b">
-                    <field name="s1ap.ProtocolIE_Field" pos="85" show="" showname="ProtocolIE-Field" size="9" value="">
-                      <field name="s1ap.id" pos="85" show="0" showname="id: id-MME-UE-S1AP-ID (0)" size="2" value="0000"/>
-                      <field hide="yes" name="per.enum_index" pos="87" show="0" showname="Enumerated Index: 0" size="1" value="00"/>
-                      <field name="s1ap.criticality" pos="87" show="0" showname="criticality: reject (0)" size="1" value="00"/>
-                      <field hide="yes" name="per.open_type_length" pos="88" show="5" showname="Open Type Length: 5" size="1" value="05"/>
-                      <field name="s1ap.value" pos="89" show="" showname="value" size="5" value="">
-                        <field name="s1ap.MME_UE_S1AP_ID" pos="89" show="125829275" showname="MME-UE-S1AP-ID: 125829275" size="5" value="c00780009b"/>
+      <proto name="s1ap" pos="122" showname="S1 Application Protocol" size="64">
+        <field hide="yes" name="per.extension_bit" pos="122" show="0" showname="0... .... Extension Bit: False" size="1" unmaskedvalue="00" value="0"/>
+        <field hide="yes" name="per.choice_index" pos="122" show="0" showname="Choice Index: 0" size="1" value="00"/>
+        <field name="s1ap.S1AP_PDU" pos="122" show="0" showname="S1AP-PDU: initiatingMessage (0)" size="64" value="000d403c00000500000005c00780009b000800048006692d001a000e0d27c53d646d01074300035200c2006440080002f85900e00000004340060002f8590001">
+          <field name="s1ap.initiatingMessage_element" pos="122" show="" showname="initiatingMessage" size="64" value="">
+            <field name="s1ap.procedureCode" pos="123" show="13" showname="procedureCode: id-uplinkNASTransport (13)" size="1" value="0d"/>
+            <field hide="yes" name="per.enum_index" pos="124" show="1" showname="Enumerated Index: 1" size="1" value="40"/>
+            <field name="s1ap.criticality" pos="124" show="1" showname="criticality: ignore (1)" size="1" value="40"/>
+            <field hide="yes" name="per.open_type_length" pos="125" show="60" showname="Open Type Length: 60" size="1" value="3c"/>
+            <field name="s1ap.value_element" pos="126" show="" showname="value" size="60" value="">
+              <field name="s1ap.UplinkNASTransport_element" pos="126" show="" showname="UplinkNASTransport" size="60" value="">
+                <field hide="yes" name="per.extension_bit" pos="126" show="0" showname="0... .... Extension Bit: False" size="1" unmaskedvalue="00" value="0"/>
+                <field hide="yes" name="per.sequence_of_length" pos="127" show="5" showname="Sequence-Of Length: 5" size="2" value="0005"/>
+                <field name="s1ap.protocolIEs" pos="129" show="5" showname="protocolIEs: 5 items" size="57" value="00000005c00780009b000800048006692d001a000e0d27c53d646d01074300035200c2006440080002f85900e00000004340060002f8590001">
+                  <field name="" pos="129" show="Item 0: id-MME-UE-S1AP-ID" size="9" value="00000005c00780009b">
+                    <field name="s1ap.ProtocolIE_Field_element" pos="129" show="" showname="ProtocolIE-Field" size="9" value="">
+                      <field name="s1ap.id" pos="129" show="0" showname="id: id-MME-UE-S1AP-ID (0)" size="2" value="0000"/>
+                      <field hide="yes" name="per.enum_index" pos="131" show="0" showname="Enumerated Index: 0" size="1" value="00"/>
+                      <field name="s1ap.criticality" pos="131" show="0" showname="criticality: reject (0)" size="1" value="00"/>
+                      <field hide="yes" name="per.open_type_length" pos="132" show="5" showname="Open Type Length: 5" size="1" value="05"/>
+                      <field name="s1ap.value_element" pos="133" show="" showname="value" size="5" value="">
+                        <field name="s1ap.MME_UE_S1AP_ID" pos="133" show="125829275" showname="MME-UE-S1AP-ID: 125829275" size="5" value="c00780009b"/>
                       </field>
                     </field>
                   </field>
-                  <field name="" pos="94" show="Item 1: id-eNB-UE-S1AP-ID" size="8" value="000800048006692d">
-                    <field name="s1ap.ProtocolIE_Field" pos="94" show="" showname="ProtocolIE-Field" size="8" value="">
-                      <field name="s1ap.id" pos="94" show="8" showname="id: id-eNB-UE-S1AP-ID (8)" size="2" value="0008"/>
-                      <field hide="yes" name="per.enum_index" pos="96" show="0" showname="Enumerated Index: 0" size="1" value="00"/>
-                      <field name="s1ap.criticality" pos="96" show="0" showname="criticality: reject (0)" size="1" value="00"/>
-                      <field hide="yes" name="per.open_type_length" pos="97" show="4" showname="Open Type Length: 4" size="1" value="04"/>
-                      <field name="s1ap.value" pos="98" show="" showname="value" size="4" value="">
-                        <field name="s1ap.ENB_UE_S1AP_ID" pos="98" show="420141" showname="ENB-UE-S1AP-ID: 420141" size="4" value="8006692d"/>
+                  <field name="" pos="138" show="Item 1: id-eNB-UE-S1AP-ID" size="8" value="000800048006692d">
+                    <field name="s1ap.ProtocolIE_Field_element" pos="138" show="" showname="ProtocolIE-Field" size="8" value="">
+                      <field name="s1ap.id" pos="138" show="8" showname="id: id-eNB-UE-S1AP-ID (8)" size="2" value="0008"/>
+                      <field hide="yes" name="per.enum_index" pos="140" show="0" showname="Enumerated Index: 0" size="1" value="00"/>
+                      <field name="s1ap.criticality" pos="140" show="0" showname="criticality: reject (0)" size="1" value="00"/>
+                      <field hide="yes" name="per.open_type_length" pos="141" show="4" showname="Open Type Length: 4" size="1" value="04"/>
+                      <field name="s1ap.value_element" pos="142" show="" showname="value" size="4" value="">
+                        <field name="s1ap.ENB_UE_S1AP_ID" pos="142" show="420141" showname="ENB-UE-S1AP-ID: 420141" size="4" value="8006692d"/>
                       </field>
                     </field>
                   </field>
-                  <field name="" pos="102" show="Item 2: id-UERadioCapability" size="73" value="004a404544c998007303010610590361e3ff91ff8ffe47fe3ff91ff8ffe47fe3ff91ff8ffe47fe3ff91ff8ffe47fdfd3ffa6a208008c870ca74a92647058c000000000aa0020000420">
-                    <field name="s1ap.ProtocolIE_Field" pos="102" show="" showname="ProtocolIE-Field" size="73" value="">
-                      <field name="s1ap.id" pos="102" show="74" showname="id: id-UERadioCapability (74)" size="2" value="004a"/>
-                      <field hide="yes" name="per.enum_index" pos="104" show="1" showname="Enumerated Index: 1" size="1" value="40"/>
-                      <field name="s1ap.criticality" pos="104" show="1" showname="criticality: ignore (1)" size="1" value="40"/>
-                      <field hide="yes" name="per.open_type_length" pos="105" show="69" showname="Open Type Length: 69" size="1" value="45"/>
-                      <field name="s1ap.value" pos="106" show="" showname="value" size="69" value="">
-                        <field hide="yes" name="per.octet_string_length" pos="106" show="68" showname="Octet String Length: 68" size="1" value="44"/>
-                        <field name="s1ap.UERadioCapability" pos="107" show="c9:98:00:73:03:01:06:10:59:03:61:e3:ff:91:ff:8f:fe:47:fe:3f:f9:1f:f8:ff:e4:7f:e3:ff:91:ff:8f:fe:47:fe:3f:f9:1f:f8:ff:e4:7f:df:d3:ff:a6:a2:08:00:8c:87:0c:a7:4a:92:64:70:58:c0:00:00:00:00:aa:00:20:00:04:20" showname="UERadioCapability: c998007303010610590361e3ff91ff8ffe47fe3ff91ff8ff..." size="68" value="c998007303010610590361e3ff91ff8ffe47fe3ff91ff8ffe47fe3ff91ff8ffe47fe3ff91ff8ffe47fdfd3ffa6a208008c870ca74a92647058c000000000aa0020000420">
-                          <field name="lte-rrc.UERadioAccessCapabilityInformation" pos="107" show="" showname="UERadioAccessCapabilityInformation" size="1" value="">
-                            <field hide="yes" name="per.choice_index" pos="107" show="1" showname="Choice Index: 1" size="1" value="c9"/>
-                            <field name="lte-rrc.criticalExtensions" pos="107" show="1" showname="criticalExtensions: criticalExtensionsFuture (1)" size="1" value="c9">
-                              <field name="lte-rrc.criticalExtensionsFuture" pos="107" show="" showname="criticalExtensionsFuture" size="1" value=""/>
+                  <field name="" pos="146" show="Item 2: id-NAS-PDU" size="18" value="001a000e0d27c53d646d01074300035200c2">
+                    <field name="s1ap.ProtocolIE_Field_element" pos="146" show="" showname="ProtocolIE-Field" size="18" value="">
+                      <field name="s1ap.id" pos="146" show="26" showname="id: id-NAS-PDU (26)" size="2" value="001a"/>
+                      <field hide="yes" name="per.enum_index" pos="148" show="0" showname="Enumerated Index: 0" size="1" value="00"/>
+                      <field name="s1ap.criticality" pos="148" show="0" showname="criticality: reject (0)" size="1" value="00"/>
+                      <field hide="yes" name="per.open_type_length" pos="149" show="14" showname="Open Type Length: 14" size="1" value="0e"/>
+                      <field name="s1ap.value_element" pos="150" show="" showname="value" size="14" value="">
+                        <field hide="yes" name="per.octet_string_length" pos="150" show="13" showname="Octet String Length: 13" size="1" value="0d"/>
+                        <field name="s1ap.NAS_PDU" pos="151" show="27:c5:3d:64:6d:01:07:43:00:03:52:00:c2" showname="NAS-PDU: 27c53d646d01074300035200c2" size="13" value="27c53d646d01074300035200c2"/>
+                        <proto name="nas-eps" pos="151" showname="Non-Access-Stratum (NAS)PDU" size="13">
+                          <field name="nas_eps.security_header_type" pos="151" show="2" showname="0010 .... = Security header type: Integrity protected and ciphered (2)" size="1" unmaskedvalue="27" value="2"/>
+                          <field name="gsm_a.L3_protocol_discriminator" pos="151" show="7" showname=".... 0111 = Protocol discriminator: EPS mobility management messages (0x07)" size="1" unmaskedvalue="27" value="7"/>
+                          <field name="nas_eps.msg_auth_code" pos="152" show="3309134957" showname="Message authentication code: 0xc53d646d" size="4" value="c53d646d"/>
+                          <field name="nas_eps.seq_no" pos="156" show="1" showname="Sequence number: 1" size="1" value="01"/>
+                          <field name="nas_eps.security_header_type" pos="157" show="0" showname="0000 .... = Security header type: Plain NAS message, not security protected (0)" size="1" unmaskedvalue="07" value="0"/>
+                          <field name="gsm_a.L3_protocol_discriminator" pos="157" show="7" showname=".... 0111 = Protocol discriminator: EPS mobility management messages (0x07)" size="1" unmaskedvalue="07" value="7"/>
+                          <field name="nas_eps.nas_msg_emm_type" pos="158" show="67" showname="NAS EPS Mobility Management Message Type: Attach complete (0x43)" size="1" value="43"/>
+                          <field name="" pos="159" show="ESM message container" size="5" value="00035200c2">
+                            <field name="gsm_a.len" pos="159" show="3" showname="Length: 3" size="2" value="0003"/>
+                            <field name="nas_eps.emm.esm_msg_cont" pos="161" show="52:00:c2" showname="ESM message container contents: 5200c2" size="3" value="5200c2">
+                              <field name="nas_eps.bearer_id" pos="161" show="5" showname="0101 .... = EPS bearer identity: EPS bearer identity value 5 (5)" size="1" unmaskedvalue="52" value="5"/>
+                              <field name="gsm_a.L3_protocol_discriminator" pos="161" show="2" showname=".... 0010 = Protocol discriminator: EPS session management messages (0x02)" size="1" unmaskedvalue="52" value="2"/>
+                              <field name="nas_eps.esm.proc_trans_id" pos="162" show="0" showname="Procedure transaction identity: 0" size="1" value="00"/>
+                              <field name="nas_eps.nas_msg_esm_type" pos="163" show="194" showname="NAS EPS session management messages: Activate default EPS bearer context accept (0xc2)" size="1" value="c2"/>
                             </field>
                           </field>
+                        </proto>
+                      </field>
+                    </field>
+                  </field>
+                  <field name="" pos="164" show="Item 3: id-EUTRAN-CGI" size="12" value="006440080002f85900e00000">
+                    <field name="s1ap.ProtocolIE_Field_element" pos="164" show="" showname="ProtocolIE-Field" size="12" value="">
+                      <field name="s1ap.id" pos="164" show="100" showname="id: id-EUTRAN-CGI (100)" size="2" value="0064"/>
+                      <field hide="yes" name="per.enum_index" pos="166" show="1" showname="Enumerated Index: 1" size="1" value="40"/>
+                      <field name="s1ap.criticality" pos="166" show="1" showname="criticality: ignore (1)" size="1" value="40"/>
+                      <field hide="yes" name="per.open_type_length" pos="167" show="8" showname="Open Type Length: 8" size="1" value="08"/>
+                      <field name="s1ap.value_element" pos="168" show="" showname="value" size="8" value="">
+                        <field name="s1ap.EUTRAN_CGI_element" pos="168" show="" showname="EUTRAN-CGI" size="7" value="">
+                          <field hide="yes" name="per.extension_bit" pos="168" show="0" showname="0... .... Extension Bit: False" size="1" unmaskedvalue="00" value="0"/>
+                          <field hide="yes" name="per.optional_field_bit" pos="168" show="0" showname=".0.. .... Optional Field Bit: False (iE-Extensions is NOT present)" size="1" unmaskedvalue="00" value="0"/>
+                          <field name="s1ap.pLMNidentity" pos="169" show="02:f8:59" showname="pLMNidentity: 02f859" size="3" value="02f859"/>
+                          <field name="e212.mcc" pos="169" show="208" showname="Mobile Country Code (MCC): France (208)" size="2" value="02f8"/>
+                          <field name="e212.mnc" pos="170" show="95" showname="Mobile Network Code (MNC): Unknown (95)" size="2" value="f859"/>
+                          <field name="s1ap.cell_ID" pos="168" show="00:e0:00:00" showname="cell-ID: 00e00000 [bit length 28, 4 LSB pad bits, 0000 0000  1110 0000  0000 0000  0000 .... decimal value 917504]" size="4" value="00e00000"/>
+                        </field>
+                      </field>
+                    </field>
+                  </field>
+                  <field name="" pos="176" show="Item 4: id-TAI" size="10" value="004340060002f8590001">
+                    <field name="s1ap.ProtocolIE_Field_element" pos="176" show="" showname="ProtocolIE-Field" size="10" value="">
+                      <field name="s1ap.id" pos="176" show="67" showname="id: id-TAI (67)" size="2" value="0043"/>
+                      <field hide="yes" name="per.enum_index" pos="178" show="1" showname="Enumerated Index: 1" size="1" value="40"/>
+                      <field name="s1ap.criticality" pos="178" show="1" showname="criticality: ignore (1)" size="1" value="40"/>
+                      <field hide="yes" name="per.open_type_length" pos="179" show="6" showname="Open Type Length: 6" size="1" value="06"/>
+                      <field name="s1ap.value_element" pos="180" show="" showname="value" size="6" value="">
+                        <field name="s1ap.TAI_element" pos="180" show="" showname="TAI" size="6" value="">
+                          <field hide="yes" name="per.extension_bit" pos="180" show="0" showname="0... .... Extension Bit: False" size="1" unmaskedvalue="00" value="0"/>
+                          <field hide="yes" name="per.optional_field_bit" pos="180" show="0" showname=".0.. .... Optional Field Bit: False (iE-Extensions is NOT present)" size="1" unmaskedvalue="00" value="0"/>
+                          <field name="s1ap.pLMNidentity" pos="181" show="02:f8:59" showname="pLMNidentity: 02f859" size="3" value="02f859"/>
+                          <field name="e212.mcc" pos="181" show="208" showname="Mobile Country Code (MCC): France (208)" size="2" value="02f8"/>
+                          <field name="e212.mnc" pos="182" show="95" showname="Mobile Network Code (MNC): Unknown (95)" size="2" value="f859"/>
+                          <field name="s1ap.tAC" pos="184" show="00:01" showname="tAC: 0001" size="2" value="0001"/>
                         </field>
                       </field>
                     </field>
@@ -110,5 +138,6 @@
       </proto>
     </proto>
   </packet>
+
 
 
