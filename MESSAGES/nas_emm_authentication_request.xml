@@ -48,7 +48,7 @@
       <proto name="s1ap" pos="78" showname="S1 Application Protocol" size="65">
         <field hide="yes" name="per.extension_bit" pos="78" show="0" showname="0... .... Extension Bit: False" size="1" unmaskedvalue="00" value="0"/>
         <field hide="yes" name="per.choice_index" pos="78" show="0" showname="Choice Index: 0" size="1" value="00"/>
-        <field name="s1ap.S1AP_PDU" pos="78" show="0" showname="S1AP-PDU: initiatingMessage (0)" size="65" value="000b003d00000300000005@MME-UE-S1AP-ID-HEX-8DIGITS@0008000480@ENB-UE-S1AP-ID-HEX-6DIGITS@001a002524075200000102030405060708090a0b0c0d0e0f106fbfa3803bf78000bcecda027652e989">
+        <field name="s1ap.S1AP_PDU" pos="78" show="0" showname="S1AP-PDU: initiatingMessage (0)" size="65" value="000b003d00000300000005@MME-UE-S1AP-ID-HEX-8DIGITS@0008000480@ENB-UE-S1AP-ID-HEX-6DIGITS@001a002524075200@AUTHENTICATION-RAND@10@AUTHENTICATION-AUTN@">
           <field name="s1ap.initiatingMessage" pos="78" show="" showname="initiatingMessage" size="65" value="">
             <field name="s1ap.procedureCode" pos="79" show="11" showname="procedureCode: id-downlinkNASTransport (11)" size="1" value="0b"/>
             <field hide="yes" name="per.enum_index" pos="80" show="0" showname="Enumerated Index: 0" size="1" value="00"/>
@@ -58,7 +58,7 @@
               <field name="s1ap.DownlinkNASTransport" pos="82" show="" showname="DownlinkNASTransport" size="61" value="">
                 <field hide="yes" name="per.extension_bit" pos="82" show="0" showname="0... .... Extension Bit: False" size="1" unmaskedvalue="00" value="0"/>
                 <field hide="yes" name="per.sequence_of_length" pos="83" show="3" showname="Sequence-Of Length: 3" size="2" value="0003"/>
-                <field name="s1ap.protocolIEs" pos="85" show="3" showname="protocolIEs: 3 items" size="58" value="00000005@MME-UE-S1AP-ID-HEX-8DIGITS@0008000480@ENB-UE-S1AP-ID-HEX-6DIGITS@001a002524075200000102030405060708090a0b0c0d0e0f106fbfa3803bf78000bcecda027652e989">
+                <field name="s1ap.protocolIEs" pos="85" show="3" showname="protocolIEs: 3 items" size="58" value="00000005@MME-UE-S1AP-ID-HEX-8DIGITS@0008000480@ENB-UE-S1AP-ID-HEX-6DIGITS@001a002524075200@AUTHENTICATION-RAND@10@AUTHENTICATION-AUTN@">
                   <field name="" pos="85" show="Item 0: id-MME-UE-S1AP-ID" size="9" value="00000005@MME-UE-S1AP-ID-HEX-8DIGITS@">
                     <field name="s1ap.ProtocolIE_Field" pos="85" show="" showname="ProtocolIE-Field" size="9" value="">
                       <field name="s1ap.id" pos="85" show="0" showname="id: id-MME-UE-S1AP-ID (0)" size="2" value="0000"/>
@@ -81,7 +81,7 @@
                       </field>
                     </field>
                   </field>
-                  <field name="" pos="102" show="Item 2: id-NAS-PDU" size="41" value="001a002524075200000102030405060708090a0b0c0d0e0f106fbfa3803bf78000bcecda027652e989">
+                  <field name="" pos="102" show="Item 2: id-NAS-PDU" size="41" value="001a002524075200@AUTHENTICATION-RAND@10@AUTHENTICATION-AUTN@">
                     <field name="s1ap.ProtocolIE_Field" pos="102" show="" showname="ProtocolIE-Field" size="41" value="">
                       <field name="s1ap.id" pos="102" show="26" showname="id: id-NAS-PDU (26)" size="2" value="001a"/>
                       <field hide="yes" name="per.enum_index" pos="104" show="0" showname="Enumerated Index: 0" size="1" value="00"/>
@@ -89,7 +89,7 @@
                       <field hide="yes" name="per.open_type_length" pos="105" show="37" showname="Open Type Length: 37" size="1" value="25"/>
                       <field name="s1ap.value" pos="106" show="" showname="value" size="37" value="">
                         <field hide="yes" name="per.octet_string_length" pos="106" show="36" showname="Octet String Length: 36" size="1" value="24"/>
-                        <field name="s1ap.NAS_PDU" pos="107" show="07:52:00:00:01:02:03:04:05:06:07:08:09:0a:0b:0c:0d:0e:0f:10:6f:bf:a3:80:3b:f7:80:00:bc:ec:da:02:76:52:e9:89" showname="NAS-PDU: 075200000102030405060708090a0b0c0d0e0f106fbfa380..." size="36" value="075200000102030405060708090a0b0c0d0e0f106fbfa3803bf78000bcecda027652e989"/>
+                        <field name="s1ap.NAS_PDU" pos="107" show="07:52:00:00:01:02:03:04:05:06:07:08:09:0a:0b:0c:0d:0e:0f:10:6f:bf:a3:80:3b:f7:80:00:bc:ec:da:02:76:52:e9:89" showname="NAS-PDU: 075200@AUTHENTICATION-RAND@106fbfa380..." size="36" value="075200@AUTHENTICATION-RAND@10@AUTHENTICATION-AUTN@"/>
                         <proto name="nas-eps" pos="107" showname="Non-Access-Stratum (NAS)PDU" size="36">
                           <field name="nas_eps.security_header_type" pos="107" show="0" showname="0000 .... = Security header type: Plain NAS message, not security protected (0)" size="1" unmaskedvalue="07" value="0"/>
                           <field name="gsm_a.L3_protocol_discriminator" pos="107" show="0x07" showname=".... 0111 = Protocol discriminator: EPS mobility management messages (0x07)" size="1" unmaskedvalue="07" value="7"/>
@@ -97,12 +97,12 @@
                           <field name="nas_eps.emm.spare_half_octet" pos="109" show="0" showname="0000 .... = Spare half octet: 0" size="1" value="00"/>
                           <field name="nas_eps.emm.tsc" pos="109" show="0" showname=".... 0... = Type of security context flag (TSC): Native security context (for KSIasme)" size="1" value="00"/>
                           <field name="nas_eps.emm.nas_key_set_id" pos="109" show="0" showname=".... .000 = NAS key set identifier:  (0) ASME" size="1" value="00"/>
-                          <field name="" pos="110" show="Authentication Parameter RAND - EPS challenge" size="16" value="000102030405060708090a0b0c0d0e0f">
-                            <field name="gsm_a.dtap.rand" pos="110" show="00:01:02:03:04:05:06:07:08:09:0a:0b:0c:0d:0e:0f" showname="RAND value: 000102030405060708090a0b0c0d0e0f" size="16" value="000102030405060708090a0b0c0d0e0f"/>
+                          <field name="" pos="110" show="Authentication Parameter RAND - EPS challenge" size="16" value="@AUTHENTICATION-RAND@">
+                            <field name="gsm_a.dtap.rand" pos="110" show="00:01:02:03:04:05:06:07:08:09:0a:0b:0c:0d:0e:0f" showname="RAND value: @AUTHENTICATION-RAND@" size="16" value="@AUTHENTICATION-RAND@"/>
                           </field>
-                          <field name="" pos="126" show="Authentication Parameter AUTN (UMTS and EPS authentication challenge) - EPS challenge" size="17" value="106fbfa3803bf78000bcecda027652e989">
+                          <field name="" pos="126" show="Authentication Parameter AUTN (UMTS and EPS authentication challenge) - EPS challenge" size="17" value="10@AUTHENTICATION-AUTN@">
                             <field name="gsm_a.len" pos="126" show="16" showname="Length: 16" size="1" value="10"/>
-                            <field name="gsm_a.dtap.autn" pos="127" show="6f:bf:a3:80:3b:f7:80:00:bc:ec:da:02:76:52:e9:89" showname="AUTN value: 6fbfa3803bf78000bcecda027652e989" size="16" value="6fbfa3803bf78000bcecda027652e989">
+                            <field name="gsm_a.dtap.autn" pos="127" show="6f:bf:a3:80:3b:f7:80:00:bc:ec:da:02:76:52:e9:89" showname="AUTN value: @AUTHENTICATION-AUTN@" size="16" value="@AUTHENTICATION-AUTN@">
                               <field name="gsm_a.dtap.autn.sqn_xor_ak" pos="127" show="6f:bf:a3:80:3b:f7" showname="SQN xor AK: 6fbfa3803bf7" size="6" value="6fbfa3803bf7"/>
                               <field name="gsm_a.dtap.autn.amf" pos="133" show="80:00" showname="AMF: 8000" size="2" value="8000"/>
                               <field name="gsm_a.dtap.autn.mac" pos="135" show="bc:ec:da:02:76:52:e9:89" showname="MAC: bcecda027652e989" size="8" value="bcecda027652e989"/>

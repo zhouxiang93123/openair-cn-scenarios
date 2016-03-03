@@ -38,7 +38,7 @@
       <proto name="s1ap" pos="62" showname="S1 Application Protocol" size="72">
         <field hide="yes" name="per.extension_bit" pos="62" show="0" showname="0... .... Extension Bit: False" size="1" unmaskedvalue="00" value="0"/>
         <field hide="yes" name="per.choice_index" pos="62" show="0" showname="Choice Index: 0" size="1" value="00"/>
-        <field name="s1ap.S1AP_PDU" pos="62" show="0" showname="S1AP-PDU: initiatingMessage (0)" size="72" value="000d404400000500000005@MME-UE-S1AP-ID-HEX-8DIGITS@0008000480@ENB-UE-S1AP-ID-HEX-6DIGITS@001a0016152782d346d20207450b0bf602f8590004018c000950006440080002f85900e00000004340060002f8590001">
+        <field name="s1ap.S1AP_PDU" pos="62" show="0" showname="S1AP-PDU: initiatingMessage (0)" size="72" value="000d404400000500000005@MME-UE-S1AP-ID-HEX-8DIGITS@0008000480@ENB-UE-S1AP-ID-HEX-6DIGITS@001a00161527@NAS-MAC-HEX-8DIGITS@0207450b0bf602f8590004018c000950006440080002f85900e00000004340060002f8590001">
           <field name="s1ap.initiatingMessage_element" pos="62" show="" showname="initiatingMessage" size="72" value="">
             <field name="s1ap.procedureCode" pos="63" show="13" showname="procedureCode: id-uplinkNASTransport (13)" size="1" value="0d"/>
             <field hide="yes" name="per.enum_index" pos="64" show="1" showname="Enumerated Index: 1" size="1" value="40"/>
@@ -48,7 +48,7 @@
               <field name="s1ap.UplinkNASTransport_element" pos="66" show="" showname="UplinkNASTransport" size="68" value="">
                 <field hide="yes" name="per.extension_bit" pos="66" show="0" showname="0... .... Extension Bit: False" size="1" unmaskedvalue="00" value="0"/>
                 <field hide="yes" name="per.sequence_of_length" pos="67" show="5" showname="Sequence-Of Length: 5" size="2" value="0005"/>
-                <field name="s1ap.protocolIEs" pos="69" show="5" showname="protocolIEs: 5 items" size="65" value="00000005@MME-UE-S1AP-ID-HEX-8DIGITS@0008000480@ENB-UE-S1AP-ID-HEX-6DIGITS@001a0016152782d346d20207450b0bf602f8590004018c000950006440080002f85900e00000004340060002f8590001">
+                <field name="s1ap.protocolIEs" pos="69" show="5" showname="protocolIEs: 5 items" size="65" value="00000005@MME-UE-S1AP-ID-HEX-8DIGITS@0008000480@ENB-UE-S1AP-ID-HEX-6DIGITS@001a00161527@NAS-MAC-HEX-8DIGITS@0207450b0bf602f8590004018c000950006440080002f85900e00000004340060002f8590001">
                   <field name="" pos="69" show="Item 0: id-MME-UE-S1AP-ID" size="9" value="00000005@MME-UE-S1AP-ID-HEX-8DIGITS@">
                     <field name="s1ap.ProtocolIE_Field_element" pos="69" show="" showname="ProtocolIE-Field" size="9" value="">
                       <field name="s1ap.id" pos="69" show="0" showname="id: id-MME-UE-S1AP-ID (0)" size="2" value="0000"/>
@@ -71,7 +71,7 @@
                       </field>
                     </field>
                   </field>
-                  <field name="" pos="86" show="Item 2: id-NAS-PDU" size="26" value="001a0016152782d346d20207450b0bf602f8590004018c000950">
+                  <field name="" pos="86" show="Item 2: id-NAS-PDU" size="26" value="001a00161527@NAS-MAC-HEX-8DIGITS@0207450b0bf602f8590004018c000950">
                     <field name="s1ap.ProtocolIE_Field_element" pos="86" show="" showname="ProtocolIE-Field" size="26" value="">
                       <field name="s1ap.id" pos="86" show="26" showname="id: id-NAS-PDU (26)" size="2" value="001a"/>
                       <field hide="yes" name="per.enum_index" pos="88" show="0" showname="Enumerated Index: 0" size="1" value="00"/>
@@ -79,11 +79,11 @@
                       <field hide="yes" name="per.open_type_length" pos="89" show="22" showname="Open Type Length: 22" size="1" value="16"/>
                       <field name="s1ap.value_element" pos="90" show="" showname="value" size="22" value="">
                         <field hide="yes" name="per.octet_string_length" pos="90" show="21" showname="Octet String Length: 21" size="1" value="15"/>
-                        <field name="s1ap.NAS_PDU" pos="91" show="27:82:d3:46:d2:02:07:45:0b:0b:f6:02:f8:59:00:04:01:8c:00:09:50" showname="NAS-PDU: 2782d346d20207450b0bf602f8590004018c000950" size="21" value="2782d346d20207450b0bf602f8590004018c000950"/>
+                        <field name="s1ap.NAS_PDU" pos="91" show="27:82:d3:46:d2:02:07:45:0b:0b:f6:02:f8:59:00:04:01:8c:00:09:50" showname="NAS-PDU: 27@NAS-MAC-HEX-8DIGITS@0207450b0bf602f8590004018c000950" size="21" value="27@NAS-MAC-HEX-8DIGITS@0207450b0bf602f8590004018c000950"/>
                         <proto name="nas-eps" pos="91" showname="Non-Access-Stratum (NAS)PDU" size="21">
                           <field name="nas_eps.security_header_type" pos="91" show="2" showname="0010 .... = Security header type: Integrity protected and ciphered (2)" size="1" unmaskedvalue="27" value="2"/>
                           <field name="gsm_a.L3_protocol_discriminator" pos="91" show="7" showname=".... 0111 = Protocol discriminator: EPS mobility management messages (0x07)" size="1" unmaskedvalue="27" value="7"/>
-                          <field name="nas_eps.msg_auth_code" pos="92" show="2194884306" showname="Message authentication code: 0x82d346d2" size="4" value="82d346d2"/>
+                          <field name="nas_eps.msg_auth_code" pos="92" show="2194884306" showname="Message authentication code: 0x@NAS-MAC-HEX-8DIGITS@" size="4" value="@NAS-MAC-HEX-8DIGITS@"/>
                           <field name="nas_eps.seq_no" pos="96" show="2" showname="Sequence number: 2" size="1" value="02"/>
                           <field name="nas_eps.security_header_type" pos="97" show="0" showname="0000 .... = Security header type: Plain NAS message, not security protected (0)" size="1" unmaskedvalue="07" value="0"/>
                           <field name="gsm_a.L3_protocol_discriminator" pos="97" show="7" showname=".... 0111 = Protocol discriminator: EPS mobility management messages (0x07)" size="1" unmaskedvalue="07" value="7"/>
