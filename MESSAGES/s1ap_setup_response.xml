@@ -1,6 +1,6 @@
   <packet name="DATA" action="RECEIVE">
-    <frame.time_relative value="@FRAME_TIME_RELATIVE@"/>
-    <frame.number value="@FRAME_NUMBER@"/>
+    <frame.time_relative value="@FRAME-TIME-RELATIVE@"/>
+    <frame.number value="@FRAME-NUMBER@"/>
     <pos_offset value="62"/>
     <ip.src value="@SOURCE@"/>
     <ip.dst value="@DESTINATION@"/>
@@ -26,7 +26,7 @@
         </field>
         <field name="sctp.chunk_length" pos="48" show="43" showname="Chunk length: 43" size="2" value="002b"/>
         <field name="sctp.data_tsn" pos="50" show="4089242638" showname="TSN: 4089242638" size="4" value="f3bce40e"/>
-        <field name="sctp.data_sid" pos="54" show="0x0000" showname="Stream Identifier: 0x0000" size="2" value="0000"/>
+        <field name="sctp.data_sid" pos="54" show="@SCTP-STREAM-ID-HEX0X04@" showname="Stream Identifier: @SCTP-STREAM-ID-HEX0X04@" size="2" value="@SCTP-STREAM-ID-DECIMAL-4DIGITS@"/>
         <field name="sctp.data_ssn" pos="56" show="0" showname="Stream sequence number: 0" size="2" value="0000"/>
         <field name="sctp.data_payload_proto_id" pos="58" show="18" showname="Payload protocol identifier: S1 Application Protocol (S1AP) (18)" size="4" value="00000012"/>
         <field name="sctp.chunk_padding" pos="89" show="00" showname="Chunk padding: 00" size="1" value="00"/>

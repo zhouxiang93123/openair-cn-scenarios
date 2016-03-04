@@ -1,6 +1,6 @@
   <packet name="DATA" action="RECEIVE">
-    <frame.time_relative value="@FRAME_TIME_RELATIVE@"/>
-    <frame.number value="@FRAME_NUMBER@"/>
+    <frame.time_relative value="@FRAME-TIME-RELATIVE@"/>
+    <frame.number value="@FRAME-NUMBER@"/>
     <pos_offset value="78"/>
     <ip.src value="@SOURCE@"/>
     <ip.dst value="@DESTINATION@"/>
