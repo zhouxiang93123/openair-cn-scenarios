@@ -34,7 +34,7 @@
       <proto name="s1ap" pos="62" showname="S1 Application Protocol" size="151">
         <field hide="yes" name="per.extension_bit" pos="62" show="0" showname="0... .... Extension Bit: False" size="1" unmaskedvalue="00" value="0"/>
         <field hide="yes" name="per.choice_index" pos="62" show="0" showname="Choice Index: 0" size="1" value="00"/>
-        <field name="s1ap.S1AP_PDU" pos="62" show="0" showname="S1AP-PDU: initiatingMessage (0)" size="151" value="000c0080920000060008000480@ENB-UE-S1AP-ID-HEX-6DIGITS@001a005d5c17@NAS-MAC-HEX-8DIGITS@040741020bf6@GUTI-MCC-BCD@@GUTI-MNC-BCD@@GUTI-GID-HEX-4DIGITS@@GUTI-MMEC-HEX-2DIGITS@@GUTI-M-TMSI-HEX-8DIGITS@05f070c040100027021ad011d127208080211001000010810600000000830600000000000d00000a000005000010005202f85900015c0a003103e5e0349011035758a65d0100c1004300060002f8590001006440080002f85900e000000086400110004b00070002f859000401">
+        <field name="s1ap.S1AP_PDU" pos="62" show="0" showname="S1AP-PDU: initiatingMessage (0)" size="151" value="000c0080920000060008000480@ENB-UE-S1AP-ID-HEX-6DIGITS@001a005d5c17@NAS-MAC-HEX-8DIGITS@040741020bf6@GUTI-PLMN-BCD@@GUTI-GID-HEX-4DIGITS@@GUTI-MMEC-HEX-2DIGITS@@GUTI-M-TMSI-HEX-8DIGITS@05@UE-NW-CAPABILITY-HEX-10DIGITS@0027021ad011d127208080211001000010810600000000830600000000000d00000a000005000010005202f85900015c0a003103e5e0349011035758a65d0100c10043000600@TAI@0064400800@EUTRAN-CGI@0086400110004b000700@GUMMEI@">
           <field name="s1ap.initiatingMessage" pos="62" show="" showname="initiatingMessage" size="151" value="">
             <field name="s1ap.procedureCode" pos="63" show="12" showname="procedureCode: id-initialUEMessage (12)" size="1" value="0c"/>
             <field hide="yes" name="per.enum_index" pos="64" show="0" showname="Enumerated Index: 0" size="1" value="00"/>
@@ -44,7 +44,7 @@
               <field name="s1ap.InitialUEMessage" pos="67" show="" showname="InitialUEMessage" size="146" value="">
                 <field hide="yes" name="per.extension_bit" pos="67" show="0" showname="0... .... Extension Bit: False" size="1" unmaskedvalue="00" value="0"/>
                 <field hide="yes" name="per.sequence_of_length" pos="68" show="6" showname="Sequence-Of Length: 6" size="2" value="0006"/>
-                <field name="s1ap.protocolIEs" pos="70" show="6" showname="protocolIEs: 6 items" size="143" value="0008000480@ENB-UE-S1AP-ID-HEX-6DIGITS@001a005d5c17@NAS-MAC-HEX-8DIGITS@040741020bf6@GUTI-MCC-BCD@@GUTI-MNC-BCD@@GUTI-GID-HEX-4DIGITS@@GUTI-MMEC-HEX-2DIGITS@@GUTI-M-TMSI-HEX-8DIGITS@05f070c040100027021ad011d127208080211001000010810600000000830600000000000d00000a000005000010005202f85900015c0a003103e5e0349011035758a65d0100c1004300060002f8590001006440080002f85900e000000086400110004b00070002f859000401">
+                <field name="s1ap.protocolIEs" pos="70" show="6" showname="protocolIEs: 6 items" size="143" value="0008000480@ENB-UE-S1AP-ID-HEX-6DIGITS@001a005d5c17@NAS-MAC-HEX-8DIGITS@040741020bf6@GUTI-PLMN-BCD@@GUTI-GID-HEX-4DIGITS@@GUTI-MMEC-HEX-2DIGITS@@GUTI-M-TMSI-HEX-8DIGITS@05@UE-NW-CAPABILITY-HEX-10DIGITS@0027021ad011d127208080211001000010810600000000830600000000000d00000a000005000010005202f85900015c0a003103e5e0349011035758a65d0100c10043000600@TAI@0064400800@EUTRAN-CGI@0086400110004b000700@GUMMEI@">
                   <field name="" pos="70" show="Item 0: id-eNB-UE-S1AP-ID" size="8" value="0008000480@ENB-UE-S1AP-ID-HEX-6DIGITS@">
                     <field name="s1ap.ProtocolIE_Field" pos="70" show="" showname="ProtocolIE-Field" size="8" value="">
                       <field name="s1ap.id" pos="70" show="8" showname="id: id-eNB-UE-S1AP-ID (8)" size="2" value="0008"/>
@@ -56,7 +56,7 @@
                       </field>
                     </field>
                   </field>
-                  <field name="" pos="78" show="Item 1: id-NAS-PDU" size="97" value="001a005d5c17@NAS-MAC-HEX-8DIGITS@040741020bf6@GUTI-MCC-BCD@@GUTI-MNC-BCD@@GUTI-GID-HEX-4DIGITS@@GUTI-MMEC-HEX-2DIGITS@@GUTI-M-TMSI-HEX-8DIGITS@05f070c040100027021ad011d127208080211001000010810600000000830600000000000d00000a000005000010005202f85900015c0a003103e5e0349011035758a65d0100c1">
+                  <field name="" pos="78" show="Item 1: id-NAS-PDU" size="97" value="001a005d5c17@NAS-MAC-HEX-8DIGITS@040741020bf6@GUTI-PLMN-BCD@@GUTI-GID-HEX-4DIGITS@@GUTI-MMEC-HEX-2DIGITS@@GUTI-M-TMSI-HEX-8DIGITS@05@UE-NW-CAPABILITY-HEX-10DIGITS@0027021ad011d127208080211001000010810600000000830600000000000d00000a0000050000100052@LRV_TAI@5c0a003103e5e0349011035758a65d0100c1">
                     <field name="s1ap.ProtocolIE_Field" pos="78" show="" showname="ProtocolIE-Field" size="97" value="">
                       <field name="s1ap.id" pos="78" show="26" showname="id: id-NAS-PDU (26)" size="2" value="001a"/>
                       <field hide="yes" name="per.enum_index" pos="80" show="0" showname="Enumerated Index: 0" size="1" value="00"/>
@@ -64,7 +64,7 @@
                       <field hide="yes" name="per.open_type_length" pos="81" show="93" showname="Open Type Length: 93" size="1" value="5d"/>
                       <field name="s1ap.value" pos="82" show="" showname="value" size="93" value="">
                         <field hide="yes" name="per.octet_string_length" pos="82" show="92" showname="Octet String Length: 92" size="1" value="5c"/>
-                        <field name="s1ap.NAS_PDU" pos="83" show="17:b7:76:bc:ad:04:07:41:02:0b:f6:02:f8:59:00:04:01:8c:00:09:50:05:f0:70:c0:40:10:00:27:02:1a:d0:11:d1:27:20:80:80:21:10:01:00:00:10:81:06:00:00:00:00:83:06:00:00:00:00:00:0d:00:00:0a:00:00:05:00:00:10:00:52:02:f8:59:00:01:5c:0a:00:31:03:e5:e0:34:90:11:03:57:58:a6:5d:01:00:c1" showname="NAS-PDU: 17@NAS-MAC-HEX-8DIGITS@040741020bf6@GUTI-MCC-BCD@@GUTI-MNC-BCD@@GUTI-GID-HEX-4DIGITS@@GUTI-MMEC-HEX-2DIGITS@@GUTI-M-TMSI-HEX-8DIGITS@05f070..." size="92" value="17@NAS-MAC-HEX-8DIGITS@040741020bf6@GUTI-MCC-BCD@@GUTI-MNC-BCD@@GUTI-GID-HEX-4DIGITS@@GUTI-MMEC-HEX-2DIGITS@@GUTI-M-TMSI-HEX-8DIGITS@05f070c040100027021ad011d127208080211001000010810600000000830600000000000d00000a000005000010005202f85900015c0a003103e5e0349011035758a65d0100c1"/>
+                        <field name="s1ap.NAS_PDU" pos="83" show="17:b7:76:bc:ad:04:07:41:02:0b:f6:02:f8:59:00:04:01:8c:00:09:50:05:f0:70:c0:40:10:00:27:02:1a:d0:11:d1:27:20:80:80:21:10:01:00:00:10:81:06:00:00:00:00:83:06:00:00:00:00:00:0d:00:00:0a:00:00:05:00:00:10:00:52:02:f8:59:00:01:5c:0a:00:31:03:e5:e0:34:90:11:03:57:58:a6:5d:01:00:c1" showname="NAS-PDU: 17@NAS-MAC-HEX-8DIGITS@040741020bf6@GUTI-PLMN-BCD@@GUTI-GID-HEX-4DIGITS@@GUTI-MMEC-HEX-2DIGITS@@GUTI-M-TMSI-HEX-8DIGITS@05f070..." size="92" value="17@NAS-MAC-HEX-8DIGITS@040741020bf6@GUTI-PLMN-BCD@@GUTI-GID-HEX-4DIGITS@@GUTI-MMEC-HEX-2DIGITS@@GUTI-M-TMSI-HEX-8DIGITS@05@UE-NW-CAPABILITY-HEX-10DIGITS@0027021ad011d127208080211001000010810600000000830600000000000d00000a000005000010005202f85900015c0a003103e5e0349011035758a65d0100c1"/>
                         <proto name="nas-eps" pos="83" showname="Non-Access-Stratum (NAS)PDU" size="92">
                           <field name="nas_eps.security_header_type" pos="83" show="1" showname="0001 .... = Security header type: Integrity protected (1)" size="1" unmaskedvalue="17" value="1"/>
                           <field name="gsm_a.L3_protocol_discriminator" pos="83" show="0x07" showname=".... 0111 = Protocol discriminator: EPS mobility management messages (0x07)" size="1" unmaskedvalue="17" value="7"/>
@@ -77,7 +77,7 @@
                           <field name="nas_eps.emm.nas_key_set_id" pos="91" show="0" showname=".000 .... = NAS key set identifier:  (0)" size="1" value="02"/>
                           <field name="nas_eps.spare_bits" pos="91" show="0x00" showname=".... 0... = Spare bit(s): 0x00" size="1" value="02"/>
                           <field name="nas_eps.emm.eps_att_type" pos="91" show="2" showname=".... .010 = EPS attach type: Combined EPS/IMSI attach (2)" size="1" value="02"/>
-                          <field name="" pos="92" show="EPS mobile identity" size="12" value="0bf6@GUTI-MCC-BCD@@GUTI-MNC-BCD@@GUTI-GID-HEX-4DIGITS@@GUTI-MMEC-HEX-2DIGITS@@GUTI-M-TMSI-HEX-8DIGITS@">
+                          <field name="" pos="92" show="EPS mobile identity" size="12" value="0bf6@GUTI-PLMN-BCD@@GUTI-GID-HEX-4DIGITS@@GUTI-MMEC-HEX-2DIGITS@@GUTI-M-TMSI-HEX-8DIGITS@">
                             <field name="gsm_a.len" pos="92" show="11" showname="Length: 11" size="1" value="0b"/>
                             <field name="nas_eps.emm.odd_even" pos="93" show="0" showname=".... 0... = odd/even indic: 0" size="1" unmaskedvalue="f6" value="0"/>
                             <field name="nas_eps.emm.type_of_id" pos="93" show="6" showname=".... .110 = Type of identity: GUTI (6)" size="1" unmaskedvalue="f6" value="6"/>
@@ -87,7 +87,7 @@
                             <field name="nas_eps.emm.mme_code" pos="99" show="1" showname="MME Code: 1" size="1" value="@GUTI-MMEC-HEX-2DIGITS@"/>
                             <field name="nas_eps.emm.m_tmsi" pos="100" show="0x@GUTI-M-TMSI-HEX-8DIGITS@" showname="M-TMSI: 0x@GUTI-M-TMSI-HEX-8DIGITS@" size="4" value="@GUTI-M-TMSI-HEX-8DIGITS@"/>
                           </field>
-                          <field name="" pos="104" show="UE network capability" size="6" value="05f070c04010">
+                          <field name="" pos="104" show="UE network capability" size="6" value="05@UE-NW-CAPABILITY-HEX-10DIGITS@">
                             <field name="gsm_a.len" pos="104" show="5" showname="Length: 5" size="1" value="05"/>
                             <field name="nas_eps.emm.eea0" pos="105" show="1" showname="1... .... = EEA0: Supported" size="1" unmaskedvalue="f0" value="1"/>
                             <field name="nas_eps.emm.128eea1" pos="105" show="1" showname=".1.. .... = 128-EEA1: Supported" size="1" unmaskedvalue="f0" value="1"/>
@@ -184,7 +184,7 @@
                               </field>
                             </field>
                           </field>
-                          <field name="" pos="151" show="Tracking area identity - Last visited registered TAI" size="6" value="5202f8590001">
+                          <field name="" pos="151" show="Tracking area identity - Last visited registered TAI" size="6" value="52@LRV_TAI@">
                             <field name="nas_eps.emm.elem_id" pos="151" show="0x52" showname="Element ID: 0x52" size="1" value="52"/>
                             <field name="e212.mcc" pos="152" show="208" showname="Mobile Country Code (MCC): France (208)" size="2" value="02f8"/>
                             <field name="e212.mnc" pos="153" show="95" showname="Mobile Network Code (MNC): Unknown (95)" size="2" value="f859"/>
@@ -273,7 +273,7 @@
                       </field>
                     </field>
                   </field>
-                  <field name="" pos="175" show="Item 2: id-TAI" size="10" value="004300060002f8590001">
+                  <field name="" pos="175" show="Item 2: id-TAI" size="10" value="0043000600@TAI@">
                     <field name="s1ap.ProtocolIE_Field" pos="175" show="" showname="ProtocolIE-Field" size="10" value="">
                       <field name="s1ap.id" pos="175" show="67" showname="id: id-TAI (67)" size="2" value="0043"/>
                       <field hide="yes" name="per.enum_index" pos="177" show="0" showname="Enumerated Index: 0" size="1" value="00"/>
@@ -291,7 +291,7 @@
                       </field>
                     </field>
                   </field>
-                  <field name="" pos="185" show="Item 3: id-EUTRAN-CGI" size="12" value="006440080002f85900e00000">
+                  <field name="" pos="185" show="Item 3: id-EUTRAN-CGI" size="12" value="0064400800@EUTRAN-CGI@">
                     <field name="s1ap.ProtocolIE_Field" pos="185" show="" showname="ProtocolIE-Field" size="12" value="">
                       <field name="s1ap.id" pos="185" show="100" showname="id: id-EUTRAN-CGI (100)" size="2" value="0064"/>
                       <field hide="yes" name="per.enum_index" pos="187" show="1" showname="Enumerated Index: 1" size="1" value="40"/>
@@ -322,7 +322,7 @@
                       </field>
                     </field>
                   </field>
-                  <field name="" pos="202" show="Item 5: id-GUMMEI-ID" size="11" value="004b00070002f859000401">
+                  <field name="" pos="202" show="Item 5: id-GUMMEI-ID" size="11" value="004b000700@GUMMEI@">
                     <field name="s1ap.ProtocolIE_Field" pos="202" show="" showname="ProtocolIE-Field" size="11" value="">
                       <field name="s1ap.id" pos="202" show="75" showname="id: id-GUMMEI-ID (75)" size="2" value="004b"/>
                       <field hide="yes" name="per.enum_index" pos="204" show="0" showname="Enumerated Index: 0" size="1" value="00"/>

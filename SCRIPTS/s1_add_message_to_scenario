@@ -32,29 +32,6 @@
 THIS_SCRIPT_PATH=$(dirname $(readlink -f $0))
 source $THIS_SCRIPT_PATH/script_helper
 
-
-# @MME-UE-S1AP-ID-HEX-8DIGITS@
-# @MME-UE-S1AP-ID-DECIMAL@
-# @ENB-UE-S1AP-ID-HEX-6DIGITS@
-# @ENB-UE-S1AP-ID-DECIMAL@
-
-# @IMSI-DECIMAL@
-# @IMSI-BCD@
-
-# @SCTP-STREAM-ID-HEX0X04@
-# @CTP-STREAM-ID-DECIMAL-4DIGITS@
-
-# @AUTHENTICATION-RAND@
-# @AUTHENTICATION-AUTN@
-# @AUTHENTICATION-RES@
-
-# @NAS-MAC-HEX-8DIGITS@
-# @GUTI-MCC-BCD@
-# @GUTI-MNC-BCD@
-# @GUTI-GID-HEX-4DIGITS@
-# @GUTI-MMEC-HEX-2DIGITS@
-# @GUTI-M-TMSI-HEX-8DIGITS@
-
 # arg1 file path to be processed by 'sed' 
 # arg sed command file path 
 function search_and_replace()
@@ -143,12 +120,8 @@ function main()
         echo "s/@NAS-MAC-HEX-8DIGITS@/$2/g" >> $tmp_sed_command_file
         shift 2;
         ;;
-      --GUTI-MCC-BCD)
-        echo "s/@GUTI-MCC-BCD@/$2/g" >> $tmp_sed_command_file
-        shift 2;
-        ;;
-      --GUTI-MNC-BCD)
-        echo "s/@GUTI-MNC-BCD@/$2/g" >> $tmp_sed_command_file
+      --GUTI-PLMN-BCD)
+        echo "s/@GUTI-PLMN-BCD@/$2/g" >> $tmp_sed_command_file
         shift 2;
         ;;
       --GUTI-GID-HEX-4DIGITS)
@@ -157,14 +130,6 @@ function main()
         ;;
       --GUTI-MMEC-HEX-2DIGITS)
         echo "s/@GUTI-MMEC-HEX-2DIGITS@/$2/g" >> $tmp_sed_command_file
-        shift 2;
-        ;;
-      --GUTI-MMEC-HEX-2DIGITS)
-        echo "s/@GUTI-MMEC-HEX-2DIGITS@/$2/g" >> $tmp_sed_command_file
-        shift 2;
-        ;;
-      --GUTI-M-TMSI-HEX-8DIGITS)
-        echo "s/@GUTI-M-TMSI-HEX-8DIGITS@/$2/g" >> $tmp_sed_command_file
         shift 2;
         ;;
       --GUTI-M-TMSI-HEX-8DIGITS)
@@ -177,6 +142,46 @@ function main()
         ;;
       --IMSI-BCD)
         echo "s/@IMSI-BCD@/$2/g" >> $tmp_sed_command_file
+        shift 2;
+        ;;
+      --AUTHENTICATION-RAND)
+        echo "s/@AUTHENTICATION-RAND@/$2/g" >> $tmp_sed_command_file
+        shift 2;
+        ;;
+      --AUTHENTICATION-AUTN)
+        echo "s/@AUTHENTICATION-AUTN@/$2/g" >> $tmp_sed_command_file
+        shift 2;
+        ;;
+      --AUTHENTICATION-RES)
+        echo "s/@AUTHENTICATION-RES@/$2/g" >> $tmp_sed_command_file
+        shift 2;
+        ;;
+      --TAI)
+        echo "s/@TAI@/$2/g" >> $tmp_sed_command_file
+        shift 2;
+        ;;
+      --LRV-TAI)
+        echo "s/@LRV-TAI@/$2/g" >> $tmp_sed_command_file
+        shift 2;
+        ;;
+      --EUTRAN-CGI)
+        echo "s/@EUTRAN-CGI@/$2/g" >> $tmp_sed_command_file
+        shift 2;
+        ;;
+      --GUMMEI)
+        echo "s/@GUMMEI@/$2/g" >> $tmp_sed_command_file
+        shift 2;
+        ;;
+      --K-ENB)
+        echo "s/@K-ENB@/$2/g" >> $tmp_sed_command_file
+        shift 2;
+        ;;
+      --UE-NW-CAPABILITY-HEX-8DIGITS)
+        echo "s/@UE-NW-CAPABILITY-HEX-8DIGITS@/$2/g" >> $tmp_sed_command_file
+        shift 2;
+        ;;
+      --UE-NW-CAPABILITY-HEX-10DIGITS)
+        echo "s/@UE-NW-CAPABILITY-HEX-10DIGITS@/$2/g" >> $tmp_sed_command_file
         shift 2;
         ;;
       -h | --help)

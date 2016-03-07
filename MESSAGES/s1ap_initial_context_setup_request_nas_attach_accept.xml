@@ -48,7 +48,7 @@
       <proto name="s1ap" pos="78" showname="S1 Application Protocol" size="189">
         <field hide="yes" name="per.extension_bit" pos="78" show="0" showname="0... .... Extension Bit: False" size="1" unmaskedvalue="00" value="0"/>
         <field hide="yes" name="per.choice_index" pos="78" show="0" showname="Choice Index: 0" size="1" value="00"/>
-        <field name="s1ap.S1AP_PDU" pos="78" show="0" showname="S1AP-PDU: initiatingMessage (0)" size="189" value="00090080b800000600000005@MME-UE-S1AP-ID-HEX-8DIGITS@0008000480@ENB-UE-S1AP-ID-HEX-6DIGITS@0042000a1805f5e1006002faf080001800650000340060450009040f80c0a80c3e000000015127@NAS-MAC-HEX-8DIGITS@0107420249060002f85900010031521ac1010909036f616904697076340501c0ac00025e04fefede9e271480802110020000108106c0a86a0c8306c0a80c64500bf602f8590004018c000950006b0005000004000000490020a14a5adcb537e68cd8091ac35442b7a6548c197205da50e256f85318304c86f2">
+        <field name="s1ap.S1AP_PDU" pos="78" show="0" showname="S1AP-PDU: initiatingMessage (0)" size="189" value="00090080b800000600000005@MME-UE-S1AP-ID-HEX-8DIGITS@0008000480@ENB-UE-S1AP-ID-HEX-6DIGITS@0042000a1805f5e1006002faf080001800650000340060450009040f80c0a80c3e000000015127@NAS-MAC-HEX-8DIGITS@0107420249060002f85900010031521ac1010909036f616904697076340501c0ac00025e04fefede9e271480802110020000108106c0a86a0c8306c0a80c64500bf602f8590004018c000950006b0005000004000000490020@K-ENB@">
           <field name="s1ap.initiatingMessage" pos="78" show="" showname="initiatingMessage" size="189" value="">
             <field name="s1ap.procedureCode" pos="79" show="9" showname="procedureCode: id-InitialContextSetup (9)" size="1" value="09"/>
             <field hide="yes" name="per.enum_index" pos="80" show="0" showname="Enumerated Index: 0" size="1" value="00"/>
@@ -58,7 +58,7 @@
               <field name="s1ap.InitialContextSetupRequest" pos="83" show="" showname="InitialContextSetupRequest" size="184" value="">
                 <field hide="yes" name="per.extension_bit" pos="83" show="0" showname="0... .... Extension Bit: False" size="1" unmaskedvalue="00" value="0"/>
                 <field hide="yes" name="per.sequence_of_length" pos="84" show="6" showname="Sequence-Of Length: 6" size="2" value="0006"/>
-                <field name="s1ap.protocolIEs" pos="86" show="6" showname="protocolIEs: 6 items" size="181" value="00000005@MME-UE-S1AP-ID-HEX-8DIGITS@0008000480@ENB-UE-S1AP-ID-HEX-6DIGITS@0042000a1805f5e1006002faf080001800650000340060450009040f80c0a80c3e000000015127@NAS-MAC-HEX-8DIGITS@0107420249060002f85900010031521ac1010909036f616904697076340501c0ac00025e04fefede9e271480802110020000108106c0a86a0c8306c0a80c64500bf602f8590004018c000950006b0005000004000000490020a14a5adcb537e68cd8091ac35442b7a6548c197205da50e256f85318304c86f2">
+                <field name="s1ap.protocolIEs" pos="86" show="6" showname="protocolIEs: 6 items" size="181" value="00000005@MME-UE-S1AP-ID-HEX-8DIGITS@0008000480@ENB-UE-S1AP-ID-HEX-6DIGITS@0042000a1805f5e1006002faf080001800650000340060450009040f80c0a80c3e000000015127@NAS-MAC-HEX-8DIGITS@0107420249060002f85900010031521ac1010909036f616904697076340501c0ac00025e04fefede9e271480802110020000108106c0a86a0c8306c0a80c64500bf602f8590004018c000950006b0005000004000000490020@K-ENB@">
                   <field name="" pos="86" show="Item 0: id-MME-UE-S1AP-ID" size="9" value="00000005@MME-UE-S1AP-ID-HEX-8DIGITS@">
                     <field name="s1ap.ProtocolIE_Field" pos="86" show="" showname="ProtocolIE-Field" size="9" value="">
                       <field name="s1ap.id" pos="86" show="0" showname="id: id-MME-UE-S1AP-ID (0)" size="2" value="0000"/>
@@ -266,14 +266,14 @@
                       </field>
                     </field>
                   </field>
-                  <field name="" pos="231" show="Item 5: id-SecurityKey" size="36" value="00490020a14a5adcb537e68cd8091ac35442b7a6548c197205da50e256f85318304c86f2">
+                  <field name="" pos="231" show="Item 5: id-SecurityKey" size="36" value="00490020@K-ENB@">
                     <field name="s1ap.ProtocolIE_Field" pos="231" show="" showname="ProtocolIE-Field" size="36" value="">
                       <field name="s1ap.id" pos="231" show="73" showname="id: id-SecurityKey (73)" size="2" value="0049"/>
                       <field hide="yes" name="per.enum_index" pos="233" show="0" showname="Enumerated Index: 0" size="1" value="00"/>
                       <field name="s1ap.criticality" pos="233" show="0" showname="criticality: reject (0)" size="1" value="00"/>
                       <field hide="yes" name="per.open_type_length" pos="234" show="32" showname="Open Type Length: 32" size="1" value="20"/>
                       <field name="s1ap.value" pos="235" show="" showname="value" size="32" value="">
-                        <field name="s1ap.SecurityKey" pos="235" show="a1:4a:5a:dc:b5:37:e6:8c:d8:09:1a:c3:54:42:b7:a6:54:8c:19:72:05:da:50:e2:56:f8:53:18:30:4c:86:f2" showname="SecurityKey: a14a5adcb537e68cd8091ac35442b7a6548c197205da50e2... [bit length 256]" size="32" value="a14a5adcb537e68cd8091ac35442b7a6548c197205da50e256f85318304c86f2"/>
+                        <field name="s1ap.SecurityKey" pos="235" show="a1:4a:5a:dc:b5:37:e6:8c:d8:09:1a:c3:54:42:b7:a6:54:8c:19:72:05:da:50:e2:56:f8:53:18:30:4c:86:f2" showname="SecurityKey: a14a5adcb537e68cd8091ac35442b7a6548c197205da50e2... [bit length 256]" size="32" value="@K-ENB@"/>
                       </field>
                     </field>
                   </field>

@@ -48,7 +48,7 @@
       <proto name="s1ap" pos="78" showname="S1 Application Protocol" size="59">
         <field hide="yes" name="per.extension_bit" pos="78" show="0" showname="0... .... Extension Bit: False" size="1" unmaskedvalue="00" value="0"/>
         <field hide="yes" name="per.choice_index" pos="78" show="0" showname="Choice Index: 0" size="1" value="00"/>
-        <field name="s1ap.S1AP_PDU" pos="78" show="0" showname="S1AP-PDU: initiatingMessage (0)" size="59" value="000d403700000500000005@MME-UE-S1AP-ID-HEX-8DIGITS@0008000480@ENB-UE-S1AP-ID-HEX-6DIGITS@001a00090847@NAS-MAC-HEX-8DIGITS@00075e006440080002f85900e00000004340060002f8590001">
+        <field name="s1ap.S1AP_PDU" pos="78" show="0" showname="S1AP-PDU: initiatingMessage (0)" size="59" value="000d403700000500000005@MME-UE-S1AP-ID-HEX-8DIGITS@0008000480@ENB-UE-S1AP-ID-HEX-6DIGITS@001a00090847@NAS-MAC-HEX-8DIGITS@00075e006440080002f85900e000000043400600@TAI@">
           <field name="s1ap.initiatingMessage" pos="78" show="" showname="initiatingMessage" size="59" value="">
             <field name="s1ap.procedureCode" pos="79" show="13" showname="procedureCode: id-uplinkNASTransport (13)" size="1" value="0d"/>
             <field hide="yes" name="per.enum_index" pos="80" show="1" showname="Enumerated Index: 1" size="1" value="40"/>
@@ -58,7 +58,7 @@
               <field name="s1ap.UplinkNASTransport" pos="82" show="" showname="UplinkNASTransport" size="55" value="">
                 <field hide="yes" name="per.extension_bit" pos="82" show="0" showname="0... .... Extension Bit: False" size="1" unmaskedvalue="00" value="0"/>
                 <field hide="yes" name="per.sequence_of_length" pos="83" show="5" showname="Sequence-Of Length: 5" size="2" value="0005"/>
-                <field name="s1ap.protocolIEs" pos="85" show="5" showname="protocolIEs: 5 items" size="52" value="00000005@MME-UE-S1AP-ID-HEX-8DIGITS@0008000480@ENB-UE-S1AP-ID-HEX-6DIGITS@001a00090847@NAS-MAC-HEX-8DIGITS@00075e006440080002f85900e00000004340060002f8590001">
+                <field name="s1ap.protocolIEs" pos="85" show="5" showname="protocolIEs: 5 items" size="52" value="00000005@MME-UE-S1AP-ID-HEX-8DIGITS@0008000480@ENB-UE-S1AP-ID-HEX-6DIGITS@001a00090847@NAS-MAC-HEX-8DIGITS@00075e006440080002f85900e000000043400600@TAI@">
                   <field name="" pos="85" show="Item 0: id-MME-UE-S1AP-ID" size="9" value="00000005@MME-UE-S1AP-ID-HEX-8DIGITS@">
                     <field name="s1ap.ProtocolIE_Field" pos="85" show="" showname="ProtocolIE-Field" size="9" value="">
                       <field name="s1ap.id" pos="85" show="0" showname="id: id-MME-UE-S1AP-ID (0)" size="2" value="0000"/>
@@ -120,7 +120,7 @@
                       </field>
                     </field>
                   </field>
-                  <field name="" pos="127" show="Item 4: id-TAI" size="10" value="004340060002f8590001">
+                  <field name="" pos="127" show="Item 4: id-TAI" size="10" value="0043400600@TAI@">
                     <field name="s1ap.ProtocolIE_Field" pos="127" show="" showname="ProtocolIE-Field" size="10" value="">
                       <field name="s1ap.id" pos="127" show="67" showname="id: id-TAI (67)" size="2" value="0043"/>
                       <field hide="yes" name="per.enum_index" pos="129" show="1" showname="Enumerated Index: 1" size="1" value="40"/>
