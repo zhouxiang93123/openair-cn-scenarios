@@ -35,19 +35,21 @@ source $THIS_SCRIPT_PATH/script_helper
 
 function main()
 {
-
   if [ "a$OPENAIRCN_DIR" == "a" ] ; then
-    read -p "Please enter the path of the openair-cn source tree ? " prompt
-    export OPENAIRCN_DIR=$prompt
+    read -p "Please enter the path of the openair-cn source tree ? " TMP_DIR
+    export OPENAIRCN_DIR=`realpath $TMP_DIR`
+    echo "OPENAIRCN_DIR="$OPENAIRCN_DIR
   fi
+  
 
   if [ "a$OPENAIRCN_DIR" = "a" ]; then 
-    echo "OPENAIRCN_DIR does not refer to a valid dir: $OPENAIRCN_DIR"
+    echo_fatal "OPENAIRCN_DIR does not refer to a valid dir: $OPENAIRCN_DIR"
   fi
  
   if [ ! -d "$OPENAIRCN_DIR" ]; then
-    echo "OPENAIRCN_DIR does not refer to a valid dir: $OPENAIRCN_DIR"
+    echo_fatal "OPENAIRCN_DIR does not refer to a valid dir: $OPENAIRCN_DIR"
   fi
+  export OPENAIRCN_DIR="$OPENAIRCN_DIR"
 
   SCENARIO_DIR=""
   if [ ! -z "$1" ]; then
@@ -56,21 +58,26 @@ function main()
     fi
     
     cd $1
-    SCENARIO_DIR=$(pwd)
   fi
+  SCENARIO_DIR=$(pwd)
+  #scenario name the last dirname in the scenario directory path
+  SCENARIO_NAME=${SCENARIO_DIR##*/}
   
-  if [ ! -f "./mme_fd.conf" ] ; then
-      echo_fatal "Error: Did not found the required file (./mme_fd.conf) for running the scenario in `pwd`" 
-  fi
+
 
   $THIS_SCRIPT_PATH/s1_prepare_test_scenario
 
   if [ ! -f "./enb.replay.conf" ] ; then
       echo_fatal "Error: Did not found the required file (./enb.replay.conf) for running the scenario in `pwd`" 
-    fi
-    if [ ! -f "./epc.replay.conf" ] ; then
-      echo_fatal "Error: Did not found the required file (./epc.replay.conf) for running the scenario in `pwd`" 
-    fi
+  fi
+  if [ ! -f "./mme.replay.conf" ] ; then
+    echo_fatal "Error: Did not found the required file (./mme.replay.conf) for running the scenario in `pwd`" 
+  fi
+  $SUDO  sed -i "s/\@TEST-NAME\@/$SCENARIO_NAME/g" ./mme.replay.conf
+
+  if [ ! -f "./spgw.replay.conf" ] ; then
+    echo_fatal "Error: Did not found the required file (./spgw.replay.conf) for running the scenario in `pwd`" 
+  fi
   if [ ! -f "./s1.xml" ] ; then
       echo_fatal "Error: Did not found the required file (./s1.xml) for running the scenario in `pwd`" 
   fi
@@ -78,30 +85,33 @@ function main()
       echo_fatal "Error: Did not found the required file (./hss_db.replay.sql) for running the scenario in `pwd`" 
   fi
   
-  $SUDO mkdir -p -m 755 /usr/local/etc/oai_test/freeDiameter > /dev/null
+  $SUDO mkdir -p -m 755 /usr/local/etc/oai_test_$SCENARIO_NAME/freeDiameter > /dev/null
   
-  if [ ! -f /usr/local/etc/oai_test/hss.conf ]; then
-    $SUDO cp -upv $THIS_SCRIPT_PATH/../ETC/hss.conf    /usr/local/etc/oai_test
-    echo_fatal "Please customize /usr/local/etc/oai_test/hss.conf"
+  if [ ! -f /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf ]; then
+    $SUDO cp -upv $THIS_SCRIPT_PATH/../ETC/hss.conf    /usr/local/etc/oai_test_$SCENARIO_NAME
+    $SUDO  sed -i "s/\@TEST-NAME\@/$SCENARIO_NAME/g" /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf
+    echo_fatal "Please customize /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf"
   else
-    if [  $THIS_SCRIPT_PATH/../ETC/hss.conf -nt  /usr/local/etc/oai_test/hss.conf ]; then
-      read -p "Do you want to update /usr/local/etc/oai_test/hss.conf? <y/N> " prompt
+    if [  $THIS_SCRIPT_PATH/../ETC/hss.conf -nt  /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf ]; then
+      read -p "Do you want to update /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf? <y/N> " prompt
       if [[ $prompt =~ [yY](es)* ]]; then
-        $SUDO cp -upv $THIS_SCRIPT_PATH/../ETC/hss.conf    /usr/local/etc/oai_test
-        echo_fatal "Please customize /usr/local/etc/oai_test/hss.conf"
+        $SUDO cp -upv $THIS_SCRIPT_PATH/../ETC/hss.conf    /usr/local/etc/oai_test_$SCENARIO_NAME
+        echo_fatal "Please customize /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf"
       fi
     fi
   fi 
   
-  $SUDO cp -upv $THIS_SCRIPT_PATH/../ETC/acl.conf    /usr/local/etc/oai_test/freeDiameter
-  $SUDO cp -upv $THIS_SCRIPT_PATH/../ETC/hss_fd.conf /usr/local/etc/oai_test/freeDiameter
+  $SUDO cp -upv $THIS_SCRIPT_PATH/../ETC/acl.conf    /usr/local/etc/oai_test_$SCENARIO_NAME/freeDiameter
+  $SUDO cp -upv $THIS_SCRIPT_PATH/../ETC/hss_fd.conf /usr/local/etc/oai_test_$SCENARIO_NAME/freeDiameter
+  $SUDO  sed -i "s/\@TEST-NAME\@/$SCENARIO_NAME/g" /usr/local/etc/oai_test_$SCENARIO_NAME/freeDiameter/hss_fd.conf
   
   # Set the host FQDN to MME diameter Identity
-  $SUDO cp -upv $THIS_SCRIPT_PATH/../ETC/mme_fd.conf /usr/local/etc/oai_test/freeDiameter
+  $SUDO cp -upv $THIS_SCRIPT_PATH/../ETC/mme_fd.conf /usr/local/etc/oai_test_$SCENARIO_NAME/freeDiameter
   HOST_FQDN=`hostname --fqdn`
-  DIAM_ID=$(cat /usr/local/etc/oai_test/freeDiameter/mme_fd.conf | grep Identity | cut -d '=' -f2 | cut -d '"' -f2)
+  DIAM_ID=$(cat /usr/local/etc/oai_test_$SCENARIO_NAME/freeDiameter/mme_fd.conf | grep Identity | cut -d '=' -f2 | cut -d '"' -f2)
   DIAM_ID=$DIAM_ID
-  $SUDO  sed -i "s/$DIAM_ID/$HOST_FQDN/g" /usr/local/etc/oai_test/freeDiameter/mme_fd.conf
+  $SUDO  sed -i "s/$DIAM_ID/$HOST_FQDN/g" /usr/local/etc/oai_test_$SCENARIO_NAME/freeDiameter/mme_fd.conf
+  $SUDO  sed -i "s/\@TEST-NAME\@/$SCENARIO_NAME/g" /usr/local/etc/oai_test_$SCENARIO_NAME/freeDiameter/mme_fd.conf
 
 
   # hardcoded HSS diameter ID 
@@ -115,8 +125,8 @@ function main()
   fi
 
   # generate certificates if necessary
-  $SUDO $OPENAIRCN_DIR/SCRIPTS/check_hss_s6a_certificate /usr/local/etc/oai_test/freeDiameter hss-test.openair4G.eur
-  $SUDO $OPENAIRCN_DIR/SCRIPTS/check_mme_s6a_certificate /usr/local/etc/oai_test/freeDiameter $HOST_FQDN
+  $SUDO $OPENAIRCN_DIR/SCRIPTS/check_hss_s6a_certificate /usr/local/etc/oai_test_$SCENARIO_NAME/freeDiameter hss-test.openair4G.eur
+  $SUDO $OPENAIRCN_DIR/SCRIPTS/check_mme_s6a_certificate /usr/local/etc/oai_test_$SCENARIO_NAME/freeDiameter $HOST_FQDN
   
 
     # may be you want to speed up the run of the scenario if not optimized (capture with real UE)
@@ -125,34 +135,30 @@ function main()
     run_options=$(< ./enb.replay.run_options.txt)
   fi
     
+  # do networking config
+  $THIS_SCRIPT_PATH/prepare_interfaces --on
+
   
   #########################
   # START HSS
   #########################
-  $OPENAIRCN_DIR/SCRIPTS/run_hss  --import-db ./hss_db.replay.sql --config-file /usr/local/etc/oai_test/hss.conf --daemon
+  $OPENAIRCN_DIR/SCRIPTS/run_hss  --import-db ./hss_db.replay.sql --config-file /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf --daemon
   sleep 4 # TODO better than that
   
   #########################
-  # START EPC
+  # START MME
   #########################
-  # start EPC with default epc conf file
-  if [ -f "./networking " ]; then 
-    # do networking config
-    $SUDO ./networking --on
-    $OPENAIRCN_DIR/SCRIPTS/run_epc --daemon --config-file $SCENARIO_DIR/epc.replay.conf
-  else
-    $OPENAIRCN_DIR/SCRIPTS/run_epc --set-nw-interfaces --daemon --config-file $SCENARIO_DIR/epc.replay.conf
-  fi
+  $OPENAIRCN_DIR/SCRIPTS/run_mme --daemon --config-file $SCENARIO_DIR/mme.replay.conf
   
   #########################
-  # WAIT MME_GW READY
+  # WAIT MME READY
   #########################
-  while [  ! -f /var/run/mme_gwd.pid ]; do
-    echo_warning "Waiting for /var/run/mme_gwd.pid creation"
+  while [  ! -f /var/run/mmed.pid ]; do
+    echo_warning "Waiting for /var/run/mmed.pid creation"
     sleep 1
   done
-  MME_GW_PID=$(cat /var/run/mme_gwd.pid)
-  STATUS_FILENAME="/tmp/mme_"$MME_GW_PID".status"
+  MME_PID=$(cat /var/run/mmed.pid)
+  STATUS_FILENAME="/tmp/mme_"$MME_PID".status"
   declare -i COUNT=0
   while [  ! -f $STATUS_FILENAME ] && [ $COUNT -lt 10 ]; do
     echo_warning "Waiting for $STATUS_FILENAME creation"
@@ -161,20 +167,56 @@ function main()
   done
   STATUS=$(cat $STATUS_FILENAME)
   ########################
-  # MME_GW FAILED ?
+  # MME FAILED ?
   #########################
   if [ "a$STATUS" != "aSTARTED" ]; then
     # CLEANING
     $OPENAIRCN_DIR/SCRIPTS/run_hss --kill
-    $OPENAIRCN_DIR/SCRIPTS/run_epc --kill
+    $OPENAIRCN_DIR/SCRIPTS/run_mme --kill
+    $OPENAIRCN_DIR/SCRIPTS/run_spgw --kill
     # undo networking config
-    if [ -f "./networking " ]; then 
-      $SUDO ./networking --off
-    fi
-    echo_fatal "ERROR: mme_gw not started"
+    $THIS_SCRIPT_PATH/prepare_interfaces --off
+    echo_fatal "ERROR: mme not started"
   else
-    echo_success "mme_gw started"
+    echo_success "mme started"
   fi
+  
+  #########################
+  # START SPGW
+  #########################
+  $OPENAIRCN_DIR/SCRIPTS/run_spgw --set-nw-interfaces --daemon --config-file $SCENARIO_DIR/spgw.replay.conf
+  
+  #########################
+  # WAIT SPGW READY
+  #########################
+  while [  ! -f /var/run/spgwd.pid ]; do
+    echo_warning "Waiting for /var/run/spgwd.pid creation"
+    sleep 1
+  done
+  MME_PID=$(cat /var/run/spgwd.pid)
+  STATUS_FILENAME="/tmp/mme_"$SPGW_PID".status"
+  declare -i COUNT=0
+  while [  ! -f $STATUS_FILENAME ] && [ $COUNT -lt 10 ]; do
+    echo_warning "Waiting for $STATUS_FILENAME creation"
+    COUNT=$(($COUNT+1))
+    sleep 1
+  done
+  STATUS=$(cat $STATUS_FILENAME)
+  ########################
+  # SPGW FAILED ?
+  #########################
+  if [ "a$STATUS" != "aSTARTED" ]; then
+    # CLEANING
+    $OPENAIRCN_DIR/SCRIPTS/run_hss --kill
+    $OPENAIRCN_DIR/SCRIPTS/run_mme --kill
+    $OPENAIRCN_DIR/SCRIPTS/run_spgw --kill
+    # undo networking config
+    $THIS_SCRIPT_PATH/prepare_interfaces --off
+    echo_fatal "ERROR: spgw not started"
+  else
+    echo_success "spgw started"
+  fi
+
   
   #########################  
   # run XML scenario file
@@ -185,14 +227,11 @@ function main()
   ########################
   # CLEANING
   #########################
-  $OPENAIRCN_DIR/SCRIPTS/run_epc --kill
+  $OPENAIRCN_DIR/SCRIPTS/run_spgw --kill
+  $OPENAIRCN_DIR/SCRIPTS/run_mme --kill
   $OPENAIRCN_DIR/SCRIPTS/run_hss --kill
   # undo networking config
-  if [ -f "./networking " ]; then 
-    $SUDO ./networking --off
-  fi
-
-  
+  $THIS_SCRIPT_PATH/prepare_interfaces --off
 }
 
 main "$@"
