@@ -49,86 +49,149 @@ function main()
     echo "OPENAIRCN_DIR does not refer to a valid dir: $OPENAIRCN_DIR"
   fi
 
-
+  SCENARIO_DIR=""
   if [ ! -z "$1" ]; then
     if [ ! -d $1 ]; then
       echo_fatal "Error: Please provide a valid path to the desired test scenario dir" 
     fi
+    
     cd $1
+    SCENARIO_DIR=$(pwd)
   fi
   
-  $THIS_SCRIPT_PATH/s1_prepare_test_scenario .
+  if [ ! -f "./mme_fd.conf" ] ; then
+      echo_fatal "Error: Did not found the required file (./mme_fd.conf) for running the scenario in `pwd`" 
+  fi
 
-  
-  backuped_conf_file_path=/usr/local/etc/oai/epc.conf.backup_$(date +%F-%T)
-  if [ -f "/usr/local/etc/oai/epc.conf" ] ; then
-    $SUDO cp -pf /usr/local/etc/oai/epc.conf $backuped_conf_file_path
-  fi
-  
-  if [ ! -f "./epc.conf.replay.in" ] ; then
-      echo_fatal "Error: Did not found the required file (epc.conf.replay.in) for running the scenario in `pwd`" 
-  else
-    if [ ! -f "./epc.replay.conf" ] || [ "./epc.conf.replay.in" -nt "./epc.replay.conf" ]; then
-      # backup file
-      backuped_file_path=$OPENAIRCN_DIR/BUILD/EPC/epc.conf.in.backup_$(date +%F-%T)
-      cp -pf $OPENAIRCN_DIR/BUILD/EPC/epc.conf.in $backuped_file_path
-      cp ./epc.conf.replay.in $OPENAIRCN_DIR/BUILD/EPC/epc.conf.in
-      cd $OPENAIRCN_DIR/SCRIPTS
-      $SUDO rm -f /usr/local/etc/oai/epc.conf
-      # may fail
-      ./build_epc -C -l
-      cd -
-      cp /usr/local/etc/oai/epc.conf ./epc.replay.conf
-      #restore
-      cp -pf $backuped_file_path $OPENAIRCN_DIR/BUILD/EPC/epc.conf.in
-      rm $backuped_file_path
-    else
-      $SUDO cp ./epc.replay.conf /usr/local/etc/oai/epc.conf 
+  $THIS_SCRIPT_PATH/s1_prepare_test_scenario
+
+  if [ ! -f "./enb.replay.conf" ] ; then
+      echo_fatal "Error: Did not found the required file (./enb.replay.conf) for running the scenario in `pwd`" 
     fi
     if [ ! -f "./epc.replay.conf" ] ; then
-      echo_fatal "Error: Did not generate the required file epc.replay.conf for running the scenario in `pwd`" 
+      echo_fatal "Error: Did not found the required file (./epc.replay.conf) for running the scenario in `pwd`" 
     fi
+  if [ ! -f "./s1.xml" ] ; then
+      echo_fatal "Error: Did not found the required file (./s1.xml) for running the scenario in `pwd`" 
+  fi
+  if [ ! -f "./hss_db.replay.sql" ] ; then
+      echo_fatal "Error: Did not found the required file (./hss_db.replay.sql) for running the scenario in `pwd`" 
   fi
   
+  $SUDO mkdir -p -m 755 /usr/local/etc/oai_test/freeDiameter > /dev/null
   
-  if [ -f "./enb.replay.conf" ] && [ -f "./s1.xml" ] && [ -f "./epc.replay.conf" ] ; then
+  if [ ! -f /usr/local/etc/oai_test/hss.conf ]; then
+    $SUDO cp -upv $THIS_SCRIPT_PATH/../ETC/hss.conf    /usr/local/etc/oai_test
+    echo_fatal "Please customize /usr/local/etc/oai_test/hss.conf"
+  else
+    if [  $THIS_SCRIPT_PATH/../ETC/hss.conf -nt  /usr/local/etc/oai_test/hss.conf ]; then
+      read -p "Do you want to update /usr/local/etc/oai_test/hss.conf? <y/N> " prompt
+      if [[ $prompt =~ [yY](es)* ]]; then
+        $SUDO cp -upv $THIS_SCRIPT_PATH/../ETC/hss.conf    /usr/local/etc/oai_test
+        echo_fatal "Please customize /usr/local/etc/oai_test/hss.conf"
+      fi
+    fi
+  fi 
+  
+  $SUDO cp -upv $THIS_SCRIPT_PATH/../ETC/acl.conf    /usr/local/etc/oai_test/freeDiameter
+  $SUDO cp -upv $THIS_SCRIPT_PATH/../ETC/hss_fd.conf /usr/local/etc/oai_test/freeDiameter
+  
+  # Set the host FQDN to MME diameter Identity
+  $SUDO cp -upv $THIS_SCRIPT_PATH/../ETC/mme_fd.conf /usr/local/etc/oai_test/freeDiameter
+  HOST_FQDN=`hostname --fqdn`
+  DIAM_ID=$(cat /usr/local/etc/oai_test/freeDiameter/mme_fd.conf | grep Identity | cut -d '=' -f2 | cut -d '"' -f2)
+  DIAM_ID=$DIAM_ID
+  $SUDO  sed -i "s/$DIAM_ID/$HOST_FQDN/g" /usr/local/etc/oai_test/freeDiameter/mme_fd.conf
+
+
+  # hardcoded HSS diameter ID 
+  IP_ADDRESS=`getent hosts hss-test.openair4G.eur | cut -d ' ' -f1`
+  if [ "a$IP_ADDRESS" == "a" ]; then
+    echo '127.0.1.1        hss-test.openair4G.eur hss-test' | $SUDO tee -a  /etc/hosts
+  else
+    if [ "127.0.1.1"  != "$IP_ADDRESS" ]; then
+      echo_warning "FQDN hss-test.openair4G.eur resolution is the following: $IP_ADDRESS (better to use 127.0.1.1)"
+    fi
+  fi
+
+  # generate certificates if necessary
+  $SUDO $OPENAIRCN_DIR/SCRIPTS/check_hss_s6a_certificate /usr/local/etc/oai_test/freeDiameter hss-test.openair4G.eur
+  $SUDO $OPENAIRCN_DIR/SCRIPTS/check_mme_s6a_certificate /usr/local/etc/oai_test/freeDiameter $HOST_FQDN
+  
+
     # may be you want to speed up the run of the scenario if not optimized (capture with real UE)
-    run_option=""
-    if [ -f "./enb.replay.run_options.txt" ]; then
-      run_options=$(< ./enb.replay.run_options.txt)
-    fi
+  run_option=""
+  if [ -f "./enb.replay.run_options.txt" ]; then
+    run_options=$(< ./enb.replay.run_options.txt)
+  fi
     
-    # start EPC with default epc conf file
-    if [ -f "./networking " ]; then 
-      # do networking config
-      $SUDO ./networking --on
-      $OPENAIRCN_DIR/SCRIPTS/run_epc --daemon
-    else
-      $OPENAIRCN_DIR/SCRIPTS/run_epc --set-nw-interfaces --daemon
-    fi
-    sleep 4 # TODO better than that
-    $OPENAIRCN_DIR/SCRIPTS/run_hss  --import-db ./hss_db.sql  --daemon
-    sleep 4 # TODO better than that
-    
-    # run XML scenario file
-    echo_success "Running test `pwd`"
-    test_epc --run --set-nw-interfaces --test-dir . --enb-config-file enb.replay.conf --scenario-file s1.xml $run_options
-    
-    $OPENAIRCN_DIR/SCRIPTS/run_epc --kill
+  
+  #########################
+  # START HSS
+  #########################
+  $OPENAIRCN_DIR/SCRIPTS/run_hss  --import-db ./hss_db.replay.sql --config-file /usr/local/etc/oai_test/hss.conf --daemon
+  sleep 4 # TODO better than that
+  
+  #########################
+  # START EPC
+  #########################
+  # start EPC with default epc conf file
+  if [ -f "./networking " ]; then 
+    # do networking config
+    $SUDO ./networking --on
+    $OPENAIRCN_DIR/SCRIPTS/run_epc --daemon --config-file $SCENARIO_DIR/epc.replay.conf
+  else
+    $OPENAIRCN_DIR/SCRIPTS/run_epc --set-nw-interfaces --daemon --config-file $SCENARIO_DIR/epc.replay.conf
+  fi
+  
+  #########################
+  # WAIT MME_GW READY
+  #########################
+  while [  ! -f /var/run/mme_gwd.pid ]; do
+    echo_warning "Waiting for /var/run/mme_gwd.pid creation"
+    sleep 1
+  done
+  MME_GW_PID=$(cat /var/run/mme_gwd.pid)
+  STATUS_FILENAME="/tmp/mme_"$MME_GW_PID".status"
+  declare -i COUNT=0
+  while [  ! -f $STATUS_FILENAME ] && [ $COUNT -lt 10 ]; do
+    echo_warning "Waiting for $STATUS_FILENAME creation"
+    COUNT=$(($COUNT+1))
+    sleep 1
+  done
+  STATUS=$(cat $STATUS_FILENAME)
+  ########################
+  # MME_GW FAILED ?
+  #########################
+  if [ "a$STATUS" != "aSTARTED" ]; then
+    # CLEANING
     $OPENAIRCN_DIR/SCRIPTS/run_hss --kill
-    
+    $OPENAIRCN_DIR/SCRIPTS/run_epc --kill
     # undo networking config
     if [ -f "./networking " ]; then 
       $SUDO ./networking --off
     fi
+    echo_fatal "ERROR: mme_gw not started"
   else
-    echo_fatal "Error: Did not found the required files (enb.replay.conf, s1.xml) for running the scenario in `pwd`" 
+    echo_success "mme_gw started"
   fi
   
-  # restore
-  if [ -f $backuped_conf_file_path ] ; then
-    $SUDO cp -pf $backuped_conf_file_path /usr/local/etc/oai/epc.conf 
+  #########################  
+  # run XML scenario file
+  #########################
+  echo_success "Running test `pwd`"
+  test_epc --run --set-nw-interfaces --test-dir . --enb-config-file enb.replay.conf --scenario-file s1.xml $run_options
+    
+  ########################
+  # CLEANING
+  #########################
+  $OPENAIRCN_DIR/SCRIPTS/run_epc --kill
+  $OPENAIRCN_DIR/SCRIPTS/run_hss --kill
+  # undo networking config
+  if [ -f "./networking " ]; then 
+    $SUDO ./networking --off
   fi
+
   
 }
 
