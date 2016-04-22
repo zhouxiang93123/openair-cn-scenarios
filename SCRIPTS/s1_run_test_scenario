@@ -32,6 +32,10 @@
 THIS_SCRIPT_PATH=$(dirname $(readlink -f $0))
 source $THIS_SCRIPT_PATH/script_helper
 
+export HSS_S6A_IP="192.176.6.1"
+export HSS_S6A_INTERFACE_NAME="s6ahss"
+export MME_S6A_IP="192.176.6.2"
+export MME_S6A_INTERFACE_NAME="s6amme"
 
 function main()
 {
@@ -85,6 +89,8 @@ function main()
       echo_fatal "Error: Did not found the required file (./hss_db.replay.sql) for running the scenario in `pwd`" 
   fi
   
+  
+  
   $SUDO mkdir -p -m 755 /usr/local/etc/oai_test_$SCENARIO_NAME/freeDiameter > /dev/null
   
   if [ ! -f /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf ]; then
@@ -101,9 +107,21 @@ function main()
     fi
   fi 
   
+  
+  #########################
+  # do networking config
+  #########################
+  $THIS_SCRIPT_PATH/prepare_interfaces --on
+  
+    $SUDO ip link add $ENB_INTERFACE_NAME_FOR_S1_MME type veth peer name $MME_INTERFACE_NAME_FOR_S1_MME
+  #########################
+
+  
+  
   $SUDO cp -upv $THIS_SCRIPT_PATH/../ETC/acl.conf    /usr/local/etc/oai_test_$SCENARIO_NAME/freeDiameter
   $SUDO cp -upv $THIS_SCRIPT_PATH/../ETC/hss_fd.conf /usr/local/etc/oai_test_$SCENARIO_NAME/freeDiameter
   $SUDO  sed -i "s/\@TEST-NAME\@/$SCENARIO_NAME/g" /usr/local/etc/oai_test_$SCENARIO_NAME/freeDiameter/hss_fd.conf
+  
   
   # Set the host FQDN to MME diameter Identity
   $SUDO cp -upv $THIS_SCRIPT_PATH/../ETC/mme_fd.conf /usr/local/etc/oai_test_$SCENARIO_NAME/freeDiameter
@@ -112,6 +130,7 @@ function main()
   DIAM_ID=$DIAM_ID
   $SUDO  sed -i "s/$DIAM_ID/$HOST_FQDN/g" /usr/local/etc/oai_test_$SCENARIO_NAME/freeDiameter/mme_fd.conf
   $SUDO  sed -i "s/\@TEST-NAME\@/$SCENARIO_NAME/g" /usr/local/etc/oai_test_$SCENARIO_NAME/freeDiameter/mme_fd.conf
+  $SUDO  sed -i "s/\@HSS-IP\@/$HSS_S6A_IP/g" /usr/local/etc/oai_test_$SCENARIO_NAME/freeDiameter/mme_fd.conf
 
 
   # hardcoded HSS diameter ID 
@@ -135,15 +154,13 @@ function main()
     run_options=$(< ./enb.replay.run_options.txt)
   fi
     
-  # do networking config
-  $THIS_SCRIPT_PATH/prepare_interfaces --on
 
   
   #########################
   # START HSS
   #########################
-  $OPENAIRCN_DIR/SCRIPTS/run_hss  --import-db ./hss_db.replay.sql --config-file /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf --daemon
-  sleep 4 # TODO better than that
+  #$OPENAIRCN_DIR/SCRIPTS/run_hss  --import-db ./hss_db.replay.sql --config-file /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf --daemon
+  #sleep 4 # TODO better than that
   
   #########################
   # START MME
@@ -184,7 +201,7 @@ function main()
   #########################
   # START SPGW
   #########################
-  $OPENAIRCN_DIR/SCRIPTS/run_spgw --set-nw-interfaces --daemon --config-file $SCENARIO_DIR/spgw.replay.conf
+  $OPENAIRCN_DIR/SCRIPTS/run_spgw --daemon --config-file $SCENARIO_DIR/spgw.replay.conf
   
   #########################
   # WAIT SPGW READY
