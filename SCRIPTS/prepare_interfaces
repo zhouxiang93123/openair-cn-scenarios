@@ -164,8 +164,8 @@ function main()
 
   if [ $off -eq 1 ]; then
     # we assume all interfaces are virtual interfaces
-    $SUDO ip netns exec enb ifconfig   $ENB_INTERFACE_NAME_FOR_S1_MME  down
-    #$SUDO ip netns exec enb ifconfig   $ENB_INTERFACE_NAME_FOR_S1U    down
+    $SUDO ip netns exec enb-test ifconfig   $ENB_INTERFACE_NAME_FOR_S1_MME  down
+    $SUDO ip netns exec enb-test ifconfig   $ENB_INTERFACE_NAME_FOR_S1U    down
     $SUDO ifconfig   $SGW_INTERFACE_NAME_FOR_S11                       down
     #$SUDO ifconfig   $SGW_INTERFACE_NAME_FOR_S1U_S12_S4_UP            down
     #$SUDO ifconfig   $SGW_INTERFACE_NAME_FOR_S5_S8_UP                 down
@@ -173,28 +173,21 @@ function main()
     #$SUDO ifconfig   $PGW_INTERFACE_NAME_FOR_SGI                      down
     $SUDO ifconfig   $MME_INTERFACE_NAME_FOR_S1_MME                    down
     $SUDO ifconfig   $MME_INTERFACE_NAME_FOR_S11_MME                   down
-    $SUDO ifconfig   $MME_S6A_INTERFACE_NAME                           down
-    $SUDO ip netns exec hss ifconfig   $HSS_S6A_INTERFACE_NAME         down
   else
     # configure interfaces
     # we assume all interfaces are virtual interfaces
-    $SUDO ip netns add hss
-    $SUDO ip netns add enb
+    $SUDO ip netns add enb-test
     
     $SUDO ip link add $ENB_INTERFACE_NAME_FOR_S1_MME type veth peer name $MME_INTERFACE_NAME_FOR_S1_MME
     $SUDO ip link add $ENB_INTERFACE_NAME_FOR_S1U    type veth peer name $SGW_INTERFACE_NAME_FOR_S1U_S12_S4_UP
     $SUDO ip link add $SGW_INTERFACE_NAME_FOR_S11    type veth peer name $MME_INTERFACE_NAME_FOR_S11_MME
-    $SUDO ip link add $HSS_S6A_INTERFACE_NAME        type veth peer name $MME_S6A_INTERFACE_NAME
     
-    $SUDO ip link set $ENB_INTERFACE_NAME_FOR_S1_MME  netns enb
-    $SUDO ip link set $ENB_INTERFACE_NAME_FOR_S1U     netns enb
-    $SUDO ip link set $HSS_S6A_INTERFACE_NAME         netns hss
+    $SUDO ip link set $ENB_INTERFACE_NAME_FOR_S1_MME  netns enb-test
+    $SUDO ip link set $ENB_INTERFACE_NAME_FOR_S1U     netns enb-test
 
-    $SUDO ip netns exec hss ip link set dev lo up
-    $SUDO ip netns exec hss ifconfig   $HSS_S6A_INTERFACE_NAME          $HSS_S6A_IP           up
-    $SUDO ip netns exec enb ip link set dev lo up
-    $SUDO ip netns exec enb ifconfig   $ENB_INTERFACE_NAME_FOR_S1_MME   $ENB_IPV4_ADDRESS_FOR_S1_MME           up
-    $SUDO ip netns exec enb ifconfig   $ENB_INTERFACE_NAME_FOR_S1U      $ENB_IPV4_ADDRESS_FOR_S1U              up
+    $SUDO ip netns exec enb-test ip link set dev lo up
+    $SUDO ip netns exec enb-test ifconfig   $ENB_INTERFACE_NAME_FOR_S1_MME   $ENB_IPV4_ADDRESS_FOR_S1_MME           up
+    $SUDO ip netns exec enb-test ifconfig   $ENB_INTERFACE_NAME_FOR_S1U      $ENB_IPV4_ADDRESS_FOR_S1U              up
     $SUDO ifconfig   $SGW_INTERFACE_NAME_FOR_S11            $SGW_IPV4_ADDRESS_FOR_S11              up
     $SUDO ifconfig   $SGW_INTERFACE_NAME_FOR_S1U_S12_S4_UP  $SGW_IPV4_ADDRESS_FOR_S1U_S12_S4_UP    up
     #$SUDO ifconfig   $SGW_INTERFACE_NAME_FOR_S5_S8_UP       $SGW_IPV4_ADDRESS_FOR_S5_S8_UP         up
@@ -202,7 +195,6 @@ function main()
     #$SUDO ifconfig   $PGW_INTERFACE_NAME_FOR_SGI            $PGW_IPV4_ADDRESS_FOR_SGI              up
     $SUDO ifconfig   $MME_INTERFACE_NAME_FOR_S1_MME         $MME_IPV4_ADDRESS_FOR_S1_MME           up
     $SUDO ifconfig   $MME_INTERFACE_NAME_FOR_S11_MME        $MME_IPV4_ADDRESS_FOR_S11_MME          up
-    $SUDO ifconfig   $MME_S6A_INTERFACE_NAME                $MME_S6A_IP/24                         up
   fi
   
 }
