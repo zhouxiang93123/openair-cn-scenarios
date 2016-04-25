@@ -32,19 +32,51 @@
 THIS_SCRIPT_PATH=$(dirname $(readlink -f $0))
 source $THIS_SCRIPT_PATH/script_helper
 
-export HSS_S6A_IP="127.0.0.1"
-export HSS_S6A_INTERFACE_NAME="lo"
-export MME_S6A_IP="127.0.0.1"
-export MME_S6A_INTERFACE_NAME="lo"
+export HSS_S6A_IP="127.0.1.1"
+export HSS_MYSQL_IP="127.0.0.1"
 
 function main()
 {
-  SCENARIO_DIR=""
-  if [ ! -z "$1" ]; then
-    if [ ! -d $1 ]; then
+  local -i run_hss=1
+  local -i run_mme=1
+  local -i run_spgw=1
+  
+  until [ -z "$1" ]
+    do
+    case "$1" in
+      -h | --hss-started-by-human)
+        run_hss=0
+        shift 1;
+        ;;
+      -m | --mme-started-by-human)
+        run_mme=0
+        shift 1;
+        ;;
+      -s | --spgw-started-by-human)
+        run_spgw=0
+        shift 1;
+        ;;
+      -S | --scenario-dir)
+        SCENARIO_DIR=$2
+        shift 2;
+        ;;
+      -H | --help)
+        help
+        exit 0
+        ;;
+      *)   
+        echo "Unknown option $1"
+        help
+        exit 0
+        ;;
+    esac
+  done
+
+  if [ ! -z "$SCENARIO_DIR" ]; then
+    if [ ! -d $SCENARIO_DIR ]; then
       echo_fatal "Error: Please provide a valid path to the desired test scenario dir" 
     fi
-    cd $1
+    cd $SCENARIO_DIR
   fi
   SCENARIO_DIR=$(pwd)
   #scenario name the last dirname in the scenario directory path
@@ -107,7 +139,7 @@ function main()
   if [ ! -f /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf ]; then
     $SUDO cp -upv $THIS_SCRIPT_PATH/../ETC/hss.conf    /usr/local/etc/oai_test_$SCENARIO_NAME
     $SUDO  sed -i "s/\@TEST-NAME\@/$SCENARIO_NAME/g" /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf
-    $SUDO  sed -i "s/\@MME_S6A_IP\@/$MME_S6A_IP/g" /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf
+    $SUDO  sed -i "s/\@MYSQL_IP\@/$HSS_MYSQL_IP/g" /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf
     echo_fatal "Please customize /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf (login/password/OP key)"
   else
     if [  $THIS_SCRIPT_PATH/../ETC/hss.conf -nt  /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf ]; then
@@ -115,7 +147,7 @@ function main()
       if [[ $prompt =~ [yY](es)* ]]; then
         $SUDO cp -upv $THIS_SCRIPT_PATH/../ETC/hss.conf    /usr/local/etc/oai_test_$SCENARIO_NAME
         $SUDO  sed -i "s/\@TEST-NAME\@/$SCENARIO_NAME/g" /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf
-        $SUDO  sed -i "s/\@MME_S6A_IP\@/$MME_S6A_IP/g" /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf
+        $SUDO  sed -i "s/\@MYSQL_IP\@/$HSS_MYSQL_IP/g" /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf
         echo_fatal "Please customize /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf (login/password/OP key)"
       fi
     fi
@@ -178,25 +210,36 @@ function main()
   #########################
   # START HSS
   #########################
-  $SUDO $OPENAIRCN_DIR/SCRIPTS/run_hss  --import-db ./hss_db.replay.sql --config-file /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf --daemon 
-  sleep 4 # TODO better than that
+  if [ $run_hss -eq 1 ]; then 
+    $SUDO $OPENAIRCN_DIR/SCRIPTS/run_hss  --import-db ./hss_db.replay.sql --config-file /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf --daemon
+    sleep 4 # TODO better than that
+  else
+    echo_fatal "TODO run hss: /tmp/hss_"$HSS_PID".status "
+  fi 
   
   #########################
   # START MME
   #########################
-  $OPENAIRCN_DIR/SCRIPTS/run_mme --daemon --config-file /usr/local/etc/oai_test_$SCENARIO_NAME/mme.replay.conf
+  if [ $run_mme -eq 1 ]; then 
+    $OPENAIRCN_DIR/SCRIPTS/run_mme --daemon --config-file /usr/local/etc/oai_test_$SCENARIO_NAME/mme.replay.conf
+    MME_PID_FILE="/var/run/mmed.pid"
+  else
+    $OPENAIRCN_DIR/SCRIPTS/run_mme --kill
+    echo_warning "Run MME by your own"
+    MME_PID_FILE="/var/run/mme.pid"
+  fi
   
   #########################
   # WAIT MME READY
   #########################
-  while [  ! -f /var/run/mmed.pid ]; do
-    echo_warning "Waiting for /var/run/mmed.pid creation"
+  while [  ! -f $MME_PID_FILE ]; do
+    echo_warning "Waiting for $MME_PID_FILE creation"
     sleep 1
   done
-  MME_PID=$(cat /var/run/mmed.pid)
+  MME_PID=$(cat $MME_PID_FILE)
   STATUS_FILENAME="/tmp/mme_"$MME_PID".status"
   declare -i COUNT=0
-  while [  ! -f $STATUS_FILENAME ] && [ $COUNT -lt 1000 ]; do
+  while [  ! -f $STATUS_FILENAME ] && [ $COUNT -lt 20 ]; do
     echo_warning "Waiting for $STATUS_FILENAME creation"
     COUNT=$(($COUNT+1))
     sleep 1
@@ -220,19 +263,26 @@ function main()
   #########################
   # START SPGW
   #########################
-  $OPENAIRCN_DIR/SCRIPTS/run_spgw --daemon --config-file /usr/local/etc/oai_test_$SCENARIO_NAME/spgw.replay.conf
+  if [ $run_spgw -eq 1 ]; then 
+    $OPENAIRCN_DIR/SCRIPTS/run_spgw --daemon --config-file /usr/local/etc/oai_test_$SCENARIO_NAME/spgw.replay.conf
+    SPGW_PID_FILE="/var/run/spgwd.pid"
+  else
+    $OPENAIRCN_DIR/SCRIPTS/run_spgw --kill
+    echo_warning "Run MME by your own"
+    SPGW_PID_FILE="/var/run/spgw.pid"
+  fi
   
   #########################
   # WAIT SPGW READY
   #########################
-  while [  ! -f /var/run/spgwd.pid ]; do
-    echo_warning "Waiting for /var/run/spgwd.pid creation"
+  while [  ! -f $SPGW_PID_FILE ]; do
+    echo_warning "Waiting for $SPGW_PID_FILE creation"
     sleep 1
   done
-  MME_PID=$(cat /var/run/spgwd.pid)
-  STATUS_FILENAME="/tmp/mme_"$SPGW_PID".status"
+  SPGW_PID=$(cat $SPGW_PID_FILE)
+  STATUS_FILENAME="/tmp/spgw_"$SPGW_PID".status"
   declare -i COUNT=0
-  while [  ! -f $STATUS_FILENAME ] && [ $COUNT -lt 10 ]; do
+  while [  ! -f $STATUS_FILENAME ] && [ $COUNT -lt 20 ]; do
     echo_warning "Waiting for $STATUS_FILENAME creation"
     COUNT=$(($COUNT+1))
     sleep 1
@@ -258,14 +308,21 @@ function main()
   # run XML scenario file
   #########################
   echo_success "Running test `pwd`"
-  $SUDO ip netns exec enb-test test_epc --run --set-nw-interfaces --test-dir . --enb-config-file enb.replay.conf --scenario-file s1.xml $run_options
+  # DO NOT USE --set-nw-interfaces
+  $SUDO ip netns exec enb-test test_epc --run  --test-dir . --enb-config-file enb.replay.conf --scenario-file s1.xml $run_options
     
   ########################
   # CLEANING
   #########################
-  $OPENAIRCN_DIR/SCRIPTS/run_spgw --kill
-  $OPENAIRCN_DIR/SCRIPTS/run_mme --kill
-  $OPENAIRCN_DIR/SCRIPTS/run_hss --kill
+  if [ $run_spgw -eq 1 ]; then 
+    $OPENAIRCN_DIR/SCRIPTS/run_spgw --kill
+  fi
+  if [ $run_mme -eq 1 ]; then 
+    $OPENAIRCN_DIR/SCRIPTS/run_mme --kill
+  fi
+  if [ $run_hss -eq 1 ]; then 
+    $OPENAIRCN_DIR/SCRIPTS/run_hss --kill
+  fi
   # undo networking config
   $THIS_SCRIPT_PATH/prepare_interfaces --off
 }

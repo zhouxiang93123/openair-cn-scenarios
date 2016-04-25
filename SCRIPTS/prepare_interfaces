@@ -178,9 +178,9 @@ function main()
     # we assume all interfaces are virtual interfaces
     $SUDO ip netns add enb-test
     
-    $SUDO ip link add $ENB_INTERFACE_NAME_FOR_S1_MME type veth peer name $MME_INTERFACE_NAME_FOR_S1_MME
-    $SUDO ip link add $ENB_INTERFACE_NAME_FOR_S1U    type veth peer name $SGW_INTERFACE_NAME_FOR_S1U_S12_S4_UP
-    $SUDO ip link add $SGW_INTERFACE_NAME_FOR_S11    type veth peer name $MME_INTERFACE_NAME_FOR_S11_MME
+    $SUDO ip link add $MME_INTERFACE_NAME_FOR_S1_MME         type veth peer name $ENB_INTERFACE_NAME_FOR_S1_MME
+    $SUDO ip link add $SGW_INTERFACE_NAME_FOR_S1U_S12_S4_UP  type veth peer name $ENB_INTERFACE_NAME_FOR_S1U
+    $SUDO ip link add $SGW_INTERFACE_NAME_FOR_S11            type veth peer name $MME_INTERFACE_NAME_FOR_S11_MME
     
     $SUDO ip link set $ENB_INTERFACE_NAME_FOR_S1_MME  netns enb-test
     $SUDO ip link set $ENB_INTERFACE_NAME_FOR_S1U     netns enb-test
