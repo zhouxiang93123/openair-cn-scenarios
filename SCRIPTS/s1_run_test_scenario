@@ -239,7 +239,8 @@ function main()
   MME_PID=$(cat $MME_PID_FILE)
   STATUS_FILENAME="/tmp/mme_"$MME_PID".status"
   declare -i COUNT=0
-  while [  ! -f $STATUS_FILENAME ] && [ $COUNT -lt 20 ]; do
+  # sometimes the start takes a while (valgrind, ...)
+  while [  ! -f $STATUS_FILENAME ] && [ $COUNT -lt 30 ]; do
     echo_warning "Waiting for $STATUS_FILENAME creation"
     COUNT=$(($COUNT+1))
     sleep 1
@@ -268,7 +269,7 @@ function main()
     SPGW_PID_FILE="/var/run/spgwd.pid"
   else
     $OPENAIRCN_DIR/SCRIPTS/run_spgw --kill
-    echo_warning "Run MME by your own"
+    echo_warning "Run SPGW by your own"
     SPGW_PID_FILE="/var/run/spgw.pid"
   fi
   
@@ -282,6 +283,7 @@ function main()
   SPGW_PID=$(cat $SPGW_PID_FILE)
   STATUS_FILENAME="/tmp/spgw_"$SPGW_PID".status"
   declare -i COUNT=0
+  # sometimes the start takes a while (valgrind, ...)
   while [  ! -f $STATUS_FILENAME ] && [ $COUNT -lt 20 ]; do
     echo_warning "Waiting for $STATUS_FILENAME creation"
     COUNT=$(($COUNT+1))
