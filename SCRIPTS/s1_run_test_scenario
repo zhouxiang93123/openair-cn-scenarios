@@ -35,6 +35,21 @@ source $THIS_SCRIPT_PATH/script_helper
 export HSS_S6A_IP="127.0.1.1"
 export HSS_MYSQL_IP="127.0.0.1"
 
+function help()
+{
+  echo_error " "
+  echo_error "Usage: s1_run_test_scenario [OPTION]..."
+  echo_error "Run a S1-c scenario"
+  echo_error " "
+  echo_error "Options:"
+  echo_error "Mandatory arguments to long options are mandatory for short options too."
+  echo_error "  -h, --hss-started-by-human                Run the scenario but HSS will not be started by this script but by your own (ex debugging, profiling, etc)"
+  echo_error "  -m, --mme-started-by-human                Run the scenario but MME will not be started by this script but by your own (ex debugging, profiling, etc)"
+  echo_error "  -s, --spgw-started-by-human               Run the scenario but SPGW will not be started by this script but by your own (ex debugging, profiling, etc)"
+  echo_error "  -S, --scenario-dir                        full path of scenario directory (should be a subdir of $(readlink -f $THIS_SCRIPT_PATH/../SCENARIOS/S1))."
+  echo_error "  -H, --help                                Print this help."
+}
+
 function main()
 {
   local -i run_hss=1
@@ -140,7 +155,14 @@ function main()
     $SUDO cp -upv $THIS_SCRIPT_PATH/../ETC/hss.conf    /usr/local/etc/oai_test_$SCENARIO_NAME
     $SUDO  sed -i "s/\@TEST-NAME\@/$SCENARIO_NAME/g" /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf
     $SUDO  sed -i "s/\@MYSQL_IP\@/$HSS_MYSQL_IP/g" /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf
-    echo_fatal "Please customize /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf (login/password/OP key)"
+    if [ -f ./hss_credentials.txt ]; then
+      source ./hss_credentials.txt
+      $SUDO  sed -i "s/\@OPERATOR_key\@/$OPERATOR_KEY/g" /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf
+      $SUDO  sed -i "s/\@MYSQL_user\@/$MYSQL_USER/g"     /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf
+      $SUDO  sed -i "s/\@MYSQL_pass\@/$MYSQL_PASSWORD/g" /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf
+    else 
+      echo_fatal "Please customize /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf (login/password/OP key)"
+    fi
   else
     if [  $THIS_SCRIPT_PATH/../ETC/hss.conf -nt  /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf ]; then
       read -p "Do you want to update /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf? <y/N> " prompt
@@ -148,7 +170,14 @@ function main()
         $SUDO cp -upv $THIS_SCRIPT_PATH/../ETC/hss.conf    /usr/local/etc/oai_test_$SCENARIO_NAME
         $SUDO  sed -i "s/\@TEST-NAME\@/$SCENARIO_NAME/g" /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf
         $SUDO  sed -i "s/\@MYSQL_IP\@/$HSS_MYSQL_IP/g" /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf
-        echo_fatal "Please customize /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf (login/password/OP key)"
+        if [ -f ./hss_credentials.txt ]; then
+          source ./hss_credentials.txt
+          $SUDO  sed -i "s/\@OPERATOR_key\@/$OPERATOR_KEY/g" /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf
+          $SUDO  sed -i "s/\@MYSQL_user\@/$MYSQL_USER/g"     /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf
+          $SUDO  sed -i "s/\@MYSQL_pass\@/$MYSQL_PASSWORD/g" /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf
+        else 
+          echo_fatal "Please customize /usr/local/etc/oai_test_$SCENARIO_NAME/hss.conf (login/password/OP key)"
+        fi
       fi
     fi
   fi 
