@@ -36,19 +36,4 @@ if [ -f "./enb.conf" ] && [ -f "./s1.pcapng" ] && [ -f "./hss_db.sql" ] && [ -f 
   # generate XML scenario file
   echo_success "Running build test in `pwd`"
   test_epc --build-test --test-dir . --old-enb-config-file enb.conf --pcap-file s1.pcapng
-  
-  # Fill new DB with updated values for testbed: mmeidentity (mme hostname/realm)
-  if [ ! -f  "./hss_db.replay.sql" ]; then
-    cp ./hss_db.sql ./hss_db.replay.sql
-    DIAM_ID=$(cat ./mme_fd.conf | grep Identity | cut -d '=' -f2 | cut -d '"' -f2)
-    DIAM_ID=$DIAM_ID
-    HOST_FQDN=`hostname --fqdn`
-    #HARDCODED EPC TEST DIAMETER ID
-    sed -i "s/$DIAM_ID/$HOST_FQDN/g" ./hss_db.replay.sql
-    
-    REALM=$(cat ./mme_fd.conf | grep Realm | cut -d '=' -f2 | cut -d '"' -f2)
-    REALM=$REALM
-    #HARDCODED EPC REALM
-    sed -i "s/$REALM/openair4G.eur/g" ./hss_db.replay.sql
-  fi
 fi

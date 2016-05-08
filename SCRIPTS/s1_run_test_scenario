@@ -138,15 +138,19 @@ function main()
       echo_fatal "Error: Did not found the required file (./s1.xml) for running the scenario in `pwd`, should have been created by s1_prepare_test_scenario script"
     fi
   fi
-  if [ ! -f "./hss_db.replay.sql" ] ; then
-    # May be we forgot to run s1_prepare_test_scenario
-    $THIS_SCRIPT_PATH/s1_prepare_test_scenario
-    if [ ! -f "./hss_db.replay.sql" ] ; then
-      # Definitely an error
-      echo_fatal "Error: Did not found the required file (./hss_db.replay.sql) for running the scenario in `pwd`, should have been created by s1_prepare_test_scenario script" 
-    fi
-  fi
   
+  # Always regenerate ./hss_db.replay.sql
+  cp --force ./hss_db.sql ./hss_db.replay.sql
+  DIAM_ID=$(cat ./mme_fd.conf | grep Identity | cut -d '=' -f2 | cut -d '"' -f2)
+  DIAM_ID=$DIAM_ID
+  HOST_FQDN=`hostname --fqdn`
+  sed -i "s/$DIAM_ID/$HOST_FQDN/g" ./hss_db.replay.sql
+    
+  REALM=$(cat ./mme_fd.conf | grep Realm | cut -d '=' -f2 | cut -d '"' -f2)
+  REALM=$REALM
+  HOST_REALM=$HOST_FQDN
+  HOST_REALM=${HOST_REALM#*.}
+  sed -i "s/$REALM/$HOST_REALM/g" ./hss_db.replay.sql
   
   
   $SUDO mkdir -p -m 755 /usr/local/etc/oai_test_$SCENARIO_NAME/freeDiameter > /dev/null
