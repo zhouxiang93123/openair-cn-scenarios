@@ -41,8 +41,9 @@ do
   cd - > /dev/null 2>&1
 done
 
-$OPENAIRCN_DIR/SCRIPTS/build_epc --clean --daemon 
-$OPENAIRCN_DIR/SCRIPTS/build_hss --clean --daemon --random false
+$OPENAIRCN_DIR/SCRIPTS/build_spgw --clean --daemon 
+$OPENAIRCN_DIR/SCRIPTS/build_mme --clean --daemon 
+$OPENAIRCN_DIR/SCRIPTS/build_hss --clean --daemon --debug
 
 
 
