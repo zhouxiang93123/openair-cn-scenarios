@@ -45,6 +45,7 @@ function help()
   echo_error "Mandatory arguments to long options are mandatory for short options too."
   echo_error "  -h, --hss-started-by-human                Run the scenario but HSS will not be started by this script but by your own (ex debugging, profiling, etc)"
   echo_error "  -m, --mme-started-by-human                Run the scenario but MME will not be started by this script but by your own (ex debugging, profiling, etc)"
+  echo_error "  -M, --mscgen                              Generate mscgen output files in the test directory"
   echo_error "  -s, --spgw-started-by-human               Run the scenario but SPGW will not be started by this script but by your own (ex debugging, profiling, etc)"
   echo_error "  -S, --scenario-dir                        full path of scenario directory (should be a subdir of $(readlink -f $THIS_SCRIPT_PATH/../SCENARIOS/S1))."
   echo_error "  -H, --help                                Print this help."
@@ -55,6 +56,7 @@ function main()
   local -i run_hss=1
   local -i run_mme=1
   local -i run_spgw=1
+  local -i run_mscgen=0
   
   until [ -z "$1" ]
     do
@@ -65,6 +67,10 @@ function main()
         ;;
       -m | --mme-started-by-human)
         run_mme=0
+        shift 1;
+        ;;
+      -M | --mscgen)
+        run_mscgen=1
         shift 1;
         ;;
       -s | --spgw-started-by-human)
@@ -253,8 +259,12 @@ function main()
   #########################
   # START MME
   #########################
-  if [ $run_mme -eq 1 ]; then 
-    $OPENAIRCN_DIR/SCRIPTS/run_mme --daemon --config-file /usr/local/etc/oai_test_$SCENARIO_NAME/mme.replay.conf
+  if [ $run_mme -eq 1 ]; then
+    mme_args="--daemon --config-file /usr/local/etc/oai_test_$SCENARIO_NAME/mme.replay.conf"
+    if [ $run_mscgen -eq 1 ]; then
+      mme_args=$mme_args" --mscgen $SCENARIO_DIR"
+    fi
+    $OPENAIRCN_DIR/SCRIPTS/run_mme $mme_args
     MME_PID_FILE="/var/run/mmed.pid"
   else
     $OPENAIRCN_DIR/SCRIPTS/run_mme --kill
@@ -354,6 +364,12 @@ function main()
   fi
   if [ $run_mme -eq 1 ]; then 
     $OPENAIRCN_DIR/SCRIPTS/run_mme --kill
+    if [ $run_spgw -eq 1 ]; then 
+      cd $SCENARIO_DIR
+      cp -upv /tmp/openair.msc.3.log .
+      $SUDO $OPENAIRCN_DIR/SCRIPTS/msc_gen --profile MME --dir $SCENARIO_DIR --type png
+      cd -
+    fi
   fi
   if [ $run_hss -eq 1 ]; then 
     $OPENAIRCN_DIR/SCRIPTS/run_hss --kill
