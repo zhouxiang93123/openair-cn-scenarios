@@ -1,0 +1,49 @@
+msc {
+width = "2048";
+   S1AP_ENB, GTPU_ENB, S1AP_MME, MME_APP, NAS_MME, NAS_EMM, NAS_ESM, S11_MME, S6A, SGW, HSS;
+  NAS_EMM=>NAS_EMM [ label = "(155|0009:676600EMMREG_COMMON_PROC_CNF) ue id 0x00000002 (security mode complete)", linecolour="black" , textcolour="black" ] ;
+  NAS_EMM note NAS_EMM [ label = "0009:676749EMM
+ state DEREGISTERED UE 0x00000002 ", textcolour="black" ] ;
+  NAS_MME=>MME_APP [ label = "(157|0009:677104NAS_PDN_CONNECTIVITY_REQ) ue id 000002 IMSI 93CF6634", linecolour="black" , textcolour="black" ] ;
+  MME_APP=>S6A [ label = "(158|0009:6775030) S6A_UPDATE_LOCATION_REQ imsi 208930100001114", linecolour="black" , textcolour="black" ] ;
+  S6A=>MME_APP [ label = "(159|0009:6831770) S6A_UPDATE_LOCATION_ANS imsi 208930100001114 DIAMETER_SUCCESS", linecolour="black" , textcolour="black" ] ;
+  MME_APP=>S11_MME [ label = "(160|0009:6833830) S11_CREATE_SESSION_REQUEST imsi 208930100001114", linecolour="black" , textcolour="black" ] ;
+  S11_MME=>SGW [ label = "(161|0009:6835930) CREATE_SESSION_REQUEST local S11 teid 0xC052C60 num bearers ctx 1", linecolour="black" , textcolour="black" ] ;
+  S11_MME<=SGW [ label = "(162|0009:6872800) CREATE_SESSION_RESPONSE local S11 teid 0xC052C60 num bearer ctxt 1", linecolour="black" , textcolour="black" ] ;
+  MME_APP<=S11_MME [ label = "(163|0009:6873530) CREATE_SESSION_RESPONSE local S11 teid 0xC052C60 IMSI 208930100001114 ", linecolour="black" , textcolour="black" ] ;
+  MME_APP=>NAS_MME [ label = "(164|0009:6877370) NAS_PDN_CONNECTIVITY_RSP sgw_s1u_teid 2 ebi 5 qci 9 prio 1", linecolour="black" , textcolour="black" ] ;
+  NAS_MME=>NAS_EMM [ label = "(165|0009:6877990) EMMCN_PDN_CONNECTIVITY_RES", linecolour="black" , textcolour="black" ] ;
+  NAS_ESM note NAS_ESM [ label = "0009:6881900
+ ESM state BEARER CONTEXT INACTIVE => BEARER CONTEXT ACTIVE PENDING 0x00000002 ", textcolour="black" ] ;
+  NAS_EMM note NAS_EMM [ label = "0009:688489send
+ ATTACH_ACCEPT to s_TMSI 1.1476402368 ", textcolour="black" ] ;
+  NAS_MME=>MME_APP [ label = "(168|0009:689170NAS_CONNECTION_ESTABLISHMENT_CNF) ue id 000002 len 0 sea 0 sia 40 ", linecolour="black" , textcolour="black" ] ;
+  MME_APP=>S1AP_MME [ label = "(169|0009:6892390) MME_APP_CONNECTION_ESTABLISHMENT_CNF ebi 5 s1u_sgw teid 2 qci 9 prio level 1 sea 0x0 sia 0x40", linecolour="black" , textcolour="black" ] ;
+  NAS_EMM note NAS_EMM [ label = "0009:689243T3450
+ started UE 0x00000002 ", textcolour="black" ] ;
+  S1AP_MME=>S1AP_ENB [ label = "(171|0009:6894480) InitialContextSetup/initiatingMessage mme_ue_s1ap_id 0x00000002 enb_ue_s1ap_id 0xFA3950 nas length 88", linecolour="black" , textcolour="black" ] ;
+  S1AP_MME<=S1AP_ENB [ label = "(172|0009:7138890) UECapabilityInfoIndication/Originating message enb_ue_s1ap_id 0xFA3950 mme_ue_s1ap_id 0x00000002 ", linecolour="black" , textcolour="black" ] ;
+  S1AP_MME=>MME_APP [ label = "(173|0009:7139220) S1AP_UE_CAPABILITIES_IND enb_ue_s1ap_id 0xFA3950 mme_ue_s1ap_id 0x00000002 len 53", linecolour="black" , textcolour="black" ] ;
+  S1AP_MME<=S1AP_ENB [ label = "(174|0009:9126170) InitialContextSetup/Successfull outcome enb_ue_s1ap_id 0xFA3950 mme_ue_s1ap_id 0x00000002 len 4966497", linecolour="black" , textcolour="black" ] ;
+  S1AP_MME=>MME_APP [ label = "(175|0009:9126520) MME_APP_INITIAL_CONTEXT_SETUP_RSP mme_ue_s1ap_id 0x00000002 ebi 5 s1u enb teid 2369645879", linecolour="black" , textcolour="black" ] ;
+  MME_APP=>S11_MME [ label = "(176|0009:9127870) S11_MODIFY_BEARER_REQUEST teid 2 ebi 5", linecolour="black" , textcolour="black" ] ;
+  S1AP_MME<=S1AP_ENB [ label = "(177|0009:9128070) uplinkNASTransport/Originating message mme_ue_s1ap_id 0x00000002 enb_ue_s1ap_id 0xFA3950 nas len 13", linecolour="black" , textcolour="black" ] ;
+  S1AP_MME=>NAS_MME [ label = "(178|0009:9128180) NAS_UPLINK_DATA_IND ue_id 0x00000002 len 13", linecolour="black" , textcolour="black" ] ;
+  S11_MME=>SGW [ label = "(179|0009:9128540) MODIFY_BEARER_REQUEST local S11 teid 0xC052C60 num bearers ctx 1", linecolour="black" , textcolour="black" ] ;
+  NAS_MME=>NAS_EMM [ label = "(180|0009:9128610) EMMAS_DATA_IND ue id 0x00000002 len 13 tai:  plmn 208.93  tac 1", linecolour="black" , textcolour="black" ] ;
+  NAS_EMM note NAS_EMM [ label = "0009:913439T3450
+ stopped UE 0x00000002 ", textcolour="black" ] ;
+  NAS_ESM note NAS_ESM [ label = "0009:9137060
+ ESM state BEARER CONTEXT ACTIVE PENDING => BEARER CONTEXT ACTIVE 0x00000002 ", textcolour="black" ] ;
+  NAS_EMM note NAS_EMM [ label = "0009:913916EMM
+ state REGISTERED UE 0x00000002 ", textcolour="black" ] ;
+  S11_MME<=SGW [ label = "(184|0009:9372660) MODIFY_BEARER_RESPONSE local S11 teid 0xC052C60 cause 16", linecolour="black" , textcolour="black" ] ;
+  MME_APP<=S11_MME [ label = "(185|0009:9373240) DELETE_SESSION_RESPONSE local S11 teid 0xC052C60 IMSI 208930100001114 ", linecolour="black" , textcolour="black" ] ;
+  S1AP_MME<=S1AP_ENB [ label = "(186|0010:3912000) uplinkNASTransport/Originating message mme_ue_s1ap_id 0x00000002 enb_ue_s1ap_id 0xFA3950 nas len 21", linecolour="black" , textcolour="black" ] ;
+  S1AP_MME=>NAS_MME [ label = "(187|0010:3912110) NAS_UPLINK_DATA_IND ue_id 0x00000002 len 21", linecolour="black" , textcolour="black" ] ;
+  NAS_MME=>NAS_EMM [ label = "(188|0010:3913370) EMMAS_DATA_IND ue id 0x00000002 len 21 tai:  plmn 208.93  tac 1", linecolour="black" , textcolour="black" ] ;
+  NAS_EMM note NAS_EMM [ label = "0010:3918900
+ Removing UE context ue id 0x00000002 ", textcolour="black" ] ;
+  NAS_EMM=>NAS_ESM [ label = "(190|0010:3920000) ESM_EPS_BEARER_CONTEXT_DEACTIVATE_REQ ue id 0x00000002 ", linecolour="black" , textcolour="black" ] ;
+
+}

@@ -1,0 +1,52 @@
+msc {
+width = "2048";
+   S1AP_ENB, GTPU_ENB, S1AP_MME, MME_APP, NAS_MME, NAS_EMM, NAS_ESM, S11_MME, S6A, SGW, HSS;
+  S1AP_MME=>S1AP_ENB [ label = "(119|0009:5151970) downlinkNASTransport/initiatingMessage ue_id 0x00000002 mme_ue_s1ap_id 0x00000002 enb_ue_s1ap_id0xFA3950 nas length 29", linecolour="black" , textcolour="black" ] ;
+  S1AP_MME<=S1AP_ENB [ label = "(120|0009:5261900) uplinkNASTransport/Originating message mme_ue_s1ap_id 0x00000002 enb_ue_s1ap_id 0xFA3950 nas len 17", linecolour="black" , textcolour="black" ] ;
+  S1AP_MME=>NAS_MME [ label = "(121|0009:5262020) NAS_UPLINK_DATA_IND ue_id 0x00000002 len 17", linecolour="black" , textcolour="black" ] ;
+  NAS_MME=>NAS_EMM [ label = "(122|0009:5262790) EMMAS_DATA_IND ue id 0x00000002 len 17 tai:  plmn 208.93  tac 1", linecolour="black" , textcolour="black" ] ;
+  NAS_EMM note NAS_EMM [ label = "0009:526704T3470
+ stopped UE 0x00000002 ", textcolour="black" ] ;
+  NAS_EMM=>NAS_EMM [ label = "(124|0009:526819EMMREG_COMMON_PROC_CNF) ue id 0x00000002 ", linecolour="black" , textcolour="black" ] ;
+  NAS_EMM note NAS_EMM [ label = "0009:526970EMM
+ state DEREGISTERED UE 0x00000002 ", textcolour="black" ] ;
+  NAS_MME=>S6A [ label = "(126|0009:5271290) S6A_AUTH_INFO_REQ IMSI 208930100001114 visited_plmn 208.93  re_sync 0", linecolour="black" , textcolour="black" ] ;
+  S6A=>NAS_MME [ label = "(127|0009:5333000) S6A_AUTH_INFO_ANS imsi 208930100001114 DIAMETER_SUCCESS", linecolour="black" , textcolour="black" ] ;
+  NAS_MME=>NAS_EMM [ label = "(128|0009:5334730) EMMCN_AUTHENTICATION_PARAM_RES", linecolour="black" , textcolour="black" ] ;
+  NAS_EMM=>NAS_EMM [ label = "(129|0009:533686EMMAS_SECURITY_REQ) ue id 0x00000002 ", linecolour="black" , textcolour="black" ] ;
+  NAS_EMM note NAS_EMM [ label = "0009:533796send
+ AUTHENTICATION_REQUEST to ue id 0x00000002 ", textcolour="black" ] ;
+  NAS_MME=>S1AP_MME [ label = "(131|0009:5341000) NAS_DOWNLINK_DATA_REQ ue id 0x00000002 len 0", linecolour="black" , textcolour="black" ] ;
+  NAS_EMM note NAS_EMM [ label = "0009:534173T3460
+ started UE 0x00000002 ", textcolour="black" ] ;
+  MME_APP=>MME_APP [ label = "(133|0009:5341900) DOWNLINK NAS TRANSPORT enb_ue_s1ap_id 0xFA3950 ue id 0x00000002 ", linecolour="black" , textcolour="black" ] ;
+  NAS_EMM=>NAS_EMM [ label = "(134|0009:534195EMMREG_COMMON_PROC_REQ) ue id 0x00000002 (authentication)", linecolour="black" , textcolour="black" ] ;
+  NAS_EMM note NAS_EMM [ label = "0009:534319EMM
+ state COMMON-PROCEDURE-INITIATED UE 0x00000002 ", textcolour="black" ] ;
+  S1AP_MME=>S1AP_ENB [ label = "(136|0009:5343690) downlinkNASTransport/initiatingMessage ue_id 0x00000002 mme_ue_s1ap_id 0x00000002 enb_ue_s1ap_id0xFA3950 nas length 62", linecolour="black" , textcolour="black" ] ;
+  S1AP_MME<=S1AP_ENB [ label = "(137|0009:6606830) uplinkNASTransport/Originating message mme_ue_s1ap_id 0x00000002 enb_ue_s1ap_id 0xFA3950 nas len 17", linecolour="black" , textcolour="black" ] ;
+  S1AP_MME=>NAS_MME [ label = "(138|0009:6606940) NAS_UPLINK_DATA_IND ue_id 0x00000002 len 17", linecolour="black" , textcolour="black" ] ;
+  NAS_MME=>NAS_EMM [ label = "(139|0009:6607700) EMMAS_DATA_IND ue id 0x00000002 len 17 tai:  plmn 208.93  tac 1", linecolour="black" , textcolour="black" ] ;
+  NAS_EMM note NAS_EMM [ label = "0009:661165T3460
+ stopped UE 0x00000002 ", textcolour="black" ] ;
+  NAS_EMM=>NAS_EMM [ label = "(141|0009:661190EMMREG_COMMON_PROC_CNF) ue id 0x00000002 ", linecolour="black" , textcolour="black" ] ;
+  NAS_EMM note NAS_EMM [ label = "0009:661293EMM
+ state DEREGISTERED UE 0x00000002 ", textcolour="black" ] ;
+  NAS_EMM=>NAS_EMM [ label = "(143|0009:661752EMMAS_SECURITY_REQ) ue id 0x00000002 ", linecolour="black" , textcolour="black" ] ;
+  NAS_EMM note NAS_EMM [ label = "0009:661867send
+ SECURITY_MODE_COMMAND to ue id 0x00000002 ", textcolour="black" ] ;
+  NAS_MME=>S1AP_MME [ label = "(145|0009:6624580) NAS_DOWNLINK_DATA_REQ ue id 0x00000002 len 0", linecolour="black" , textcolour="black" ] ;
+  NAS_EMM note NAS_EMM [ label = "0009:662557T3460
+ started UE 0x00000002 ", textcolour="black" ] ;
+  NAS_EMM=>NAS_EMM [ label = "(147|0009:662576EMMREG_COMMON_PROC_REQ) ue id 0x00000002 (security mode control)", linecolour="black" , textcolour="black" ] ;
+  MME_APP=>MME_APP [ label = "(148|0009:6625900) DOWNLINK NAS TRANSPORT enb_ue_s1ap_id 0xFA3950 ue id 0x00000002 ", linecolour="black" , textcolour="black" ] ;
+  NAS_EMM note NAS_EMM [ label = "0009:662723EMM
+ state COMMON-PROCEDURE-INITIATED UE 0x00000002 ", textcolour="black" ] ;
+  S1AP_MME=>S1AP_ENB [ label = "(150|0009:6627400) downlinkNASTransport/initiatingMessage ue_id 0x00000002 mme_ue_s1ap_id 0x00000002 enb_ue_s1ap_id0xFA3950 nas length 42", linecolour="black" , textcolour="black" ] ;
+  S1AP_MME<=S1AP_ENB [ label = "(151|0009:6756680) uplinkNASTransport/Originating message mme_ue_s1ap_id 0x00000002 enb_ue_s1ap_id 0xFA3950 nas len 8", linecolour="black" , textcolour="black" ] ;
+  S1AP_MME=>NAS_MME [ label = "(152|0009:6756830) NAS_UPLINK_DATA_IND ue_id 0x00000002 len 8", linecolour="black" , textcolour="black" ] ;
+  NAS_MME=>NAS_EMM [ label = "(153|0009:6757700) EMMAS_DATA_IND ue id 0x00000002 len 8 tai:  plmn 208.93  tac 1", linecolour="black" , textcolour="black" ] ;
+  NAS_EMM note NAS_EMM [ label = "0009:676592T3460
+ stopped UE 0x00000002 ", textcolour="black" ] ;
+
+}

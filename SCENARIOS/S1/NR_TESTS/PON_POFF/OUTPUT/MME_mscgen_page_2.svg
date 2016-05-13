@@ -1,0 +1,851 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1"
+ width="2046px" height="1162px"
+ viewBox="0 0 2046 1162"
+ xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges"
+ stroke-width="1" text-rendering="geometricPrecision">
+<polygon fill="white" points="60,7 124,7 124,16 60,16"/>
+<text x="93" y="16" textLength="62" font-family="Helvetica" font-size="12" fill="black" text-anchor="middle">
+
+S1AP_ENB
+</text>
+<polygon fill="white" points="245,7 311,7 311,16 245,16"/>
+<text x="279" y="16" textLength="65" font-family="Helvetica" font-size="12" fill="black" text-anchor="middle">
+
+GTPU_ENB
+</text>
+<polygon fill="white" points="431,7 497,7 497,16 431,16"/>
+<text x="465" y="16" textLength="65" font-family="Helvetica" font-size="12" fill="black" text-anchor="middle">
+
+S1AP_MME
+</text>
+<polygon fill="white" points="620,7 680,7 680,16 620,16"/>
+<text x="651" y="16" textLength="59" font-family="Helvetica" font-size="12" fill="black" text-anchor="middle">
+
+MME_APP
+</text>
+<polygon fill="white" points="806,7 866,7 866,16 806,16"/>
+<text x="837" y="16" textLength="59" font-family="Helvetica" font-size="12" fill="black" text-anchor="middle">
+
+NAS_MME
+</text>
+<polygon fill="white" points="992,7 1052,7 1052,16 992,16"/>
+<text x="1023" y="16" textLength="59" font-family="Helvetica" font-size="12" fill="black" text-anchor="middle">
+
+NAS_EMM
+</text>
+<polygon fill="white" points="1179,7 1237,7 1237,16 1179,16"/>
+<text x="1209" y="16" textLength="57" font-family="Helvetica" font-size="12" fill="black" text-anchor="middle">
+
+NAS_ESM
+</text>
+<polygon fill="white" points="1365,7 1423,7 1423,16 1365,16"/>
+<text x="1395" y="16" textLength="56" font-family="Helvetica" font-size="12" fill="black" text-anchor="middle">
+
+S11_MME
+</text>
+<polygon fill="white" points="1568,7 1592,7 1592,16 1568,16"/>
+<text x="1581" y="16" textLength="23" font-family="Helvetica" font-size="12" fill="black" text-anchor="middle">
+
+S6A
+</text>
+<polygon fill="white" points="1751,7 1781,7 1781,16 1751,16"/>
+<text x="1767" y="16" textLength="29" font-family="Helvetica" font-size="12" fill="black" text-anchor="middle">
+
+SGW
+</text>
+<polygon fill="white" points="1939,7 1965,7 1965,16 1939,16"/>
+<text x="1953" y="16" textLength="25" font-family="Helvetica" font-size="12" fill="black" text-anchor="middle">
+
+HSS
+</text>
+<line x1="93" y1="22" x2="93" y2="50" stroke="black"/>
+<line x1="279" y1="22" x2="279" y2="50" stroke="black"/>
+<line x1="465" y1="22" x2="465" y2="50" stroke="black"/>
+<line x1="651" y1="22" x2="651" y2="50" stroke="black"/>
+<line x1="837" y1="22" x2="837" y2="50" stroke="black"/>
+<line x1="1023" y1="22" x2="1023" y2="50" stroke="black"/>
+<line x1="1209" y1="22" x2="1209" y2="50" stroke="black"/>
+<line x1="1395" y1="22" x2="1395" y2="50" stroke="black"/>
+<line x1="1581" y1="22" x2="1581" y2="50" stroke="black"/>
+<line x1="1767" y1="22" x2="1767" y2="50" stroke="black"/>
+<line x1="1953" y1="22" x2="1953" y2="50" stroke="black"/>
+<line x1="651" y1="33" x2="1395" y2="33" stroke="black"/>
+<polygon fill="black" points="1395,33 1385,39 1385,27"/>
+<polygon fill="white" points="840,23 1204,23 1204,32 840,32"/>
+<text x="841" y="32" textLength="362" font-family="Helvetica" font-size="12" fill="black">
+(83|0007:2329200) S11_MODIFY_BEARER_REQUEST teid 1 ebi 5
+</text>
+<line x1="93" y1="50" x2="93" y2="78" stroke="black"/>
+<line x1="279" y1="50" x2="279" y2="78" stroke="black"/>
+<line x1="465" y1="50" x2="465" y2="78" stroke="black"/>
+<line x1="651" y1="50" x2="651" y2="78" stroke="black"/>
+<line x1="837" y1="50" x2="837" y2="78" stroke="black"/>
+<line x1="1023" y1="50" x2="1023" y2="78" stroke="black"/>
+<line x1="1209" y1="50" x2="1209" y2="78" stroke="black"/>
+<line x1="1395" y1="50" x2="1395" y2="78" stroke="black"/>
+<line x1="1581" y1="50" x2="1581" y2="78" stroke="black"/>
+<line x1="1767" y1="50" x2="1767" y2="78" stroke="black"/>
+<line x1="1953" y1="50" x2="1953" y2="78" stroke="black"/>
+<line x1="93" y1="61" x2="465" y2="61" stroke="black"/>
+<polygon fill="black" points="465,61 455,67 455,55"/>
+<polygon fill="white" points="4294967294,51 702,51 702,60 4294967294,60"/>
+<text x="4294967295" y="60" textLength="702" font-family="Helvetica" font-size="12" fill="black">
+(84|0007:2329840) uplinkNASTransport/Originating message mme_ue_s1ap_id 0x00000001 enb_ue_s1ap_id 0x06692D nas len 13
+</text>
+<line x1="93" y1="78" x2="93" y2="106" stroke="black"/>
+<line x1="279" y1="78" x2="279" y2="106" stroke="black"/>
+<line x1="465" y1="78" x2="465" y2="106" stroke="black"/>
+<line x1="651" y1="78" x2="651" y2="106" stroke="black"/>
+<line x1="837" y1="78" x2="837" y2="106" stroke="black"/>
+<line x1="1023" y1="78" x2="1023" y2="106" stroke="black"/>
+<line x1="1209" y1="78" x2="1209" y2="106" stroke="black"/>
+<line x1="1395" y1="78" x2="1395" y2="106" stroke="black"/>
+<line x1="1581" y1="78" x2="1581" y2="106" stroke="black"/>
+<line x1="1767" y1="78" x2="1767" y2="106" stroke="black"/>
+<line x1="1953" y1="78" x2="1953" y2="106" stroke="black"/>
+<line x1="465" y1="89" x2="837" y2="89" stroke="black"/>
+<polygon fill="black" points="837,89 827,95 827,83"/>
+<polygon fill="white" points="458,79 843,79 843,88 458,88"/>
+<text x="459" y="88" textLength="383" font-family="Helvetica" font-size="12" fill="black">
+(85|0007:2329940) NAS_UPLINK_DATA_IND ue_id 0x00000001 len 13
+</text>
+<line x1="93" y1="106" x2="93" y2="134" stroke="black"/>
+<line x1="279" y1="106" x2="279" y2="134" stroke="black"/>
+<line x1="465" y1="106" x2="465" y2="134" stroke="black"/>
+<line x1="651" y1="106" x2="651" y2="134" stroke="black"/>
+<line x1="837" y1="106" x2="837" y2="134" stroke="black"/>
+<line x1="1023" y1="106" x2="1023" y2="134" stroke="black"/>
+<line x1="1209" y1="106" x2="1209" y2="134" stroke="black"/>
+<line x1="1395" y1="106" x2="1395" y2="134" stroke="black"/>
+<line x1="1581" y1="106" x2="1581" y2="134" stroke="black"/>
+<line x1="1767" y1="106" x2="1767" y2="134" stroke="black"/>
+<line x1="1953" y1="106" x2="1953" y2="134" stroke="black"/>
+<line x1="1395" y1="117" x2="1767" y2="117" stroke="black"/>
+<polygon fill="black" points="1767,117 1757,123 1757,111"/>
+<polygon fill="white" points="1323,107 1838,107 1838,116 1323,116"/>
+<text x="1324" y="116" textLength="513" font-family="Helvetica" font-size="12" fill="black">
+(86|0007:2330300) MODIFY_BEARER_REQUEST local S11 teid 0xC0098E0 num bearers ctx 1
+</text>
+<line x1="93" y1="134" x2="93" y2="162" stroke="black"/>
+<line x1="279" y1="134" x2="279" y2="162" stroke="black"/>
+<line x1="465" y1="134" x2="465" y2="162" stroke="black"/>
+<line x1="651" y1="134" x2="651" y2="162" stroke="black"/>
+<line x1="837" y1="134" x2="837" y2="162" stroke="black"/>
+<line x1="1023" y1="134" x2="1023" y2="162" stroke="black"/>
+<line x1="1209" y1="134" x2="1209" y2="162" stroke="black"/>
+<line x1="1395" y1="134" x2="1395" y2="162" stroke="black"/>
+<line x1="1581" y1="134" x2="1581" y2="162" stroke="black"/>
+<line x1="1767" y1="134" x2="1767" y2="162" stroke="black"/>
+<line x1="1953" y1="134" x2="1953" y2="162" stroke="black"/>
+<line x1="837" y1="145" x2="1023" y2="145" stroke="black"/>
+<polygon fill="black" points="1023,145 1013,151 1013,139"/>
+<polygon fill="white" points="691,135 1167,135 1167,144 691,144"/>
+<text x="692" y="144" textLength="474" font-family="Helvetica" font-size="12" fill="black">
+(87|0007:2330530) EMMAS_DATA_IND ue id 0x00000001 len 13 tai:  plmn 208.93  tac 1
+</text>
+<line x1="93" y1="162" x2="93" y2="190" stroke="black"/>
+<line x1="279" y1="162" x2="279" y2="190" stroke="black"/>
+<line x1="465" y1="162" x2="465" y2="190" stroke="black"/>
+<line x1="651" y1="162" x2="651" y2="190" stroke="black"/>
+<line x1="837" y1="162" x2="837" y2="190" stroke="black"/>
+<line x1="1023" y1="162" x2="1023" y2="190" stroke="black"/>
+<line x1="1209" y1="162" x2="1209" y2="190" stroke="black"/>
+<line x1="1395" y1="162" x2="1395" y2="190" stroke="black"/>
+<line x1="1581" y1="162" x2="1581" y2="190" stroke="black"/>
+<line x1="1767" y1="162" x2="1767" y2="190" stroke="black"/>
+<line x1="1953" y1="162" x2="1953" y2="190" stroke="black"/>
+<polygon fill="white" points="938,162 1096,162 1096,184 938,184"/>
+<polygon fill="white" points="938,174 1108,174 1108,184 938,184"/>
+<polygon fill="white" points="1096,162 1108,174 1096,174"/>
+<line x1="938" y1="162" x2="1096" y2="162" stroke="black"/>
+<line x1="938" y1="184" x2="1108" y2="184" stroke="black"/>
+<line x1="938" y1="162" x2="938" y2="184" stroke="black"/>
+<line x1="1108" y1="174" x2="1108" y2="184" stroke="black"/>
+<line x1="1096" y1="162" x2="1108" y2="174" stroke="black"/>
+<line x1="1096" y1="162" x2="1096" y2="174" stroke="black"/>
+<line x1="1108" y1="174" x2="1096" y2="174" stroke="black"/>
+<polygon fill="white" points="946,163 1098,163 1098,172 946,172"/>
+<text x="947" y="172" textLength="150" font-family="Helvetica" font-size="12" fill="black">
+0007:233761T3450 stopped
+</text>
+<polygon fill="white" points="977,174 1068,174 1068,183 977,183"/>
+<text x="978" y="183" textLength="89" font-family="Helvetica" font-size="12" fill="black">
+UE 0x00000001 
+</text>
+<line x1="93" y1="190" x2="93" y2="251" stroke="black"/>
+<line x1="279" y1="190" x2="279" y2="251" stroke="black"/>
+<line x1="465" y1="190" x2="465" y2="251" stroke="black"/>
+<line x1="651" y1="190" x2="651" y2="251" stroke="black"/>
+<line x1="837" y1="190" x2="837" y2="251" stroke="black"/>
+<line x1="1023" y1="190" x2="1023" y2="251" stroke="black"/>
+<line x1="1209" y1="190" x2="1209" y2="251" stroke="black"/>
+<line x1="1395" y1="190" x2="1395" y2="251" stroke="black"/>
+<line x1="1581" y1="190" x2="1581" y2="251" stroke="black"/>
+<line x1="1767" y1="190" x2="1767" y2="251" stroke="black"/>
+<line x1="1953" y1="190" x2="1953" y2="251" stroke="black"/>
+<polygon fill="white" points="1124,190 1282,190 1282,245 1124,245"/>
+<polygon fill="white" points="1124,202 1294,202 1294,245 1124,245"/>
+<polygon fill="white" points="1282,190 1294,202 1282,202"/>
+<line x1="1124" y1="190" x2="1282" y2="190" stroke="black"/>
+<line x1="1124" y1="245" x2="1294" y2="245" stroke="black"/>
+<line x1="1124" y1="190" x2="1124" y2="245" stroke="black"/>
+<line x1="1294" y1="202" x2="1294" y2="245" stroke="black"/>
+<line x1="1282" y1="190" x2="1294" y2="202" stroke="black"/>
+<line x1="1282" y1="190" x2="1282" y2="202" stroke="black"/>
+<line x1="1294" y1="202" x2="1282" y2="202" stroke="black"/>
+<polygon fill="white" points="1140,191 1277,191 1277,200 1140,200"/>
+<text x="1141" y="200" textLength="135" font-family="Helvetica" font-size="12" fill="black">
+0007:2339790 ESM state
+</text>
+<polygon fill="white" points="1152,202 1264,202 1264,211 1152,211"/>
+<text x="1153" y="211" textLength="110" font-family="Helvetica" font-size="12" fill="black">
+BEARER CONTEXT
+</text>
+<polygon fill="white" points="1148,213 1269,213 1269,222 1148,222"/>
+<text x="1149" y="222" textLength="119" font-family="Helvetica" font-size="12" fill="black">
+ACTIVE PENDING =&gt;
+</text>
+<polygon fill="white" points="1152,224 1264,224 1264,233 1152,233"/>
+<text x="1153" y="233" textLength="110" font-family="Helvetica" font-size="12" fill="black">
+BEARER CONTEXT
+</text>
+<polygon fill="white" points="1149,235 1267,235 1267,244 1149,244"/>
+<text x="1150" y="244" textLength="116" font-family="Helvetica" font-size="12" fill="black">
+ACTIVE 0x00000001 
+</text>
+<line x1="93" y1="251" x2="93" y2="290" stroke="black"/>
+<line x1="279" y1="251" x2="279" y2="290" stroke="black"/>
+<line x1="465" y1="251" x2="465" y2="290" stroke="black"/>
+<line x1="651" y1="251" x2="651" y2="290" stroke="black"/>
+<line x1="837" y1="251" x2="837" y2="290" stroke="black"/>
+<line x1="1023" y1="251" x2="1023" y2="290" stroke="black"/>
+<line x1="1209" y1="251" x2="1209" y2="290" stroke="black"/>
+<line x1="1395" y1="251" x2="1395" y2="290" stroke="black"/>
+<line x1="1581" y1="251" x2="1581" y2="290" stroke="black"/>
+<line x1="1767" y1="251" x2="1767" y2="290" stroke="black"/>
+<line x1="1953" y1="251" x2="1953" y2="290" stroke="black"/>
+<polygon fill="white" points="938,251 1096,251 1096,284 938,284"/>
+<polygon fill="white" points="938,263 1108,263 1108,284 938,284"/>
+<polygon fill="white" points="1096,251 1108,263 1096,263"/>
+<line x1="938" y1="251" x2="1096" y2="251" stroke="black"/>
+<line x1="938" y1="284" x2="1108" y2="284" stroke="black"/>
+<line x1="938" y1="251" x2="938" y2="284" stroke="black"/>
+<line x1="1108" y1="263" x2="1108" y2="284" stroke="black"/>
+<line x1="1096" y1="251" x2="1108" y2="263" stroke="black"/>
+<line x1="1096" y1="251" x2="1096" y2="263" stroke="black"/>
+<line x1="1108" y1="263" x2="1096" y2="263" stroke="black"/>
+<polygon fill="white" points="958,252 1087,252 1087,261 958,261"/>
+<text x="959" y="261" textLength="127" font-family="Helvetica" font-size="12" fill="black">
+0007:234162EMM state
+</text>
+<polygon fill="white" points="972,263 1072,263 1072,272 972,272"/>
+<text x="973" y="272" textLength="98" font-family="Helvetica" font-size="12" fill="black">
+REGISTERED UE
+</text>
+<polygon fill="white" points="987,274 1058,274 1058,283 987,283"/>
+<text x="988" y="283" textLength="69" font-family="Helvetica" font-size="12" fill="black">
+0x00000001 
+</text>
+<line x1="93" y1="290" x2="93" y2="318" stroke="black"/>
+<line x1="279" y1="290" x2="279" y2="318" stroke="black"/>
+<line x1="465" y1="290" x2="465" y2="318" stroke="black"/>
+<line x1="651" y1="290" x2="651" y2="318" stroke="black"/>
+<line x1="837" y1="290" x2="837" y2="318" stroke="black"/>
+<line x1="1023" y1="290" x2="1023" y2="318" stroke="black"/>
+<line x1="1209" y1="290" x2="1209" y2="318" stroke="black"/>
+<line x1="1395" y1="290" x2="1395" y2="318" stroke="black"/>
+<line x1="1581" y1="290" x2="1581" y2="318" stroke="black"/>
+<line x1="1767" y1="290" x2="1767" y2="318" stroke="black"/>
+<line x1="1953" y1="290" x2="1953" y2="318" stroke="black"/>
+<line x1="1767" y1="301" x2="1395" y2="301" stroke="black"/>
+<polygon fill="black" points="1395,301 1405,307 1405,295"/>
+<polygon fill="white" points="1342,291 1818,291 1818,300 1342,300"/>
+<text x="1343" y="300" textLength="474" font-family="Helvetica" font-size="12" fill="black">
+(91|0007:2359350) MODIFY_BEARER_RESPONSE local S11 teid 0xC0098E0 cause 16
+</text>
+<line x1="93" y1="318" x2="93" y2="346" stroke="black"/>
+<line x1="279" y1="318" x2="279" y2="346" stroke="black"/>
+<line x1="465" y1="318" x2="465" y2="346" stroke="black"/>
+<line x1="651" y1="318" x2="651" y2="346" stroke="black"/>
+<line x1="837" y1="318" x2="837" y2="346" stroke="black"/>
+<line x1="1023" y1="318" x2="1023" y2="346" stroke="black"/>
+<line x1="1209" y1="318" x2="1209" y2="346" stroke="black"/>
+<line x1="1395" y1="318" x2="1395" y2="346" stroke="black"/>
+<line x1="1581" y1="318" x2="1581" y2="346" stroke="black"/>
+<line x1="1767" y1="318" x2="1767" y2="346" stroke="black"/>
+<line x1="1953" y1="318" x2="1953" y2="346" stroke="black"/>
+<line x1="1395" y1="329" x2="651" y2="329" stroke="black"/>
+<polygon fill="black" points="651,329 661,335 661,323"/>
+<polygon fill="white" points="741,319 1304,319 1304,328 741,328"/>
+<text x="742" y="328" textLength="561" font-family="Helvetica" font-size="12" fill="black">
+(92|0007:2359910) DELETE_SESSION_RESPONSE local S11 teid 0xC0098E0 IMSI 208930100001114 
+</text>
+<line x1="93" y1="346" x2="93" y2="374" stroke="black"/>
+<line x1="279" y1="346" x2="279" y2="374" stroke="black"/>
+<line x1="465" y1="346" x2="465" y2="374" stroke="black"/>
+<line x1="651" y1="346" x2="651" y2="374" stroke="black"/>
+<line x1="837" y1="346" x2="837" y2="374" stroke="black"/>
+<line x1="1023" y1="346" x2="1023" y2="374" stroke="black"/>
+<line x1="1209" y1="346" x2="1209" y2="374" stroke="black"/>
+<line x1="1395" y1="346" x2="1395" y2="374" stroke="black"/>
+<line x1="1581" y1="346" x2="1581" y2="374" stroke="black"/>
+<line x1="1767" y1="346" x2="1767" y2="374" stroke="black"/>
+<line x1="1953" y1="346" x2="1953" y2="374" stroke="black"/>
+<line x1="93" y1="357" x2="465" y2="357" stroke="black"/>
+<polygon fill="black" points="465,357 455,363 455,351"/>
+<polygon fill="white" points="4294967294,347 702,347 702,356 4294967294,356"/>
+<text x="4294967295" y="356" textLength="702" font-family="Helvetica" font-size="12" fill="black">
+(93|0007:8127300) uplinkNASTransport/Originating message mme_ue_s1ap_id 0x00000001 enb_ue_s1ap_id 0x06692D nas len 21
+</text>
+<line x1="93" y1="374" x2="93" y2="402" stroke="black"/>
+<line x1="279" y1="374" x2="279" y2="402" stroke="black"/>
+<line x1="465" y1="374" x2="465" y2="402" stroke="black"/>
+<line x1="651" y1="374" x2="651" y2="402" stroke="black"/>
+<line x1="837" y1="374" x2="837" y2="402" stroke="black"/>
+<line x1="1023" y1="374" x2="1023" y2="402" stroke="black"/>
+<line x1="1209" y1="374" x2="1209" y2="402" stroke="black"/>
+<line x1="1395" y1="374" x2="1395" y2="402" stroke="black"/>
+<line x1="1581" y1="374" x2="1581" y2="402" stroke="black"/>
+<line x1="1767" y1="374" x2="1767" y2="402" stroke="black"/>
+<line x1="1953" y1="374" x2="1953" y2="402" stroke="black"/>
+<line x1="465" y1="385" x2="837" y2="385" stroke="black"/>
+<polygon fill="black" points="837,385 827,391 827,379"/>
+<polygon fill="white" points="458,375 843,375 843,384 458,384"/>
+<text x="459" y="384" textLength="383" font-family="Helvetica" font-size="12" fill="black">
+(94|0007:8127420) NAS_UPLINK_DATA_IND ue_id 0x00000001 len 21
+</text>
+<line x1="93" y1="402" x2="93" y2="430" stroke="black"/>
+<line x1="279" y1="402" x2="279" y2="430" stroke="black"/>
+<line x1="465" y1="402" x2="465" y2="430" stroke="black"/>
+<line x1="651" y1="402" x2="651" y2="430" stroke="black"/>
+<line x1="837" y1="402" x2="837" y2="430" stroke="black"/>
+<line x1="1023" y1="402" x2="1023" y2="430" stroke="black"/>
+<line x1="1209" y1="402" x2="1209" y2="430" stroke="black"/>
+<line x1="1395" y1="402" x2="1395" y2="430" stroke="black"/>
+<line x1="1581" y1="402" x2="1581" y2="430" stroke="black"/>
+<line x1="1767" y1="402" x2="1767" y2="430" stroke="black"/>
+<line x1="1953" y1="402" x2="1953" y2="430" stroke="black"/>
+<line x1="837" y1="413" x2="1023" y2="413" stroke="black"/>
+<polygon fill="black" points="1023,413 1013,419 1013,407"/>
+<polygon fill="white" points="691,403 1167,403 1167,412 691,412"/>
+<text x="692" y="412" textLength="474" font-family="Helvetica" font-size="12" fill="black">
+(95|0007:8128680) EMMAS_DATA_IND ue id 0x00000001 len 21 tai:  plmn 208.93  tac 1
+</text>
+<line x1="93" y1="430" x2="93" y2="469" stroke="black"/>
+<line x1="279" y1="430" x2="279" y2="469" stroke="black"/>
+<line x1="465" y1="430" x2="465" y2="469" stroke="black"/>
+<line x1="651" y1="430" x2="651" y2="469" stroke="black"/>
+<line x1="837" y1="430" x2="837" y2="469" stroke="black"/>
+<line x1="1023" y1="430" x2="1023" y2="469" stroke="black"/>
+<line x1="1209" y1="430" x2="1209" y2="469" stroke="black"/>
+<line x1="1395" y1="430" x2="1395" y2="469" stroke="black"/>
+<line x1="1581" y1="430" x2="1581" y2="469" stroke="black"/>
+<line x1="1767" y1="430" x2="1767" y2="469" stroke="black"/>
+<line x1="1953" y1="430" x2="1953" y2="469" stroke="black"/>
+<polygon fill="white" points="938,430 1096,430 1096,463 938,463"/>
+<polygon fill="white" points="938,442 1108,442 1108,463 938,463"/>
+<polygon fill="white" points="1096,430 1108,442 1096,442"/>
+<line x1="938" y1="430" x2="1096" y2="430" stroke="black"/>
+<line x1="938" y1="463" x2="1108" y2="463" stroke="black"/>
+<line x1="938" y1="430" x2="938" y2="463" stroke="black"/>
+<line x1="1108" y1="442" x2="1108" y2="463" stroke="black"/>
+<line x1="1096" y1="430" x2="1108" y2="442" stroke="black"/>
+<line x1="1096" y1="430" x2="1096" y2="442" stroke="black"/>
+<line x1="1108" y1="442" x2="1096" y2="442" stroke="black"/>
+<polygon fill="white" points="954,431 1090,431 1090,440 954,440"/>
+<text x="955" y="440" textLength="134" font-family="Helvetica" font-size="12" fill="black">
+0007:8134060 Removing
+</text>
+<polygon fill="white" points="977,442 1067,442 1067,451 977,451"/>
+<text x="978" y="451" textLength="88" font-family="Helvetica" font-size="12" fill="black">
+UE context ue id
+</text>
+<polygon fill="white" points="987,453 1058,453 1058,462 987,462"/>
+<text x="988" y="462" textLength="69" font-family="Helvetica" font-size="12" fill="black">
+0x00000001 
+</text>
+<line x1="93" y1="469" x2="93" y2="497" stroke="black"/>
+<line x1="279" y1="469" x2="279" y2="497" stroke="black"/>
+<line x1="465" y1="469" x2="465" y2="497" stroke="black"/>
+<line x1="651" y1="469" x2="651" y2="497" stroke="black"/>
+<line x1="837" y1="469" x2="837" y2="497" stroke="black"/>
+<line x1="1023" y1="469" x2="1023" y2="497" stroke="black"/>
+<line x1="1209" y1="469" x2="1209" y2="497" stroke="black"/>
+<line x1="1395" y1="469" x2="1395" y2="497" stroke="black"/>
+<line x1="1581" y1="469" x2="1581" y2="497" stroke="black"/>
+<line x1="1767" y1="469" x2="1767" y2="497" stroke="black"/>
+<line x1="1953" y1="469" x2="1953" y2="497" stroke="black"/>
+<line x1="1023" y1="480" x2="1209" y2="480" stroke="black"/>
+<polygon fill="black" points="1209,480 1199,486 1199,474"/>
+<polygon fill="white" points="865,470 1365,470 1365,479 865,479"/>
+<text x="866" y="479" textLength="498" font-family="Helvetica" font-size="12" fill="black">
+(97|0007:8135250) ESM_EPS_BEARER_CONTEXT_DEACTIVATE_REQ ue id 0x00000001 
+</text>
+<line x1="93" y1="497" x2="93" y2="525" stroke="black"/>
+<line x1="279" y1="497" x2="279" y2="525" stroke="black"/>
+<line x1="465" y1="497" x2="465" y2="525" stroke="black"/>
+<line x1="651" y1="497" x2="651" y2="525" stroke="black"/>
+<line x1="837" y1="497" x2="837" y2="525" stroke="black"/>
+<line x1="1023" y1="497" x2="1023" y2="525" stroke="black"/>
+<line x1="1209" y1="497" x2="1209" y2="525" stroke="black"/>
+<line x1="1395" y1="497" x2="1395" y2="525" stroke="black"/>
+<line x1="1581" y1="497" x2="1581" y2="525" stroke="black"/>
+<line x1="1767" y1="497" x2="1767" y2="525" stroke="black"/>
+<line x1="1953" y1="497" x2="1953" y2="525" stroke="black"/>
+<line x1="837" y1="508" x2="651" y2="508" stroke="black"/>
+<polygon fill="black" points="651,508 661,514 661,502"/>
+<polygon fill="white" points="595,498 891,498 891,507 595,507"/>
+<text x="596" y="507" textLength="294" font-family="Helvetica" font-size="12" fill="black">
+(98|0007:8136990) NAS_DETACH_REQ ue id 000001 
+</text>
+<line x1="93" y1="525" x2="93" y2="553" stroke="black"/>
+<line x1="279" y1="525" x2="279" y2="553" stroke="black"/>
+<line x1="465" y1="525" x2="465" y2="553" stroke="black"/>
+<line x1="651" y1="525" x2="651" y2="553" stroke="black"/>
+<line x1="837" y1="525" x2="837" y2="553" stroke="black"/>
+<line x1="1023" y1="525" x2="1023" y2="553" stroke="black"/>
+<line x1="1209" y1="525" x2="1209" y2="553" stroke="black"/>
+<line x1="1395" y1="525" x2="1395" y2="553" stroke="black"/>
+<line x1="1581" y1="525" x2="1581" y2="553" stroke="black"/>
+<line x1="1767" y1="525" x2="1767" y2="553" stroke="black"/>
+<line x1="1953" y1="525" x2="1953" y2="553" stroke="black"/>
+<line x1="651" y1="536" x2="1395" y2="536" stroke="black"/>
+<polygon fill="black" points="1395,536 1385,542 1385,530"/>
+<polygon fill="white" points="839,526 1206,526 1206,535 839,535"/>
+<text x="840" y="535" textLength="365" font-family="Helvetica" font-size="12" fill="black">
+(99|0007:8138070)  S11_DELETE_SESSION_REQUEST teid 1 lbi 5
+</text>
+<line x1="93" y1="553" x2="93" y2="581" stroke="black"/>
+<line x1="279" y1="553" x2="279" y2="581" stroke="black"/>
+<line x1="465" y1="553" x2="465" y2="581" stroke="black"/>
+<line x1="651" y1="553" x2="651" y2="581" stroke="black"/>
+<line x1="837" y1="553" x2="837" y2="581" stroke="black"/>
+<line x1="1023" y1="553" x2="1023" y2="581" stroke="black"/>
+<line x1="1209" y1="553" x2="1209" y2="581" stroke="black"/>
+<line x1="1395" y1="553" x2="1395" y2="581" stroke="black"/>
+<line x1="1581" y1="553" x2="1581" y2="581" stroke="black"/>
+<line x1="1767" y1="553" x2="1767" y2="581" stroke="black"/>
+<line x1="1953" y1="553" x2="1953" y2="581" stroke="black"/>
+<line x1="1395" y1="564" x2="1767" y2="564" stroke="black"/>
+<polygon fill="black" points="1767,564 1757,570 1757,558"/>
+<polygon fill="white" points="1366,554 1795,554 1795,563 1366,563"/>
+<text x="1367" y="563" textLength="427" font-family="Helvetica" font-size="12" fill="black">
+(100|0007:8140310) DELETE_SESSION_REQUEST local S11 teid 0xC0098E0 
+</text>
+<line x1="93" y1="581" x2="93" y2="609" stroke="black"/>
+<line x1="279" y1="581" x2="279" y2="609" stroke="black"/>
+<line x1="465" y1="581" x2="465" y2="609" stroke="black"/>
+<line x1="651" y1="581" x2="651" y2="609" stroke="black"/>
+<line x1="837" y1="581" x2="837" y2="609" stroke="black"/>
+<line x1="1023" y1="581" x2="1023" y2="609" stroke="black"/>
+<line x1="1209" y1="581" x2="1209" y2="609" stroke="black"/>
+<line x1="1395" y1="581" x2="1395" y2="609" stroke="black"/>
+<line x1="1581" y1="581" x2="1581" y2="609" stroke="black"/>
+<line x1="1767" y1="581" x2="1767" y2="609" stroke="black"/>
+<line x1="1953" y1="581" x2="1953" y2="609" stroke="black"/>
+<line x1="1767" y1="592" x2="1395" y2="592" stroke="black"/>
+<polygon fill="black" points="1395,592 1405,598 1405,586"/>
+<polygon fill="white" points="1361,582 1799,582 1799,591 1361,591"/>
+<text x="1362" y="591" textLength="436" font-family="Helvetica" font-size="12" fill="black">
+(101|0007:8161380) DELETE_SESSION_RESPONSE local S11 teid 0xC0098E0 
+</text>
+<line x1="93" y1="609" x2="93" y2="637" stroke="black"/>
+<line x1="279" y1="609" x2="279" y2="637" stroke="black"/>
+<line x1="465" y1="609" x2="465" y2="637" stroke="black"/>
+<line x1="651" y1="609" x2="651" y2="637" stroke="black"/>
+<line x1="837" y1="609" x2="837" y2="637" stroke="black"/>
+<line x1="1023" y1="609" x2="1023" y2="637" stroke="black"/>
+<line x1="1209" y1="609" x2="1209" y2="637" stroke="black"/>
+<line x1="1395" y1="609" x2="1395" y2="637" stroke="black"/>
+<line x1="1581" y1="609" x2="1581" y2="637" stroke="black"/>
+<line x1="1767" y1="609" x2="1767" y2="637" stroke="black"/>
+<line x1="1953" y1="609" x2="1953" y2="637" stroke="black"/>
+<polygon fill="white" points="1310,609 1468,609 1468,631 1310,631"/>
+<polygon fill="white" points="1310,621 1480,621 1480,631 1310,631"/>
+<polygon fill="white" points="1468,609 1480,621 1468,621"/>
+<line x1="1310" y1="609" x2="1468" y2="609" stroke="black"/>
+<line x1="1310" y1="631" x2="1480" y2="631" stroke="black"/>
+<line x1="1310" y1="609" x2="1310" y2="631" stroke="black"/>
+<line x1="1480" y1="621" x2="1480" y2="631" stroke="black"/>
+<line x1="1468" y1="609" x2="1480" y2="621" stroke="black"/>
+<line x1="1468" y1="609" x2="1468" y2="621" stroke="black"/>
+<line x1="1480" y1="621" x2="1468" y2="621" stroke="black"/>
+<polygon fill="white" points="1326,610 1462,610 1462,619 1326,619"/>
+<text x="1327" y="619" textLength="134" font-family="Helvetica" font-size="12" fill="black">
+0007:816229Deleted teid
+</text>
+<polygon fill="white" points="1362,621 1427,621 1427,630 1362,630"/>
+<text x="1363" y="630" textLength="63" font-family="Helvetica" font-size="12" fill="black">
+0xC0098E0
+</text>
+<line x1="93" y1="637" x2="93" y2="665" stroke="black"/>
+<line x1="279" y1="637" x2="279" y2="665" stroke="black"/>
+<line x1="465" y1="637" x2="465" y2="665" stroke="black"/>
+<line x1="651" y1="637" x2="651" y2="665" stroke="black"/>
+<line x1="837" y1="637" x2="837" y2="665" stroke="black"/>
+<line x1="1023" y1="637" x2="1023" y2="665" stroke="black"/>
+<line x1="1209" y1="637" x2="1209" y2="665" stroke="black"/>
+<line x1="1395" y1="637" x2="1395" y2="665" stroke="black"/>
+<line x1="1581" y1="637" x2="1581" y2="665" stroke="black"/>
+<line x1="1767" y1="637" x2="1767" y2="665" stroke="black"/>
+<line x1="1953" y1="637" x2="1953" y2="665" stroke="black"/>
+<line x1="1395" y1="648" x2="651" y2="648" stroke="black"/>
+<polygon fill="black" points="651,648 661,654 661,642"/>
+<polygon fill="white" points="738,638 1307,638 1307,647 738,647"/>
+<text x="739" y="647" textLength="567" font-family="Helvetica" font-size="12" fill="black">
+(103|0007:8163410) DELETE_SESSION_RESPONSE local S11 teid 0xC0098E0 IMSI 208930100001114 
+</text>
+<line x1="93" y1="665" x2="93" y2="693" stroke="black"/>
+<line x1="279" y1="665" x2="279" y2="693" stroke="black"/>
+<line x1="465" y1="665" x2="465" y2="693" stroke="black"/>
+<line x1="651" y1="665" x2="651" y2="693" stroke="black"/>
+<line x1="837" y1="665" x2="837" y2="693" stroke="black"/>
+<line x1="1023" y1="665" x2="1023" y2="693" stroke="black"/>
+<line x1="1209" y1="665" x2="1209" y2="693" stroke="black"/>
+<line x1="1395" y1="665" x2="1395" y2="693" stroke="black"/>
+<line x1="1581" y1="665" x2="1581" y2="693" stroke="black"/>
+<line x1="1767" y1="665" x2="1767" y2="693" stroke="black"/>
+<line x1="1953" y1="665" x2="1953" y2="693" stroke="black"/>
+<line x1="651" y1="676" x2="465" y2="676" stroke="black"/>
+<polygon fill="black" points="465,676 475,682 475,670"/>
+<polygon fill="white" points="361,666 754,666 754,675 361,675"/>
+<text x="362" y="675" textLength="391" font-family="Helvetica" font-size="12" fill="black">
+(104|0007:8163520) MME_APP_DELETE_SESSION_RSP ue id 000001 
+</text>
+<line x1="93" y1="693" x2="93" y2="721" stroke="black"/>
+<line x1="279" y1="693" x2="279" y2="721" stroke="black"/>
+<line x1="465" y1="693" x2="465" y2="721" stroke="black"/>
+<line x1="651" y1="693" x2="651" y2="721" stroke="black"/>
+<line x1="837" y1="693" x2="837" y2="721" stroke="black"/>
+<line x1="1023" y1="693" x2="1023" y2="721" stroke="black"/>
+<line x1="1209" y1="693" x2="1209" y2="721" stroke="black"/>
+<line x1="1395" y1="693" x2="1395" y2="721" stroke="black"/>
+<line x1="1581" y1="693" x2="1581" y2="721" stroke="black"/>
+<line x1="1767" y1="693" x2="1767" y2="721" stroke="black"/>
+<line x1="1953" y1="693" x2="1953" y2="721" stroke="black"/>
+<line x1="93" y1="704" x2="465" y2="704" stroke="black"/>
+<polygon fill="black" points="465,704 455,710 455,698"/>
+<polygon fill="white" points="4294967294,694 693,694 693,703 4294967294,703"/>
+<text x="4294967295" y="703" textLength="693" font-family="Helvetica" font-size="12" fill="black">
+(105|0008:0125130) UEContextReleaseRequest/Originating message enb_ue_s1ap_id 0x06692D mme_ue_s1ap_id 0x00000001 
+</text>
+<line x1="93" y1="721" x2="93" y2="782" stroke="black"/>
+<line x1="279" y1="721" x2="279" y2="782" stroke="black"/>
+<line x1="465" y1="721" x2="465" y2="782" stroke="black"/>
+<line x1="651" y1="721" x2="651" y2="782" stroke="black"/>
+<line x1="837" y1="721" x2="837" y2="782" stroke="black"/>
+<line x1="1023" y1="721" x2="1023" y2="782" stroke="black"/>
+<line x1="1209" y1="721" x2="1209" y2="782" stroke="black"/>
+<line x1="1395" y1="721" x2="1395" y2="782" stroke="black"/>
+<line x1="1581" y1="721" x2="1581" y2="782" stroke="black"/>
+<line x1="1767" y1="721" x2="1767" y2="782" stroke="black"/>
+<line x1="1953" y1="721" x2="1953" y2="782" stroke="black"/>
+<polygon fill="white" points="380,721 538,721 538,776 380,776"/>
+<polygon fill="white" points="380,733 550,733 550,776 380,776"/>
+<polygon fill="white" points="538,721 550,733 538,733"/>
+<line x1="380" y1="721" x2="538" y2="721" stroke="black"/>
+<line x1="380" y1="776" x2="550" y2="776" stroke="black"/>
+<line x1="380" y1="721" x2="380" y2="776" stroke="black"/>
+<line x1="550" y1="733" x2="550" y2="776" stroke="black"/>
+<line x1="538" y1="721" x2="550" y2="733" stroke="black"/>
+<line x1="538" y1="721" x2="538" y2="733" stroke="black"/>
+<line x1="550" y1="733" x2="538" y2="733" stroke="black"/>
+<polygon fill="white" points="425,722 504,722 504,731 425,731"/>
+<text x="426" y="731" textLength="77" font-family="Helvetica" font-size="12" fill="black">
+0008:0125390
+</text>
+<polygon fill="white" points="394,733 535,733 535,742 394,742"/>
+<text x="395" y="742" textLength="139" font-family="Helvetica" font-size="12" fill="black">
+UE_CONTEXT_RELEAS-
+</text>
+<polygon fill="white" points="395,744 533,744 533,753 395,753"/>
+<text x="396" y="753" textLength="136" font-family="Helvetica" font-size="12" fill="black">
+E_REQUEST ignored, no
+</text>
+<polygon fill="white" points="395,755 534,755 534,764 395,764"/>
+<text x="396" y="764" textLength="137" font-family="Helvetica" font-size="12" fill="black">
+context mme_ue_s1ap_id
+</text>
+<polygon fill="white" points="429,766 500,766 500,775 429,775"/>
+<text x="430" y="775" textLength="69" font-family="Helvetica" font-size="12" fill="black">
+0x00000001 
+</text>
+<line x1="93" y1="782" x2="93" y2="810" stroke="black"/>
+<line x1="279" y1="782" x2="279" y2="810" stroke="black"/>
+<line x1="465" y1="782" x2="465" y2="810" stroke="black"/>
+<line x1="651" y1="782" x2="651" y2="810" stroke="black"/>
+<line x1="837" y1="782" x2="837" y2="810" stroke="black"/>
+<line x1="1023" y1="782" x2="1023" y2="810" stroke="black"/>
+<line x1="1209" y1="782" x2="1209" y2="810" stroke="black"/>
+<line x1="1395" y1="782" x2="1395" y2="810" stroke="black"/>
+<line x1="1581" y1="782" x2="1581" y2="810" stroke="black"/>
+<line x1="1767" y1="782" x2="1767" y2="810" stroke="black"/>
+<line x1="1953" y1="782" x2="1953" y2="810" stroke="black"/>
+<line x1="93" y1="793" x2="465" y2="793" stroke="black"/>
+<polygon fill="black" points="465,793 455,799 455,787"/>
+<polygon fill="white" points="33,783 524,783 524,792 33,792"/>
+<text x="34" y="792" textLength="489" font-family="Helvetica" font-size="12" fill="black">
+(107|0009:5133910) initialUEMessage/Originating message assoc_id 6 stream 1 0xFA3950 
+</text>
+<line x1="93" y1="810" x2="93" y2="838" stroke="black"/>
+<line x1="279" y1="810" x2="279" y2="838" stroke="black"/>
+<line x1="465" y1="810" x2="465" y2="838" stroke="black"/>
+<line x1="651" y1="810" x2="651" y2="838" stroke="black"/>
+<line x1="837" y1="810" x2="837" y2="838" stroke="black"/>
+<line x1="1023" y1="810" x2="1023" y2="838" stroke="black"/>
+<line x1="1209" y1="810" x2="1209" y2="838" stroke="black"/>
+<line x1="1395" y1="810" x2="1395" y2="838" stroke="black"/>
+<line x1="1581" y1="810" x2="1581" y2="838" stroke="black"/>
+<line x1="1767" y1="810" x2="1767" y2="838" stroke="black"/>
+<line x1="1953" y1="810" x2="1953" y2="838" stroke="black"/>
+<line x1="465" y1="821" x2="651" y2="821" stroke="black"/>
+<polygon fill="black" points="651,821 641,827 641,815"/>
+<polygon fill="white" points="264,811 850,811 850,820 264,820"/>
+<text x="265" y="820" textLength="584" font-family="Helvetica" font-size="12" fill="black">
+(108|0009:5134330) MME_APP_INITIAL_UE_MESSAGE ue_id 0xFFFFFFFF as cause 1 tai:208.93 :1 len 85 
+</text>
+<line x1="93" y1="838" x2="93" y2="866" stroke="black"/>
+<line x1="279" y1="838" x2="279" y2="866" stroke="black"/>
+<line x1="465" y1="838" x2="465" y2="866" stroke="black"/>
+<line x1="651" y1="838" x2="651" y2="866" stroke="black"/>
+<line x1="837" y1="838" x2="837" y2="866" stroke="black"/>
+<line x1="1023" y1="838" x2="1023" y2="866" stroke="black"/>
+<line x1="1209" y1="838" x2="1209" y2="866" stroke="black"/>
+<line x1="1395" y1="838" x2="1395" y2="866" stroke="black"/>
+<line x1="1581" y1="838" x2="1581" y2="866" stroke="black"/>
+<line x1="1767" y1="838" x2="1767" y2="866" stroke="black"/>
+<line x1="1953" y1="838" x2="1953" y2="866" stroke="black"/>
+<line x1="651" y1="849" x2="837" y2="849" stroke="black"/>
+<polygon fill="black" points="837,849 827,855 827,843"/>
+<polygon fill="white" points="606,839 881,839 881,848 606,848"/>
+<text x="607" y="848" textLength="273" font-family="Helvetica" font-size="12" fill="black">
+(109|0009:5136260) NAS_INITIAL_UE_MESSAGE
+</text>
+<line x1="93" y1="866" x2="93" y2="894" stroke="black"/>
+<line x1="279" y1="866" x2="279" y2="894" stroke="black"/>
+<line x1="465" y1="866" x2="465" y2="894" stroke="black"/>
+<line x1="651" y1="866" x2="651" y2="894" stroke="black"/>
+<line x1="837" y1="866" x2="837" y2="894" stroke="black"/>
+<line x1="1023" y1="866" x2="1023" y2="894" stroke="black"/>
+<line x1="1209" y1="866" x2="1209" y2="894" stroke="black"/>
+<line x1="1395" y1="866" x2="1395" y2="894" stroke="black"/>
+<line x1="1581" y1="866" x2="1581" y2="894" stroke="black"/>
+<line x1="1767" y1="866" x2="1767" y2="894" stroke="black"/>
+<line x1="1953" y1="866" x2="1953" y2="894" stroke="black"/>
+<line x1="837" y1="877" x2="1023" y2="877" stroke="black"/>
+<polygon fill="black" points="1023,877 1013,883 1013,871"/>
+<polygon fill="white" points="684,867 1175,867 1175,876 684,876"/>
+<text x="685" y="876" textLength="489" font-family="Helvetica" font-size="12" fill="black">
+(110|0009:5137020) EMMAS_ESTABLISH_REQ ue id 0xFFFFFFFF tai:  plmn 208.93  tac 1
+</text>
+<line x1="93" y1="894" x2="93" y2="933" stroke="black"/>
+<line x1="279" y1="894" x2="279" y2="933" stroke="black"/>
+<line x1="465" y1="894" x2="465" y2="933" stroke="black"/>
+<line x1="651" y1="894" x2="651" y2="933" stroke="black"/>
+<line x1="837" y1="894" x2="837" y2="933" stroke="black"/>
+<line x1="1023" y1="894" x2="1023" y2="933" stroke="black"/>
+<line x1="1209" y1="894" x2="1209" y2="933" stroke="black"/>
+<line x1="1395" y1="894" x2="1395" y2="933" stroke="black"/>
+<line x1="1581" y1="894" x2="1581" y2="933" stroke="black"/>
+<line x1="1767" y1="894" x2="1767" y2="933" stroke="black"/>
+<line x1="1953" y1="894" x2="1953" y2="933" stroke="black"/>
+<polygon fill="white" points="938,894 1096,894 1096,927 938,927"/>
+<polygon fill="white" points="938,906 1108,906 1108,927 938,927"/>
+<polygon fill="white" points="1096,894 1108,906 1096,906"/>
+<line x1="938" y1="894" x2="1096" y2="894" stroke="black"/>
+<line x1="938" y1="927" x2="1108" y2="927" stroke="black"/>
+<line x1="938" y1="894" x2="938" y2="927" stroke="black"/>
+<line x1="1108" y1="906" x2="1108" y2="927" stroke="black"/>
+<line x1="1096" y1="894" x2="1108" y2="906" stroke="black"/>
+<line x1="1096" y1="894" x2="1096" y2="906" stroke="black"/>
+<line x1="1108" y1="906" x2="1096" y2="906" stroke="black"/>
+<polygon fill="white" points="958,895 1087,895 1087,904 958,904"/>
+<text x="959" y="904" textLength="127" font-family="Helvetica" font-size="12" fill="black">
+0009:514179EMM state
+</text>
+<polygon fill="white" points="964,906 1081,906 1081,915 964,915"/>
+<text x="965" y="915" textLength="115" font-family="Helvetica" font-size="12" fill="black">
+DEREGISTERED UE
+</text>
+<polygon fill="white" points="987,917 1058,917 1058,926 987,926"/>
+<text x="988" y="926" textLength="69" font-family="Helvetica" font-size="12" fill="black">
+0x00000002 
+</text>
+<line x1="93" y1="933" x2="93" y2="961" stroke="black"/>
+<line x1="279" y1="933" x2="279" y2="961" stroke="black"/>
+<line x1="465" y1="933" x2="465" y2="961" stroke="black"/>
+<line x1="651" y1="933" x2="651" y2="961" stroke="black"/>
+<line x1="837" y1="933" x2="837" y2="961" stroke="black"/>
+<line x1="1023" y1="933" x2="1023" y2="961" stroke="black"/>
+<line x1="1209" y1="933" x2="1209" y2="961" stroke="black"/>
+<line x1="1395" y1="933" x2="1395" y2="961" stroke="black"/>
+<line x1="1581" y1="933" x2="1581" y2="961" stroke="black"/>
+<line x1="1767" y1="933" x2="1767" y2="961" stroke="black"/>
+<line x1="1953" y1="933" x2="1953" y2="961" stroke="black"/>
+<path d="M 1023 938 A93,6 0 0,1 1023,950" stroke="black" fill="none"/><polygon fill="black" points="1023,950 1033,956 1033,944"/>
+<polygon fill="white" points="576,934 1021,934 1021,943 576,943"/>
+<text x="577" y="943" textLength="443" font-family="Helvetica" font-size="12" fill="black">
+(112|0009:514521EMMAS_SECURITY_REQ) ue id 0x00000002 IDENTIFICATION
+</text>
+<line x1="93" y1="961" x2="93" y2="1000" stroke="black"/>
+<line x1="279" y1="961" x2="279" y2="1000" stroke="black"/>
+<line x1="465" y1="961" x2="465" y2="1000" stroke="black"/>
+<line x1="651" y1="961" x2="651" y2="1000" stroke="black"/>
+<line x1="837" y1="961" x2="837" y2="1000" stroke="black"/>
+<line x1="1023" y1="961" x2="1023" y2="1000" stroke="black"/>
+<line x1="1209" y1="961" x2="1209" y2="1000" stroke="black"/>
+<line x1="1395" y1="961" x2="1395" y2="1000" stroke="black"/>
+<line x1="1581" y1="961" x2="1581" y2="1000" stroke="black"/>
+<line x1="1767" y1="961" x2="1767" y2="1000" stroke="black"/>
+<line x1="1953" y1="961" x2="1953" y2="1000" stroke="black"/>
+<polygon fill="white" points="938,961 1096,961 1096,994 938,994"/>
+<polygon fill="white" points="938,973 1108,973 1108,994 938,994"/>
+<polygon fill="white" points="1096,961 1108,973 1096,973"/>
+<line x1="938" y1="961" x2="1096" y2="961" stroke="black"/>
+<line x1="938" y1="994" x2="1108" y2="994" stroke="black"/>
+<line x1="938" y1="961" x2="938" y2="994" stroke="black"/>
+<line x1="1108" y1="973" x2="1108" y2="994" stroke="black"/>
+<line x1="1096" y1="961" x2="1108" y2="973" stroke="black"/>
+<line x1="1096" y1="961" x2="1096" y2="973" stroke="black"/>
+<line x1="1108" y1="973" x2="1096" y2="973" stroke="black"/>
+<polygon fill="white" points="973,962 1071,962 1071,971 973,971"/>
+<text x="974" y="971" textLength="96" font-family="Helvetica" font-size="12" fill="black">
+0009:514687send
+</text>
+<polygon fill="white" points="947,973 1098,973 1098,982 947,982"/>
+<text x="948" y="982" textLength="149" font-family="Helvetica" font-size="12" fill="black">
+IDENTITY_REQUEST to ue
+</text>
+<polygon fill="white" points="980,984 1064,984 1064,993 980,993"/>
+<text x="981" y="993" textLength="82" font-family="Helvetica" font-size="12" fill="black">
+id 0x00000002 
+</text>
+<line x1="93" y1="1000" x2="93" y2="1028" stroke="black"/>
+<line x1="279" y1="1000" x2="279" y2="1028" stroke="black"/>
+<line x1="465" y1="1000" x2="465" y2="1028" stroke="black"/>
+<line x1="651" y1="1000" x2="651" y2="1028" stroke="black"/>
+<line x1="837" y1="1000" x2="837" y2="1028" stroke="black"/>
+<line x1="1023" y1="1000" x2="1023" y2="1028" stroke="black"/>
+<line x1="1209" y1="1000" x2="1209" y2="1028" stroke="black"/>
+<line x1="1395" y1="1000" x2="1395" y2="1028" stroke="black"/>
+<line x1="1581" y1="1000" x2="1581" y2="1028" stroke="black"/>
+<line x1="1767" y1="1000" x2="1767" y2="1028" stroke="black"/>
+<line x1="1953" y1="1000" x2="1953" y2="1028" stroke="black"/>
+<line x1="837" y1="1011" x2="465" y2="1011" stroke="black"/>
+<polygon fill="black" points="465,1011 475,1017 475,1005"/>
+<polygon fill="white" points="446,1001 855,1001 855,1010 446,1010"/>
+<text x="447" y="1010" textLength="407" font-family="Helvetica" font-size="12" fill="black">
+(114|0009:5149250) NAS_DOWNLINK_DATA_REQ ue id 0x00000002 len 0
+</text>
+<line x1="93" y1="1028" x2="93" y2="1056" stroke="black"/>
+<line x1="279" y1="1028" x2="279" y2="1056" stroke="black"/>
+<line x1="465" y1="1028" x2="465" y2="1056" stroke="black"/>
+<line x1="651" y1="1028" x2="651" y2="1056" stroke="black"/>
+<line x1="837" y1="1028" x2="837" y2="1056" stroke="black"/>
+<line x1="1023" y1="1028" x2="1023" y2="1056" stroke="black"/>
+<line x1="1209" y1="1028" x2="1209" y2="1056" stroke="black"/>
+<line x1="1395" y1="1028" x2="1395" y2="1056" stroke="black"/>
+<line x1="1581" y1="1028" x2="1581" y2="1056" stroke="black"/>
+<line x1="1767" y1="1028" x2="1767" y2="1056" stroke="black"/>
+<line x1="1953" y1="1028" x2="1953" y2="1056" stroke="black"/>
+<polygon fill="white" points="938,1028 1096,1028 1096,1050 938,1050"/>
+<polygon fill="white" points="938,1040 1108,1040 1108,1050 938,1050"/>
+<polygon fill="white" points="1096,1028 1108,1040 1096,1040"/>
+<line x1="938" y1="1028" x2="1096" y2="1028" stroke="black"/>
+<line x1="938" y1="1050" x2="1108" y2="1050" stroke="black"/>
+<line x1="938" y1="1028" x2="938" y2="1050" stroke="black"/>
+<line x1="1108" y1="1040" x2="1108" y2="1050" stroke="black"/>
+<line x1="1096" y1="1028" x2="1108" y2="1040" stroke="black"/>
+<line x1="1096" y1="1028" x2="1096" y2="1040" stroke="black"/>
+<line x1="1108" y1="1040" x2="1096" y2="1040" stroke="black"/>
+<polygon fill="white" points="949,1029 1095,1029 1095,1038 949,1038"/>
+<text x="950" y="1038" textLength="144" font-family="Helvetica" font-size="12" fill="black">
+0009:514996T3470 started
+</text>
+<polygon fill="white" points="977,1040 1068,1040 1068,1049 977,1049"/>
+<text x="978" y="1049" textLength="89" font-family="Helvetica" font-size="12" fill="black">
+UE 0x00000002 
+</text>
+<line x1="93" y1="1056" x2="93" y2="1084" stroke="black"/>
+<line x1="279" y1="1056" x2="279" y2="1084" stroke="black"/>
+<line x1="465" y1="1056" x2="465" y2="1084" stroke="black"/>
+<line x1="651" y1="1056" x2="651" y2="1084" stroke="black"/>
+<line x1="837" y1="1056" x2="837" y2="1084" stroke="black"/>
+<line x1="1023" y1="1056" x2="1023" y2="1084" stroke="black"/>
+<line x1="1209" y1="1056" x2="1209" y2="1084" stroke="black"/>
+<line x1="1395" y1="1056" x2="1395" y2="1084" stroke="black"/>
+<line x1="1581" y1="1056" x2="1581" y2="1084" stroke="black"/>
+<line x1="1767" y1="1056" x2="1767" y2="1084" stroke="black"/>
+<line x1="1953" y1="1056" x2="1953" y2="1084" stroke="black"/>
+<path d="M 1023 1061 A93,6 0 0,1 1023,1073" stroke="black" fill="none"/><polygon fill="black" points="1023,1073 1033,1079 1033,1067"/>
+<polygon fill="white" points="550,1057 1021,1057 1021,1066 550,1066"/>
+<text x="551" y="1066" textLength="469" font-family="Helvetica" font-size="12" fill="black">
+(116|0009:515026EMMREG_COMMON_PROC_REQ) ue id 0x00000002 (identification)
+</text>
+<line x1="93" y1="1084" x2="93" y2="1112" stroke="black"/>
+<line x1="279" y1="1084" x2="279" y2="1112" stroke="black"/>
+<line x1="465" y1="1084" x2="465" y2="1112" stroke="black"/>
+<line x1="651" y1="1084" x2="651" y2="1112" stroke="black"/>
+<line x1="837" y1="1084" x2="837" y2="1112" stroke="black"/>
+<line x1="1023" y1="1084" x2="1023" y2="1112" stroke="black"/>
+<line x1="1209" y1="1084" x2="1209" y2="1112" stroke="black"/>
+<line x1="1395" y1="1084" x2="1395" y2="1112" stroke="black"/>
+<line x1="1581" y1="1084" x2="1581" y2="1112" stroke="black"/>
+<line x1="1767" y1="1084" x2="1767" y2="1112" stroke="black"/>
+<line x1="1953" y1="1084" x2="1953" y2="1112" stroke="black"/>
+<path d="M 651 1101 A91,6 0 0,1 651,1089" stroke="black" fill="none"/><polygon fill="black" points="651,1101 641,1107 641,1095"/>
+<polygon fill="white" points="651,1085 1186,1085 1186,1094 651,1094"/>
+<text x="652" y="1094" textLength="533" font-family="Helvetica" font-size="12" fill="black">
+(117|0009:5150480) DOWNLINK NAS TRANSPORT enb_ue_s1ap_id 0xFA3950 ue id 0x00000002 
+</text>
+<line x1="93" y1="1112" x2="93" y2="1162" stroke="black"/>
+<line x1="279" y1="1112" x2="279" y2="1162" stroke="black"/>
+<line x1="465" y1="1112" x2="465" y2="1162" stroke="black"/>
+<line x1="651" y1="1112" x2="651" y2="1162" stroke="black"/>
+<line x1="837" y1="1112" x2="837" y2="1162" stroke="black"/>
+<line x1="1023" y1="1112" x2="1023" y2="1162" stroke="black"/>
+<line x1="1209" y1="1112" x2="1209" y2="1162" stroke="black"/>
+<line x1="1395" y1="1112" x2="1395" y2="1162" stroke="black"/>
+<line x1="1581" y1="1112" x2="1581" y2="1162" stroke="black"/>
+<line x1="1767" y1="1112" x2="1767" y2="1162" stroke="black"/>
+<line x1="1953" y1="1112" x2="1953" y2="1162" stroke="black"/>
+<polygon fill="white" points="938,1112 1096,1112 1096,1156 938,1156"/>
+<polygon fill="white" points="938,1124 1108,1124 1108,1156 938,1156"/>
+<polygon fill="white" points="1096,1112 1108,1124 1096,1124"/>
+<line x1="938" y1="1112" x2="1096" y2="1112" stroke="black"/>
+<line x1="938" y1="1156" x2="1108" y2="1156" stroke="black"/>
+<line x1="938" y1="1112" x2="938" y2="1156" stroke="black"/>
+<line x1="1108" y1="1124" x2="1108" y2="1156" stroke="black"/>
+<line x1="1096" y1="1112" x2="1108" y2="1124" stroke="black"/>
+<line x1="1096" y1="1112" x2="1096" y2="1124" stroke="black"/>
+<line x1="1108" y1="1124" x2="1096" y2="1124" stroke="black"/>
+<polygon fill="white" points="958,1113 1087,1113 1087,1122 958,1122"/>
+<text x="959" y="1122" textLength="127" font-family="Helvetica" font-size="12" fill="black">
+0009:515156EMM state
+</text>
+<polygon fill="white" points="949,1124 1096,1124 1096,1133 949,1133"/>
+<text x="950" y="1133" textLength="145" font-family="Helvetica" font-size="12" fill="black">
+COMMON-PROCEDURE--
+</text>
+<polygon fill="white" points="948,1135 1097,1135 1097,1144 948,1144"/>
+<text x="949" y="1144" textLength="147" font-family="Helvetica" font-size="12" fill="black">
+INITIATED UE 0x00000002
+</text>
+<polygon fill="white" points="1021,1146 1023,1146 1023,1155 1021,1155"/>
+<text x="1022" y="1155" textLength="0" font-family="Helvetica" font-size="12" fill="black">
+
+</text>
+<line x1="93" y1="1156" x2="93" y2="1162" stroke="black"/>
+<line x1="279" y1="1156" x2="279" y2="1162" stroke="black"/>
+<line x1="465" y1="1156" x2="465" y2="1162" stroke="black"/>
+<line x1="651" y1="1156" x2="651" y2="1162" stroke="black"/>
+<line x1="837" y1="1156" x2="837" y2="1162" stroke="black"/>
+<line x1="1023" y1="1156" x2="1023" y2="1162" stroke="black"/>
+<line x1="1209" y1="1156" x2="1209" y2="1162" stroke="black"/>
+<line x1="1395" y1="1156" x2="1395" y2="1162" stroke="black"/>
+<line x1="1581" y1="1156" x2="1581" y2="1162" stroke="black"/>
+<line x1="1767" y1="1156" x2="1767" y2="1162" stroke="black"/>
+<line x1="1953" y1="1156" x2="1953" y2="1162" stroke="black"/>
+</svg>
