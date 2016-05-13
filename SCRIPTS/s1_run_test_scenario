@@ -367,6 +367,7 @@ function main()
     if [ $run_spgw -eq 1 ]; then 
       cd $SCENARIO_DIR
       cp -upv /tmp/openair.msc.3.log .
+      $SUDO $OPENAIRCN_DIR/SCRIPTS/msc_gen --profile MME --dir $SCENARIO_DIR --type svg
       $SUDO $OPENAIRCN_DIR/SCRIPTS/msc_gen --profile MME --dir $SCENARIO_DIR --type png
       cd -
     fi

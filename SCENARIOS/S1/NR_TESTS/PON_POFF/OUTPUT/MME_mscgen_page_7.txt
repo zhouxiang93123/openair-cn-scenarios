@@ -1,0 +1,44 @@
+msc {
+width = "2048";
+   S1AP_ENB, GTPU_ENB, S1AP_MME, MME_APP, NAS_MME, NAS_EMM, NAS_ESM, S11_MME, S6A, SGW, HSS;
+  NAS_EMM note NAS_EMM [ label = "0011:169916T3450
+ started UE 0x00000003 ", textcolour="black" ] ;
+  S1AP_MME=>S1AP_ENB [ label = "(264|0011:1701910) InitialContextSetup/initiatingMessage mme_ue_s1ap_id 0x00000003 enb_ue_s1ap_id 0x769BF6 nas length 88", linecolour="black" , textcolour="black" ] ;
+  S1AP_MME<=S1AP_ENB [ label = "(265|0011:1941580) UECapabilityInfoIndication/Originating message enb_ue_s1ap_id 0x769BF6 mme_ue_s1ap_id 0x00000003 ", linecolour="black" , textcolour="black" ] ;
+  S1AP_MME=>MME_APP [ label = "(266|0011:1941910) S1AP_UE_CAPABILITIES_IND enb_ue_s1ap_id 0x769BF6 mme_ue_s1ap_id 0x00000003 len 53", linecolour="black" , textcolour="black" ] ;
+  S1AP_MME<=S1AP_ENB [ label = "(267|0011:3926040) InitialContextSetup/Successfull outcome enb_ue_s1ap_id 0x769BF6 mme_ue_s1ap_id 0x00000003 len 4966497", linecolour="black" , textcolour="black" ] ;
+  S1AP_MME=>MME_APP [ label = "(268|0011:3926440) MME_APP_INITIAL_CONTEXT_SETUP_RSP mme_ue_s1ap_id 0x00000003 ebi 5 s1u enb teid 2375692390", linecolour="black" , textcolour="black" ] ;
+  MME_APP=>S11_MME [ label = "(269|0011:3927880) S11_MODIFY_BEARER_REQUEST teid 3 ebi 5", linecolour="black" , textcolour="black" ] ;
+  S1AP_MME<=S1AP_ENB [ label = "(270|0011:3928290) uplinkNASTransport/Originating message mme_ue_s1ap_id 0x00000003 enb_ue_s1ap_id 0x769BF6 nas len 13", linecolour="black" , textcolour="black" ] ;
+  S1AP_MME=>NAS_MME [ label = "(271|0011:3928370) NAS_UPLINK_DATA_IND ue_id 0x00000003 len 13", linecolour="black" , textcolour="black" ] ;
+  S11_MME=>SGW [ label = "(272|0011:3928620) MODIFY_BEARER_REQUEST local S11 teid 0xC056280 num bearers ctx 1", linecolour="black" , textcolour="black" ] ;
+  NAS_MME=>NAS_EMM [ label = "(273|0011:3929010) EMMAS_DATA_IND ue id 0x00000003 len 13 tai:  plmn 208.93  tac 1", linecolour="black" , textcolour="black" ] ;
+  NAS_EMM note NAS_EMM [ label = "0011:393616T3450
+ stopped UE 0x00000003 ", textcolour="black" ] ;
+  NAS_ESM note NAS_ESM [ label = "0011:3939900
+ ESM state BEARER CONTEXT ACTIVE PENDING => BEARER CONTEXT ACTIVE 0x00000003 ", textcolour="black" ] ;
+  NAS_EMM note NAS_EMM [ label = "0011:394296EMM
+ state REGISTERED UE 0x00000003 ", textcolour="black" ] ;
+  S11_MME<=SGW [ label = "(277|0011:3994920) MODIFY_BEARER_RESPONSE local S11 teid 0xC056280 cause 16", linecolour="black" , textcolour="black" ] ;
+  MME_APP<=S11_MME [ label = "(278|0011:3995290) DELETE_SESSION_RESPONSE local S11 teid 0xC056280 IMSI 208930100001114 ", linecolour="black" , textcolour="black" ] ;
+  S1AP_MME<=S1AP_ENB [ label = "(279|0012:0254090) uplinkNASTransport/Originating message mme_ue_s1ap_id 0x00000003 enb_ue_s1ap_id 0x769BF6 nas len 21", linecolour="black" , textcolour="black" ] ;
+  S1AP_MME=>NAS_MME [ label = "(280|0012:0254270) NAS_UPLINK_DATA_IND ue_id 0x00000003 len 21", linecolour="black" , textcolour="black" ] ;
+  NAS_MME=>NAS_EMM [ label = "(281|0012:0254930) EMMAS_DATA_IND ue id 0x00000003 len 21 tai:  plmn 208.93  tac 1", linecolour="black" , textcolour="black" ] ;
+  NAS_EMM note NAS_EMM [ label = "0012:0260460
+ Removing UE context ue id 0x00000003 ", textcolour="black" ] ;
+  NAS_EMM=>NAS_ESM [ label = "(283|0012:0261530) ESM_EPS_BEARER_CONTEXT_DEACTIVATE_REQ ue id 0x00000003 ", linecolour="black" , textcolour="black" ] ;
+  NAS_MME=>MME_APP [ label = "(284|0012:0263280) NAS_DETACH_REQ ue id 000003 ", linecolour="black" , textcolour="black" ] ;
+  MME_APP=>S11_MME [ label = "(285|0012:0264400)  S11_DELETE_SESSION_REQUEST teid 3 lbi 5", linecolour="black" , textcolour="black" ] ;
+  S11_MME=>SGW [ label = "(286|0012:0266540) DELETE_SESSION_REQUEST local S11 teid 0xC056280 ", linecolour="black" , textcolour="black" ] ;
+  S11_MME<=SGW [ label = "(287|0012:0319570) DELETE_SESSION_RESPONSE local S11 teid 0xC056280 ", linecolour="black" , textcolour="black" ] ;
+  S11_MME note S11_MME [ label = "0012:032045Deleted
+ teid 0xC056280", textcolour="black" ] ;
+  MME_APP<=S11_MME [ label = "(289|0012:0321470) DELETE_SESSION_RESPONSE local S11 teid 0xC056280 IMSI 208930100001114 ", linecolour="black" , textcolour="black" ] ;
+  MME_APP=>S1AP_MME [ label = "(290|0012:0321660) MME_APP_DELETE_SESSION_RSP ue id 000003 ", linecolour="black" , textcolour="black" ] ;
+  S1AP_MME<=S1AP_ENB [ label = "(291|0012:2246030) UEContextReleaseRequest/Originating message enb_ue_s1ap_id 0x769BF6 mme_ue_s1ap_id 0x00000003 ", linecolour="black" , textcolour="black" ] ;
+  S1AP_MME note S1AP_MME [ label = "0012:2246340
+ UE_CONTEXT_RELEASE_REQUEST ignored, no context mme_ue_s1ap_id 0x00000003 ", textcolour="black" ] ;
+  S1AP_MME note S1AP_MME [ label = "0015:8872200
+ Event SCTP_CLOSE_ASSOCIATION assoc_id: 6", textcolour="black" ] ;
+
+}
